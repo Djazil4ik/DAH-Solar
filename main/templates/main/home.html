@@ -1,0 +1,412 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+  {% translate 'DAH Solar - Reinvents PV Module' %}
+{% endblock %}
+
+{% block content %}
+
+<div class="abc-01 large nav_section">               
+    <div class="container">
+  	<div class="nav_box">
+            <header id="nav">
+                <div class="mainmenu-area bg-color-2 hidden-xs hidden-sm">
+                    <div class="mainmenu">
+                        <nav>
+                            <ul>
+                                <li class="active"><a href="{% url 'main:home' %}">{% translate 'Home' %}</a><em>|</em></li>
+
+                                <li class='product_vmegamenu '><a href="{% url 'products:products' %}">{% translate 'Products' %}</a><em>|</em>
+                                    <ul class="nav_list">
+                                        {% for category in navbar_categories %}
+                                            <li class="col-sm-6">
+                                                <div class="img clearfix">
+                                                    <h4><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a></h4>
+                                                </div>
+                                                <div>
+                                                    {% for type in category.types.all reversed %}
+                                                        <p><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}" class="vgema-title"><i class="fa fa-angle-double-right"></i>{{ type.product_type }}</a></p>
+                                                    {% endfor %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}                                                                                                                                                                                                                      	
+                                    </ul>
+                                </li>
+                                                                <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                            {% for project_category in project_categories %}
+                                                                                <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                <li><a href="{% url 'news:news' %}">{% translate 'News' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                            {% for category in news_categories %}
+                                                                            <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                            {% endfor %}
+                                                                            </ul>
+                                                                    </li>
+                                                                 
+                                                                                                <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
+                                                                            <ul class="vmegamenu">
+                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">{% translate 'Overview' %}</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">{% translate 'DAH Factories' %}</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">{% translate 'Vision &  Mission' %}</a></li>
+                                                                                    </ul>
+                                                                    </li>
+                                                                <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a><em>|</em>
+                                                                    </li> 
+                            </ul>
+                        </nav>
+                    </div>	
+                </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu-area hidden-md hidden-lg">
+    <div class="container">
+        <div class="">
+            <div class="">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu">
+                        <ul>
+                            <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a></li>
+
+                            <li><a href="{% url 'products:products' %}">{% translate 'Products' %}</a>
+                                <ul class="vmegamenu">
+                                    {% for category in navbar_categories %}
+                                        <li><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a>
+                                            <ul class="vmegamenu">
+                                                {% for type in category.types.all reversed %}
+                                                    <li><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}">{{ type.product_type }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}        
+                                </ul>
+                            </li>
+                                                        <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a>
+                                                                <ul class="vmegamenu">
+                                                                    {% for project_category in project_categories %}
+                                                                    <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                    {% endfor %}    
+                                                                    </ul>
+                                                            </li>
+                                                        <li><a href="{% url 'news:news' %}">{% translate 'News' %}</a>
+                                                                <ul class="vmegamenu">
+                                                                    {% for category in news_categories %}
+                                                                    <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                    {% endfor %}
+                                                                    </ul>
+                                                            </li>
+                                                                                    <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a>
+                                                                    <ul class="vmegamenu">
+                                                                                    <li><a href="{% url 'dahsolar:overview' %}" title="Overview">{% translate 'Overview' %}</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">{% translate 'DAH Factories' %}</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">{% translate 'Vision &  Mission' %}</a></li>
+                                                                            </ul>
+                                                            </li>
+                                                        <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a>
+                                                            </li>
+                            <!--                            <li><a href="--><!--">--><!--</a>-->
+<!--                                --><!--                                <ul class="vmegamenu">-->
+<!--                                    --><!--                                    <li><a href="--><!--" title="--><!--">--><!--</a></li>-->
+<!--                                    --><!--                                </ul>-->
+<!--                                --><!--                            </li>-->
+                                                                                                                                        </ul>	
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="htmleaf-container">
+    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
+                <ol class="carousel-indicators">
+                        <li class="active" data-target="#bootstrap-touch-slider" data-slide-to="0"></li>
+                        <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+                        <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+                    </ol>
+        <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                <a href="javascript:void(0)" rel="nofollow"><img src="{% static 'images/full-screen.png' %}" alt="" class="slide-image"></a>
+                            </div>
+                        <div class="item ">
+                <a href="javascript:void(0)" rel="nofollow"><img src="{% static 'images/pv-system.jpg' %}" alt="" class="slide-image"></a>
+                            </div>
+                        <div class="item ">
+                <a href=""><img src="{% static 'images/warehouse.jpg' %}" alt="" class="slide-image"></a>
+                            </div>
+                    </div>
+        <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+            <span class="icon-wrap"><svg class="icon" width="32" height="32" viewbox="0 0 64 64"><use xlink:href="#arrow-left-4"></use></svg></span>
+            <h3>Previous page</h3>
+        </a>
+        <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+            <span class="icon-wrap"><svg class="icon" width="32" height="32" viewbox="0 0 64 64"><use xlink:href="#arrow-right-4"></use></svg></span>
+            <h3>Next page</h3>
+        </a>
+            </div>
+</div>
+
+<div class="in_proW">
+    <div class="container">
+    	<div class="in_title">
+            <span>{% translate 'Our Products' %}</span>
+            <p>{% translate 'Quality First, Service Foremost' %}</p>
+        </div>
+    	<div id="parentHorizontalTab02" class="clearfix">
+            <ul class="resp-tabs-list hor_2 clearfix">
+                                <li><p><img src="{% static 'images/our_products/pv_module.png' %}" alt="PV Module"></p><em>PV Module</em></li>
+                                <li><p><img src="{% static 'images/our_products/solar_system.png' %}" alt="Solar System"></p><em>Solar System</em></li>
+                            </ul>
+            <div class="resp-tabs-container hor_2">
+                                <div class="tab-proW">
+                    <ul class="top-proL clearfix row">
+                      {% for pv_module in pv_modules%}
+                                            	<li class="col-sm-3 col-xs-6">
+                            <div class="top-proL-m">
+                            	<a href="{% url 'products:product_detail' pv_module.slug %}" title="{{ pv_module.prod_model }}" class="top-proL-img"><img id="product_detail_img" alt="{{ pv_module.prod_type }}" src="{{ pv_module.products_images.first.image.url }}"><i class="fa fa-link"></i></a>
+                                <div class="top-proL-w">
+                                    <h4><a href="{% url 'products:product_detail' pv_module.slug %}" title="{{ pv_module.prod_model }}">{{ pv_module.prod_model }}</a></h4>
+                                    <p>{{ pv_module.sub_title }}</p>
+                                </div>
+                            </div>
+                        </li>
+                      {% endfor %}
+                                            </ul>
+                    <div class="in_more"><a href="{% url 'products:products' %}" title="">{% translate 'View More Products' %}</a></div>
+                </div>
+                                <div class="tab-proW">
+                    <ul class="top-proL clearfix row">
+                        {% for solar_system in solar_systems %}
+                                            	<li class="col-sm-3 col-xs-6">
+                            <div class="top-proL-m">
+                            	<a href="{% url 'products:product_detail' solar_system.slug %}" title="{{ solar_system.prod_model }}" class="top-proL-img"><img id="product_detail_img" alt="Integrative PV System" src="{{ solar_system.products_images.first.image.url }}"><i class="fa fa-link"></i></a>
+                                <div class="top-proL-w">
+                                    <h4><a href="{% url 'products:product_detail' solar_system.slug %}" title="{{ solar_system.prod_model }}">{{ solar_system.prod_model }}</a></h4>
+                                    <p>{{ solar_system.sub_title }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                                            </ul>
+                    <div class="in_more"><a href="{% url 'products:products' %}" title="">View More Products</a></div>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<div class="in_aboutW">
+    <div class="in_about_t">
+    	<div class="container">
+            <div class="in_title">
+                <span>Welcome To DAH Solar</span>
+                <p>Excellent Smart PV Module Leading Runner</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    	<div id="parentHorizontalTab01" class="clearfix">
+            <ul class="resp-tabs-list hor_1 clearfix">
+                <li><p><img src="{% static 'images/about_icon1.png' %}"></p><em>Overview</em></li>
+                <li><p><img src="{% static 'images/about_icon2.png' %}"></p><em>DAH Factories</em></li>
+                <li><p><img src="{% static 'images/about_icon3.png' %}"></p><em>Certificates List</em></li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+                <div class="tab-aboutW">
+                    <div class="tab-about clearfix">
+                    	<div class="tab-video"><a href="{% url 'dahsolar:overview' %}" title="Overview"><img src="{% static 'images/58a482225753b6e391de63d43176e221.jpg' %}" alt="Overview"></a></div>
+                        <div class="tab-about-m">
+                            <h2>Who We Are</h2>
+                            <p>Being established in 2009, DAH Solar is an innovation-driven and technology-leading company in PV product manufacturing.The production capacity in 2024 will reach 6GW solar cells,10GW PV modules, 300,000 sets SolarUnit, 5GW silicon wafers and 10GW vertical integration manufacturing base under construction, Solar Unit. DAH Solar contributes to providinghigh-efficiencyPVmodules,high-qualitysolarcells,high-techintegrated solars ystems, and high-value energy storage for our value dcustomers. DAH Solar’s products have been sold to more than 120 countries and regions around the world includingGermany, Netherlands, Spain, Brazil, Mexico, Australia, Japan and soon. &nbsp; Technology innovation has been the most important driving force of the development of DAH Solar. DAH Solar invests more than 15% annually in&nbsp; research and development. DAH Solar is the founder and the master of the Full-Screen PV Module.The Full-Screen PV Module which has no frame on all sides on the front holds a global patent over 18 countries and regions, it can increase the power generation by 6-15%. Besides, DAH Solar invents the world’s first integrated PV system, SolarUnit. DAH Solar’s products have international authoritative certifications such as TUV, IEC, CE,and INMETRO,domestic industry certifications such as CQC, Leader, ISO9001, ISO14001, ISO45001, etc. DAH Solar will always regard the user demand as the key focus of product research and innovation and keep on bringing more efficient, stable and intelligent photovoltaicproducts.</p>
+                            <div class="in_more"><a href="{% url 'dahsolar:overview' %}" title="Overview">View More</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-aboutW">
+                    <div class="tab-about clearfix">
+                    	<div class="tab-video"><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories"><img src="{% static 'images/64325b9892b5d5fbb3c1e6c2cde7a566.jpg' %}" alt="DAH Factories"></a></div>
+                        <div class="tab-about-m">
+                            <h2>How We Produce</h2>
+                            <p>DAH Solar has 4 high-end technology factories with fully automatic workshops and equipment. Annually DAH Solar’s intelligent factories could produce&nbsp;5.5 GW capacity for TOPCon solar cells, 10 GW TOPCon PV modules(over all is 2024 simiyearly production goal).&nbsp;&nbsp;DAH Solar is conjecting the cultivation of the mass production of N-type PV modules, Integrative microinverters, and solar storage in the next few years. DAH Solar aims to provide a low-carbon lifestyle, so we maintain our intelligent factories environment friendly, low-carbon, and green.&nbsp; DAH factories maintain high productivity by equipping factories with advanced automatic equipment. We grasp the leading manufacturing technique. DAH Solar committees provide high-quality PV products, so we have strict inspections and quality control protocols. Our highly efficient logistics guarantee the fastest delivery to customers all over the world.</p>
+                            <div class="in_more"><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">View More</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-teamW">
+                    <p>DAH Solar PV modules have been certifited by TUV, CEC, CE, INMETRO, FIDE, ISO19001, ISO14001, OHSMS18001, CQC etc domestic & international authorized certifications.</p>
+                    <ul class="tab-teamL row clearfix">
+                    	                        <li class="col-sm-3 col-xs-6">
+                            <div class="tab-teamL-m">
+                                <a class="img" href="" title="TUV POLY"><img src="{% static 'images/7c79d9a17d44bdb9c9ee5b90c83a9d00.jpg' %}" alt="TUV POLY"><i class="fa fa-link"></i></a>
+                              
+                            </div>
+                        </li>
+                                                <li class="col-sm-3 col-xs-6">
+                            <div class="tab-teamL-m">
+                                <a class="img" href="" title="CE"><img src="{% static 'images/6997a4de1da37c55aef0cea114f788d4.jpg' %}" alt="CE"><i class="fa fa-link"></i></a>
+                              
+                            </div>
+                        </li>
+                                                <li class="col-sm-3 col-xs-6">
+                            <div class="tab-teamL-m">
+                                <a class="img" href="" title="CQC"><img src="{% static 'images/6db04dd0bfd42cd6530c08c2abeaf932.jpg' %}" alt="CQC"><i class="fa fa-link"></i></a>
+                              
+                            </div>
+                        </li>
+                                                <li class="col-sm-3 col-xs-6">
+                            <div class="tab-teamL-m">
+                                <a class="img" href="" title="Inmetro 330w poly"><img src="{% static 'images/2e7b004221704560f6e044fa8b5dff0d.jpg' %}" alt="Inmetro 330w poly"><i class="fa fa-link"></i></a>
+                              
+                            </div>
+                        </li>
+                                                <li class="col-sm-3 col-xs-6">
+                            <div class="tab-teamL-m">
+                                <a class="img" href="" title="ISO9001"><img src="{% static 'images/341d125fdae88131ff0335725b2d4018.jpg' %}" alt="ISO9001"><i class="fa fa-link"></i></a>
+                              
+                            </div>
+                        </li>
+                                            </ul>
+                    <div class="in_more"><a href="">View More</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="in_projW">
+    <div class="container">
+    	<div class="in_title">
+             <span>Project Cases</span>
+             <p>More than 120 countries have installed DAH Solar PV Modules and Solar Systems all over the world.</p>
+       	</div>
+        <div class="in_project">
+            <ul class="in_appL clearfix row">
+                {% for project in projects  %}
+                                <li class="col-sm-4 col-xs-6">
+                    <div class="in_appL_m">
+                    	<div class="front">
+                           <div class="img"><a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}"><img src="{{ project.images.first.image.url }}" alt="{{ project.project_name }}"></a></div>
+                        </div>
+                        <div class="back">
+                            <a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}"><img src="{{ project.images.first.image.url }}" alt="{{ project.project_name }}"></a>
+                            <div class="inner">
+                                <a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}" class="inner_t">{{ project.project_name }}</a>
+                                <p>{{ project.body_text|truncatechars:120 }}</p>
+                                <a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}" class="more">+</a>
+                            </div>
+                        </div>
+                        <div class="text-sj">
+                            <a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}" class="inner_t">{{ project.project_name }}</a>
+                            <p>{{ project.body_text|truncatechars:120 }}</p>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+                                
+                                
+            </ul>
+            <div class="in_more"><a href="{% url 'projects:projects' %}">View More Projects</a></div>
+        </div>
+    </div>
+</div>
+<div class="number_section">
+    <img src="{% static 'images/f8d66facfcbb2d7170af3e3080a12812.jpg' %}" alt="shuzi">
+</div>
+<div class="in_newsW">
+    <div class="container">
+    	<div class="in_title">
+             <span>News Center</span>
+             <p>More than 10 exhibitions from global market every year.<br>Get more advanced market technology and communicate with customers deeply.</p>
+       	</div>
+        <div id="parentHorizontalTab03" class="clearfix">
+            <ul class="resp-tabs-list hor_3 clearfix">
+                                <li>Global Exhibitions</li>
+                                <li>Events</li>
+                                <li>Social Activities</li>
+                            </ul>
+            <div class="resp-tabs-container hor_3">
+                                <div class="tab-newsW">
+                    <ul class="tab-newsL clearfix row">
+                        {% for new_global in news_global_exhibitions %}
+                                                <li class="col-sm-4 col-xs-12">
+                            <div class="tab-newsL-m">
+                            	<div class="tab-newsL-img"><a href="{% url 'news:news_detail' new_global.slug %}" title="{{ new_global.news_title }}"><img src="{{ new_global.preview.url }}" alt="{{ new_global.news_title }}"><i class="fa fa-link"></i></a></div>
+                                <div class="tab-newsL-w">
+                                    <a href="{% url 'news:news_detail' new_global.slug %}" title="{{ new_global.news_title }}">{{ new_global.news_title }}</a>
+                                    <div class="tab-newsL-d">
+                                    	<p>{{ new_global.images.first.body_text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                                            </ul>
+                </div>
+                                <div class="tab-newsW">
+                    <ul class="tab-newsL clearfix row">
+                        {% for new_event in news_events %}
+                                                <li class="col-sm-4 col-xs-12">
+                            <div class="tab-newsL-m">
+                            	<div class="tab-newsL-img"><a href="{% url 'news:news_detail' new_event.slug %}" title="{{ new_event.news_title }}"><img src="{{ new_event.preview.url }}" alt="{{ new_event.news_title }}"><i class="fa fa-link"></i></a><span>{{ new_event.created_at.date }}</span></div>
+                                <div class="tab-newsL-w">
+                                    <a href="{% url 'news:news_detail' new_event.slug %}" title="{{ new_event.news_title }}">{{ new_event.news_title }}</a>
+                                    <div class="tab-newsL-d">
+                                    	<p>{{ new_event.images.first.body_text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                                            </ul>
+                </div>
+                                <div class="tab-newsW">
+                    <ul class="tab-newsL clearfix row">
+                        {% for new_social_activity in news_social_activities %}
+                                                <li class="col-sm-4 col-xs-12">
+                            <div class="tab-newsL-m">
+                            	<div class="tab-newsL-img"><a href="{% url 'news:news_detail' new_social_activity.slug %}" title="{{ new_social_activity.news_title }}"><img src="{{ new_social_activity.images.first.image.url }}" alt="{{ new_social_activity.news_title }}"><i class="fa fa-link"></i></a><span>{{ new_social_activity.created_at.date }}</span></div>
+                                <div class="tab-newsL-w">
+                                    <a href="{% url 'news:news_detail' new_social_activity.slug %}">{{ new_social_activity.news_title }}</a>
+                                    <div class="tab-newsL-d">
+                                    	<p>{{ new_social_activity.images.first.body_text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                                            </ul>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<div class="in_videoW">
+    <div class="container">
+    	<div class="in_title">
+             <span>Video Center</span>
+             <p>DAH Solar Always shows the truest side to the customers.</p>
+       	</div>
+    	<ul class="in_videoL clearfix row">
+            {% for video in videos %}
+                        <li class="col-sm-4 col-xs-12">
+            	<div class="in_videoL_m">
+                    <a href="" title="{{ video.title }}"><img src="{{ video.preview.url }}" alt="{{ video.title }}"><i></i></a>
+                    <h4><a href="" title="{{ video.title }}">{{ video.title }}</a></h4>
+                </div>
+            </li>
+            {% endfor %}
+                    </ul>
+    </div>
+</div>
+
+{% endblock %}

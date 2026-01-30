@@ -1,0 +1,405 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} {{ product.prod_model }} {% endblock %}
+
+
+{%block content%}
+
+<div class="abc-01 large nav_section">               
+    <div class="container">
+  	<div class="nav_box">
+            <header id="nav">
+                <div class="mainmenu-area bg-color-2 hidden-xs hidden-sm">
+                    <div class="mainmenu">
+                        <nav>
+                            <ul>
+                                <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a><em>|</em></li>
+
+                                <li class='product_vmegamenu active'><a href="{% url 'products:products' %}">{% translate 'Products' %}</a><em>|</em>
+                                    <ul class="nav_list">
+                                        {% for category in navbar_categories %}
+                                            <li class="col-sm-6">
+                                                <div class="img clearfix">
+                                                    <h4><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a></h4>
+                                                </div>
+                                                <div>
+                                                    {% for type in category.types.all reversed %}
+                                                        <p><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}" class="vgema-title"><i class="fa fa-angle-double-right"></i>{{ type.product_type }}</a></p>
+                                                    {% endfor %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}                                                                                                                                                                                                                      	
+                                    </ul>
+                                </li>
+                                                                <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                            {% for project_category in project_categories %}
+                                                                                <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                <li><a href="{% url "news:news" %}">{% translate 'News' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                                {% for category in news_categories %}
+                                                                                <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                    </li>
+                                                                 
+                                                                                                <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
+                                                                            <ul class="vmegamenu">
+                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                                    </ul>
+                                                                    </li>
+                                                                <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a><em>|</em>
+                                                                    </li> 
+                            </ul>
+                        </nav>
+                    </div>	
+                </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu-area hidden-md hidden-lg">
+    <div class="container">
+        <div class="">
+            <div class="">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu">
+                        <ul>
+                            <li><a href="{% url "main:home" %}">Home</a></li>
+                            <li><a href="{% url 'products:products' %}">Products</a>
+                                <ul class="vmegamenu">
+                                    {% for category in navbar_categories %}
+                                        <li><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a>
+                                            <ul class="vmegamenu">
+                                                {% for type in category.types.all reversed %}
+                                                    <li><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}">{{ type.product_type }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}        
+                                </ul>
+                            </li>
+                                                        <li><a href="{% url 'projects:projects' %}">Projects</a>
+                                                                <ul class="vmegamenu">
+                                                                    {% for project_category in project_categories %}
+                                                                    <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                    {% endfor %}    
+                                                                    </ul>
+                                                            </li>
+                                                        <li><a href="{% url "news:news" %}">News</a>
+                                                                <ul class="vmegamenu">
+                                                                        {% for category in news_categories %}
+                                                                        <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                            </li>
+                                                                                    <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a>
+                                                                    <ul class="vmegamenu">
+                                                                                    <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                            </ul>
+                                                            </li>
+                                                        <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a>
+                                                            </li>
+                            <!--                            <li><a href="--><!--">--><!--</a>-->
+<!--                                --><!--                                <ul class="vmegamenu">-->
+<!--                                    --><!--                                    <li><a href="--><!--" title="--><!--">--><!--</a></li>-->
+<!--                                    --><!--                                </ul>-->
+<!--                                --><!--                            </li>-->
+                                                                                                                                        </ul>	
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page_banner">
+    {% if product.category.category == 'Solar System' %}
+    <img src="{% static 'images/16714132153923.jpg' %}" alt="">
+    {% endif %}
+</div>
+<link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+<script type="text/javascript" src="{% static 'js/smoothproducts.min.js' %}"></script>
+<script type="text/javascript">
+/* wait for images to load */
+$(window).load(function() {
+        $('.sp-wrap').smoothproducts();
+});
+</script>
+<div class="breadcrumbW clearfix">
+    <div class="container">
+        <div class="breadcrumb clearfix">
+            <div class="bread-right">
+                <a class="home" href="{% url 'main:home' %}" title="Return to Home">Home</a>
+                                                <i></i>
+                <h2>{{ product.category }}</h2>
+                                <i></i>
+                <h2>{{ product.prod_type }}</h2>
+                                <i></i>
+                <h2>{{ product.prod_model }}</h2>
+                            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="page-box">
+    <div class="container">
+    	<div class="news_web clearfix row">
+            <div class="page_left col-sm-2 col-xs-12 clearfix">
+        <div id="right_column" class="left-nav column">
+        <section class="block blockcms column_box">
+            <span><em>Categories</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <div class="htmleaf-content toggle_content">
+                <ul class="mtree">
+                    {% for category in navbar_categories %}
+                        <li class="mtree-node"><a href="{% url 'products:category' category.slug %}">{{category.category}}</a>
+                            <ul>
+                                {% for type in category.types.all reversed %}
+                                    <li><a href="{% url 'products:type' category.slug type.slug %}"><i class="fa fa-caret-right"></i>{{ type.product_type }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>                                                                                                                             </ul>
+            </div>
+        </section>
+    </div>
+        <div id="right_column" class="left-pro column">
+        <section class="block blockcms column_box">
+            <span><em>New Products</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <div class="htmleaf-content toggle_content">
+                <ul>
+                    {% for new_product in new_products %}
+                                        <li class="clearfix">
+                        <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}"><img id="{{ new_product.category }}" alt="{{ new_product.category }}" src="{{ new_product.products_images.first.image.url }}"></a>
+                        <div class="lnews-right">
+                            <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="left-pro-t">{{ new_product.prod_model }}</a>
+                            <p>Full-Screen |&nbsp;{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
+                            <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">Read More<i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                                    </ul>
+            </div>
+        </section>
+    </div>  
+
+     <div id="right_column" class="left-news column">
+        <section class="block blockcms column_box">
+            <span><em>Latest News</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <div class="htmleaf-content toggle_content">
+                                <div class="news_left_1">
+                    {% for first_new in first_news %}
+                    <a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}" class="img"><img src="{{ first_new.images.first.image.url }}" alt="{{ first_new.news_title }}"></a>
+                    <h4><a href="{% url 'news:news_detail' first_new.slug %}" title="DAH Solar makes its debut in the US. RE+2024 ended perfectly!">{{ first_new.news_title }}</a></h4>
+                    <p>{{ first_new.images.first.body_text }}</p>
+                    {% endfor %}
+                </div>
+                                <ul>
+                                    {% for new in news %}
+                                        <li><span>{{ new.created_at }}</span><a href="{% url 'news:news_detail' new.slug %}" title="{{ new.news_title|truncatechars:60 }}">{{ new.news_title|truncatechars:60 }}</a></li>
+                                    {% endfor %}
+                                </ul>
+            </div>
+        </section>
+    </div>    
+</div>            <div class="page_right col-sm-9 col-xs-12 clearfix">
+            	<div class="products clearfix">
+                    <div class="pro_img col-sm-6">
+                        <div class="sp-wrap">
+                            {% for image in product.products_images.all %}
+                            <a href="{{ image.image.url }}" rel="useZoom: 'zoom1',"><img src="{{ image.image.url }}" alt="{{ product.prod_model }}"></a>
+                            {% endfor %}
+                        </div> 
+                    </div>
+                    <div class="pro_table col-sm-6 col-xs-12 clearfix">
+                        <h1>{{ product.prod_model }}</h1>
+                        <div class="pro_table_de">{{ product.sub_title }}<br></div>
+                        <ul>
+                                                        <li><p>Brand: </p><span>{{ product.brand }}</span></li>
+                                                                                                                                                                                                                                                                                                                                                
+                                                        <li>
+                                <p>Type :</p><span>
+                                                                            {{ product.prod_type }}                                                                    </span>
+                            </li>
+                                                        <li>
+                                <p>Max.Power :</p><span>
+                                                                            {{ product.max_power }}                                                                  </span>
+                            </li>
+                                                        <li>
+                                <p>Dimensions :</p><span>
+                                                                            {{ product.dimensions }}                                                                   </span>
+                            </li>
+                                                        <li>
+                                <p>Certificate :</p><span>
+                                                                            {{ product.certificate }}                                                                    </span>
+                            </li>
+                                                        <li>
+                                <p>Warranty :</p><span>
+                                                                            {{ product.warranty }}                                                                    </span>
+                            </li>
+                                                        <li>
+                                <p>Payment :</p><span>
+                                                                            {{ product.payment }}                                                                    </span>
+                            </li>
+                                                    </ul>
+                        <div class="more_m">
+                            <a href="https://t.me/Techdir_all" class="more1">contact now<i class="fa fa-send"></i></a>
+                                                    </div>
+                    </div>
+                </div>
+            	<div class="pro_detail">
+                    <div class="pro_detail_t"><span>Product Detail</span></div>
+                    <div class="pro_detail_m  newm">
+                        <p>
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:24px;color:#0033FF;"><strong>Advantages</strong></span> 
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<br>
+</p>
+<ul>
+    {% for advantage in product.products_advantages.all %}
+	<li>
+		<p class="">
+			<b><span style="font-family:&quot;Times New Roman&quot;;font-size:18px;"></span></b> 
+		</p>
+		<p style="font-size:medium;">
+			<b><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;color:#000000;">{{ advantage.advantage }}</span></b> 
+		</p>
+	</li>
+    {% endfor %}
+    
+</ul>
+<p>
+    <br>
+</p>
+<p>
+    <br>
+</p>
+<p>
+	<span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"><strong>Please contact our&nbsp;</strong></span><span style="color:#FF6600;font-family:&quot;Times New Roman&quot;;font-size:18px;"><strong>Online Service&nbsp;</strong></span><span style="font-size:18px;color:#FF6600;font-family:&quot;Times New Roman&quot;;"><strong>Representative</strong></span><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"><strong>&nbsp;</strong></span><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"><strong>to get detail information and quotation about our&nbsp;</strong></span><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"><strong>products</strong></span><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"><strong>!</strong></span> 
+</p>
+<p>
+    <br>
+</p>
+<p>
+    <img src="{{ product.doc_img.url }}" alt=""> 
+</p>
+<p>
+    <img src="{% static 'images/20220913170734_45392.jpg' %}" alt=""> 
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<b><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"> </span></b> 
+</p>
+{% if product.faqs.first %}
+<p>
+	<b><b><span style="font-family:&quot;Times New Roman&quot;;font-size:24px;color:#0033FF;">FAQs</span></b> </b> 
+</p>
+{% for faq in product.faqs.all %}
+<p>
+	<b><b><span style="font-family:&quot;Times New Roman&quot;;font-size:18px;"><strong>Q{{ forloop.counter }}.&nbsp;</strong></span><span style="font-family:&quot;Times New Roman&quot;;font-size:18px;"><strong>{{ faq.faq }}</strong>&nbsp;</span></b> </b> 
+</p>
+<b><span style="font-family:&quot;Times New Roman&quot;;font-size:18px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ faq.answer }}</span></b> 
+{% endfor %}
+{% endif %}
+<p>
+	<b><b><span style="font-family:&quot;Times New Roman&quot;;font-size:24px;color:#0033FF;">Projects</span></b> </b> 
+</p>
+<p>
+	<img src="{% static 'images/20220913170754_80500.jpg' %}" alt=""> 
+</p>
+<p>
+	<b><span style="font-size:18px;font-family:&quot;Times New Roman&quot;;"><br>
+</span></b> 
+</p>                    </div>
+                </div>
+                                <div class="page_turn clearfix">
+                    <ul class="left clearfix">
+                        {% if previous_product %}
+                                                <li><p>Previous:</p><a href="{% url 'products:product_detail' previous_product.slug %}" title="{{ previous_product.prod_model }}">{{ previous_product.prod_model }}</a></li>
+                        {% endif %}
+                        {% if next_product %}
+                                                <li><p>Next:</p><a href="{% url 'products:product_detail' next_product.slug %}" title="{{ next_product.prod_model }}">{{ next_product.prod_model }}</a></li>
+                                                                    </ul>
+                        {% endif %}
+                    <div class="right">
+                        {% if previous_product %}
+                                                <a href="{% url 'products:product_detail' previous_product.slug %}" title="{{ previous_product.prod_model }}"><i class="fa fa-long-arrow-left"></i></a>
+                        {% endif %}
+                        {% if next_product %}
+                                                <a href="{% url 'products:product_detail' next_product.slug %}" title="{{ next_product.prod_model }}"><i class="fa fa-long-arrow-right"></i></a>
+                        {% endif %}
+                                                                    </div>
+                </div>
+                <div id="main_boxW" class="clearfix">
+                    <div class="container">
+    	                <div class="about_web">
+                            <div class="main_boxW_t"></div>
+                                <div class="contact clearfix">
+                                    <div class="con-main col-sm-6 col-xs-12 clearfix  newm">
+                        <em style="color: #3b40ca;">Send A Message</em>
+                        <p>You can contact us any way that is convenient for you. We are available 24/7 via instagram, telegram or telephone.</p>
+                        <p>
+                            Instagram:&nbsp;<span style="color:#333333;font-family:&quot;Microsoft YaHei&quot;;font-size:14px;"><a href="https://www.instagram.com/family_group_techdir" >@family_group_techdir</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> 
+                        </p>
+                        <p>
+                            Telegram:&nbsp;<span style="color:#333333;font-family:&quot;Microsoft YaHei&quot;;font-size:14px;"><a href="https://t.me/Techdir_all" >@Techdir_all</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> 
+                        </p>
+                        <p>
+                            <span style="font-family:&quot;Microsoft YaHei&quot;;font-size:14px;"><span style="color:#333333;">Tel: +998977473283</span></span> 
+                        </p>
+                        <p>
+                            &nbsp;
+                        </p>
+                        <p>
+                            <br>
+                        </p>
+                        <p>
+                            <br>
+                        </p>
+                        <p>
+                            <br>
+                        </p>
+                                    </div>
+                                    </div>
+                                    </div>
+                    </div>
+                </div>
+                <div class="in_hot_pro clearfix">
+                    <div class="right-title2"><span>Related Products</span></div>
+                    <ul id="flexiselDemo2" class="clearfix">
+                        {% for related_product in related_products %}
+                            <li>
+                            <div class="in_hot_pro_m">
+                                <a href="{% url 'products:product_detail' related_product.slug %}" title="{{ related_product.prod_model }}" class="in_hot_pro_t">{{ related_product.prod_model }}</a>
+                                <a href="{% url 'products:product_detail' related_product.slug %}" title="{{ related_product.prod_model }}" class="in_hot_pro_img"><img id="product_detail_img" alt="" src="{{ related_product.products_images.first.image.url }}"></a>
+                                <p>{{ related_product.sub_title }}</p>
+                            </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

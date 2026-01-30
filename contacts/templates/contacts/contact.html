@@ -1,0 +1,197 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Contact Us | Monocrystalline Lightweight Solar Panels,Solar Energy System{% endblock title %}
+
+
+{% block content %}
+<div class="abc-01 large nav_section">               
+    <div class="container">
+  	<div class="nav_box">
+            <header id="nav">
+                <div class="mainmenu-area bg-color-2 hidden-xs hidden-sm">
+                    <div class="mainmenu">
+                        <nav>
+                            <ul>
+                                <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a><em>|</em></li>
+
+                                <li class='product_vmegamenu '><a href="{% url 'products:products' %}">{% translate 'Products' %}</a><em>|</em>
+                                    <ul class="nav_list">
+                                        {% for category in navbar_categories %}
+                                            <li class="col-sm-6">
+                                                <div class="img clearfix">
+                                                    <h4><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a></h4>
+                                                </div>
+                                                <div>
+                                                    {% for type in category.types.all reversed %}
+                                                        <p><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}" class="vgema-title"><i class="fa fa-angle-double-right"></i>{{ type.product_type }}</a></p>
+                                                    {% endfor %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}                                                                                                                                                                                                                      	
+                                    </ul>
+                                </li>
+                                                                <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                            {% for project_category in project_categories %}
+                                                                            <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                            {% endfor %} 
+                                                                            </ul>
+                                                                    </li>
+                                                                <li><a href="{% url 'news:news' %}">{% translate 'News' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                            {% for category in news_categories %}
+                                                                            <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                            {% endfor %}
+                                                                            </ul>
+                                                                    </li>
+                                                                 
+                                                                                                <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
+                                                                            <ul class="vmegamenu">
+                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                                    </ul>
+                                                                    </li>
+                                                                <li class="active"><a href="{% url 'contact-us:contact-us' %}">Contact Us</a><em>|</em>
+                                                                    </li> 
+                            </ul>
+                        </nav>
+                    </div>	
+                </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu-area hidden-md hidden-lg">
+    <div class="container">
+        <div class="">
+            <div class="">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu">
+                        <ul>
+                            <li><a href="{% url 'main:home' %}">Home</a></li>
+
+                            <li><a href="{% url 'products:products' %}">Products</a>
+                                <ul class="vmegamenu">
+                                    {% for category in navbar_categories %}
+                                        <li><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a>
+                                            <ul class="vmegamenu">
+                                                {% for type in category.types.all reversed %}
+                                                    <li><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}">{{ type.product_type }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}       
+                                </ul>
+                            </li>
+                                                        <li><a href="{% url 'projects:projects' %}">Projects</a>
+                                                                <ul class="vmegamenu">
+                                                                    {% for project_category in project_categories %}
+                                                                    <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                    {% endfor %} 
+                                                                    </ul>
+                                                            </li>
+                                                        <li><a href="{% url 'news:news' %}">news</a>
+                                                                <ul class="vmegamenu">
+                                                                    {% for category in news_categories %}
+                                                                    <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                    {% endfor %}
+                                                                    </ul>
+                                                            </li>
+                                                                                    <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a>
+                                                                    <ul class="vmegamenu">
+                                                                                    <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                            </ul>
+                                                            </li>
+                                                        <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a>
+                                                            </li>
+                                                                                  </ul>	
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page_banner">
+            <img src="{% static 'images/16630345780779219727.jpg' %}" alt="">
+        </div>
+<div class="breadcrumbW clearfix">
+    <div class="container">
+        <div class="breadcrumb clearfix">
+            <div class="bread-right">
+                <a class="home" href="{% url 'main:home' %}" title="Return to Home">Home</a>
+                                                <i></i>
+                <a href="{% url 'contact-us:contact-us' %}">Contact Us</a>
+                                            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main_boxW">
+    <div class="container">
+    	<div class="about_web">
+            <div class="main_boxW_t"><span>Contact Us</span></div>
+            <div class="contact clearfix">
+                <div class="con-main col-sm-6 col-xs-12 clearfix  newm"><p>
+	<span style="color:#000000;font-family:Arial;font-size:18px;"><strong><em>Global customer service</em></strong></span> 
+</p>
+<p>
+	<span style="font-family:&quot;Microsoft YaHei&quot;;font-size:14px;"><em><br>
+</em></span> 
+</p>
+<p>
+	<span style="font-family:Arial;;font-size:14px;color:#000000;"><strong><span style="color:#000000;">Sales Support</span></strong></span> 
+</p>
+<p>
+	<span style="color:#333333;font-family:&quot;Microsoft YaHei&quot;;font-size:14px;">Instagram:&nbsp;<a href="https://www.instagram.com/family_group_techdir">@family_group_techdir</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+</p>
+<p>
+	<span style="font-family:&quot;Microsoft YaHei&quot;;font-size:14px;"><span style="color:#333333;">Tel: <a href="tel:+998977473283">+998977473283</a></span></span> 
+</p>
+<p>
+	&nbsp;
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<br>
+</p>
+<p style="font-family:poppins-semibold;">
+	<span style="color:#003366;font-family:Arial;background-color:#FFFFFF;font-size:18px;"><strong><img src="{% static 'images/20180926090105_77024.png' %}" alt=""><br>
+</strong></span> 
+</p>
+<p style="font-family:poppins-semibold;">
+	<br>
+</p>
+<p style="font-family:poppins-semibold;">
+	<span style="color:#000000;font-family:Arial;background-color:#FFFFFF;font-size:18px;"><strong>DAH Solar Co., Ltd.&nbsp;</strong></span> 
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<br>
+</p></div>
+                <div class="message col-sm-6 col-xs-12 clearfix">
+                    <em>Telegram</em>
+                    <div class="block_content toggle_content" style="width: 300px;"><a class="cbp-vm-img" href="https://t.me/Techdir_all"><img id="product_detail_img" src="{% static 'main/QR/TG_QR.jpg' %}" alt="Telegram"></a></div>
+                    
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

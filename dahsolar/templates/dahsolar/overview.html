@@ -1,0 +1,249 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} Overview {% endblock title %}  
+
+{% block content %}
+
+<div class="abc-01 large nav_section">               
+    <div class="container">
+  	<div class="nav_box">
+            <header id="nav">
+                <div class="mainmenu-area bg-color-2 hidden-xs hidden-sm">
+                    <div class="mainmenu">
+                        <nav>
+                            <ul>
+                                <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a><em>|</em></li>
+
+                                <li class='product_vmegamenu '><a href="{% url 'products:products' %}">{% translate 'Products' %}</a><em>|</em>
+                                    <ul class="nav_list">
+                                        {% for category in navbar_categories %}
+                                            <li class="col-sm-6">
+                                                <div class="img clearfix">
+                                                    <h4><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a></h4>
+                                                </div>
+                                                <div>
+                                                    {% for type in category.types.all reversed %}
+                                                        <p><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}" class="vgema-title"><i class="fa fa-angle-double-right"></i>{{ type.product_type }}</a></p>
+                                                    {% endfor %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}                                                                                                                                                                                                                      	
+                                    </ul>
+                                </li>
+                                                                <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                            {% for project_category in project_categories %}
+                                                                                <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                <li><a href="{% url "news:news" %}">{% translate 'News' %}</a><em>|</em>
+                                                                        <ul class="vmegamenu">
+                                                                                {% for category in news_categories %}
+                                                                                <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                    </li>
+                                                                 
+                                                                                                <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
+                                                                            <ul class="vmegamenu">
+                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                                    </ul>
+                                                                    </li>
+                                                                <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a><em>|</em>
+                                                                    </li> 
+                            </ul>
+                        </nav>
+                    </div>	
+                </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu-area hidden-md hidden-lg">
+    <div class="container">
+        <div class="">
+            <div class="">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu">
+                        <ul>
+                            <li><a href="{% url "main:home" %}">Home</a></li>
+
+                            <li><a href="{% url 'products:products' %}">Products</a>
+                                <ul class="vmegamenu">
+                                    {% for category in navbar_categories %}
+                                        <li><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a>
+                                            <ul class="vmegamenu">
+                                                {% for type in category.types.all reversed %}
+                                                    <li><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}">{{ type.product_type }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}        
+                                </ul>
+                            </li>
+                                                        <li><a href="{% url 'projects:projects' %}">Projects</a>
+                                                                <ul class="vmegamenu">
+                                                                    {% for project_category in project_categories %}
+                                                                    <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                                                    {% endfor %}    
+                                                                    </ul>
+                                                            </li>
+                                                        <li><a href="{% url "news:news" %}">News</a>
+                                                                <ul class="vmegamenu">
+                                                                        {% for category in news_categories %}
+                                                                        <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                            </li>
+                                                                                    <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a>
+                                                                    <ul class="vmegamenu">
+                                                                                    <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                            </ul>
+                                                            </li>
+                                                        <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a>
+                                                            </li>
+                            <!--                            <li><a href="--><!--">--><!--</a>-->
+<!--                                --><!--                                <ul class="vmegamenu">-->
+<!--                                    --><!--                                    <li><a href="--><!--" title="--><!--">--><!--</a></li>-->
+<!--                                    --><!--                                </ul>-->
+<!--                                --><!--                            </li>-->
+                                                                                                                                        </ul>	
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</divslug
+
+<div class="page_banner">
+            <img src="{% static 'images/16630347319324219727.jpg' %}" alt="">
+        </div>
+<div class="breadcrumbW clearfix">
+    <div class="container">
+        <div class="breadcrumb clearfix">
+            <div class="bread-right">
+                <a class="home" href="{% url 'main:home' %}" title="Return to Home">Home</a>
+                                                <i></i>
+                <a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a>
+                                                <i></i>
+                <a href="{% url 'dahsolar:overview' %}">Overview</a>
+                                            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-box">
+    <div class="container">
+    	<div class="news_web clearfix row">
+            <div class="page_left col-sm-2 col-xs-12 clearfix">
+        <div id="right_column" class="left-nav column">
+        <section class="block blockcms column_box">
+            <span><em>DAH Solar</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <div class="htmleaf-content toggle_content">
+                <ul class="mtree">
+                                        <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
+                                        <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
+                                        <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                    </ul>
+            </div>
+                    </section>
+        <script type="text/javascript" src="{% static 'js/mtree.js' %}"></script>
+    </div>
+        <div id="right_column" class="left-pro column">
+        <section class="block blockcms column_box">
+            <span><em>New Products</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <div class="htmleaf-content toggle_content">
+                <ul>
+                    {% for new_product in new_products %}
+                                        <li class="clearfix">
+                        <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}"><img id="{{ new_product.category }}" alt="{{ new_product.category }}" src="{{ new_product.products_images.first.image.url }}"></a>
+                        <div class="lnews-right">
+                            <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="left-pro-t">{{ new_product.prod_model }}</a>
+                            <p>Full-Screen |&nbsp;{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
+                            <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">Read More<i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                                    </ul>
+            </div>
+        </section>
+    </div>  
+
+     <div id="right_column" class="left-news column">
+        <section class="block blockcms column_box">
+            <span><em>Latest News</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <div class="htmleaf-content toggle_content">
+                                <div class="news_left_1">
+                    {% for first_new in first_news %}
+                    <a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}" class="img"><img src="{{ first_new.images.first.image.url }}" alt="{{ first_new.news_title }}"></a>
+                    <h4><a href="{% url 'news:news_detail' first_new.slug %}" title="DAH Solar makes its debut in the US. RE+2024 ended perfectly!">{{ first_new.news_title }}</a></h4>
+                    <p>{{ first_new.images.first.body_text }}</p>
+                    {% endfor %}
+                </div>
+                                <ul>
+                                    {% for new in news %}
+                                        <li><span>{{ new.created_at }}</span><a href="{% url 'news:news_detail' new.slug %}" title="{{ new.news_title|truncatechars:60 }}">{{ new.news_title|truncatechars:60 }}</a></li>
+                                        {% endfor %}
+                                </ul>
+            </div>
+        </section>
+    </div>    
+</div>  <div class="page_right col-sm-9 col-xs-12 clearfix">
+            	<div class="news-detail clearfix">
+                    <div class="title">
+                    	<em>Overview</em>
+                    </div>
+                    <div class="text newm"><p>
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;background-color:white;"><span style="font-family:&quot;Times New Roman&quot;;font-size:18px;color:#171A1D;background-color:#FFFFFF;">Being established in 2009, DAH Solar is an innovation-driven and technology-leading company in PV product manufacturing.The production capacity in 2024 will reach 6GW solar cells,10GW PV modules, 300,000 sets SolarUnit, 5GW silicon wafers and 10GW v</span></span><span style="background-color:#FFFFFF;color:#171A1D;font-family:&quot;Times New Roman&quot;;font-size:18px;">ertical integration manufacturing base under construction, Solar Unit. DAH Solar contributes to providinghigh-efficiencyPVmodules,high-qualitysolarcells,high-techintegrated solars ystems, and high-value energy storage for our value dcustomers. DAH Solar’s products have been sold to more than 120 countries and regions around the world includingGermany, Netherlands, Spain, Brazil, Mexico, Australia, Japan and soon.</span> 
+</p>
+<p>
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;background-color:white;"><img src="{% static 'images/20220913120356_56233.jpg' %}" alt="dah solar" width="750" height="500" title="dah solar" align=""><br>
+</span> 
+</p>
+<p style="background:white;">
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;">&nbsp;</span> 
+</p>
+<p style="background:white;">
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;">Technology innovation has been the most important driving force of the development of DAH Solar. DAH Solar invests more than 15% annually in&nbsp; research and development. DAH Solar is the founder and the master of the Full-Screen PV Module.The Full-Screen PV Module which has no frame on all sides on the front holds a global patent over 18 countries and regions, it can increase the power generation by 6-15%.<br>
+</span> 
+</p>
+<p style="background:white;">
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;"><br>
+</span> 
+</p>
+<p style="background:white;">
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;"><img src="{% static 'images/20221217164305_17764.jpg' %}" alt=""><br>
+</span> 
+</p>
+<p style="background:white;">
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;">Besides, DAH Solar invents the world’s first integrated PV system, SolarUnit. DAH Solar’s products have international authoritative certifications such as<br>
+TUV, IEC, CE,and INMETRO,domestic industry certifications such as CQC, Leader, ISO9001,<br>
+ISO14001, ISO45001, etc.<br>
+<br>
+</span> 
+</p>
+<p style="background:white;">
+	<img src="{% static 'images/20220913120451_19658.jpg' %}" alt="dah solar" width="750" height="500" title="dah solar" align=""> 
+</p>
+<p style="background:white;">
+	<span style="font-family:&quot;Times New Roman&quot;;font-size:18px;">DAH Solar will always regard the user demand as the key focus of product research and innovation and keep on bringing more efficient, stable and intelligent photovoltaicproducts.<br>
+</span> 
+</p>
+<p>
+	<img src="{% static 'images/20220913120703_56012.jpg' %}" alt=""> 
+</p></div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

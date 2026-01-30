@@ -1,0 +1,24 @@
+# Ignore virtual environment directories
+.venv/
+venv/
+ubuntuvenv/
+serverenv/
+
+# Ignore SQLite database file
+db.sqlite3
+
+.env
+cloudflared-linux-amd64.deb
+cloudflared-linux-amd64.deb.1
+key.txt
+key.txt.pub
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+logs/
+*.log
+staticfiles/
+media/
+node_modules/

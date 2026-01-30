@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="{% static 'images/favicon/favicon.ico' %}" rel="shortcut icon">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% for lang_code, lang_name in LANGUAGES %}
+        {% if lang_code == LANGUAGE_CODE %}
+            <link rel="alternate" hreflang="{{ lang_code }}" href="{% if lang_code != 'en' %}https://dahsolar.uz/{{ lang_code }}{% else %}https://dahsolar.uz{% endif %}{{ request.get_full_path|slice:'3:' }}">
+        {% endif %}
+    {% endfor %}
+    <link rel="alternate" hreflang="ru" href="https://dahsolar.uz/ru">
+    <link rel="alternate" hreflang="uz" href="https://dahsolar.uz/uz">
+    <link rel="alternate" hreflang="en" href="https://dahsolar.uz/en">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords" content="Poly Solar Panels,Mono Solar Panels,Solar Power System">
+    <meta name="description" content="Anhui Daheng Energy Technology Co.,LTD. specializes in developing,manufacturing and selling all kinds of Solar Power System,Solar Cells,Solar Panels. We have more than 30 people in solar technical teams with more than 10 years experience are ready for designing for your solar power in any time.">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/flexnav.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-touch-slider.css'%}">
+    <script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-touch-slider.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/nav.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.flexisel.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.velocity.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/demo.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/mainscript.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/wow.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/canvas.js'%}"></script>
+</head>
+<body>
+    <script>console.log($)</script>
+<script>
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $(function () {       
+                $('.newm img').attr("style","");
+                $(".newm img").attr("width","");
+                $(".newm img").attr("height","");     
+
+            })
+    }
+</script>
+
+ 
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WTLJR55');</script>
+<!-- End Google Tag Manager --></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTLJR55" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --> 
+
+<div class="svg-wrap">
+    <svg width="64" height="64" viewbox="0 0 64 64">
+        <path id="arrow-left-4" d="M15.946 48l0.003-10.33 47.411 0.003v-11.37h-47.414l0.003-10.304-15.309 16z"></path>
+    </svg>
+    <svg width="64" height="64" viewbox="0 0 64 64">
+        <path id="arrow-right-4" d="M48.058 48l-0.003-10.33-47.414 0.003v-11.37h47.418l-0.003-10.304 15.306 16z"></path>
+    </svg>
+</div>
+
+
+<div class="top-search">
+    <div class="container">
+        <div class="top-searchW">
+            <div class="input-group">
+                <h4>{% translate 'What are you looking for?' %}</h4>
+                <div class="header_search clearfix">
+                    {% comment %} <input name="search_keyword" onkeydown="javascript:enterIn(event);" type="text" onfocus="if(this.value=='Search'){this.value='';}" onblur="if(this.value==''){this.value='Search';}" target="_blank" class="search_main form-control" placeholder="Search...">
+                    <input type="submit" class="search_btn btn_search1" value=""> {% endcomment %}
+                    <form action="{% url 'main:search_results' %}" method="GET">
+                        <input type="text" name="query" class="search_main form-control" placeholder="Search...">
+                        <input type="submit" class="search_btn btn_search1" value="">
+                    </form>
+                </div>
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top_headW">
+    <div class="container">
+    	<div class="top_head clearfix">
+                                    <a class="top_logo" href="{% url 'main:home' %}"><h1><img src="{% static 'main/DAHSolar.png' %}" alt="DAH Solar Co. Ltd."></h1></a>
+                                    <div class="attr-nav">
+                <div class="search"><a href="#"><i><img src="{% static 'images/search_btn.png' %}" style="width: 26px; height: 24px;"></i></a></div>
+            </div>
+            <div class="drop">
+                <dl class="select">
+                    <dt>{% translate 'Language' %}</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="#" onclick="changeLanguage('en')" title="english"><img src="{% static 'languages/en.png' %}" alt="english">English</a></li>
+                            <li><a href="#" onclick="changeLanguage('ru')" title="русский"><img src="{% static 'languages/ru.png' %}" alt="русский">Русский</a></li>
+                            <li><a href="#" onclick="changeLanguage('uz')" title="o'zbek"><img src="{% static 'languages/uz.png' %}" alt="o'zbek">O'zbek</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            
+            <form id="language-form" action="{% url 'set_language' %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="language" id="language-input">
+                <input type="hidden" name="next" id="language-next">
+            </form>
+            
+            <script>
+                function changeLanguage(lang) {
+                    const currentPath = window.location.pathname;
+                    const pathParts = currentPath.split('/');
+            
+                    // Удаляем текущий префикс языка, если он есть
+                    if (['en', 'ru', 'uz'].includes(pathParts[1])) {
+                        pathParts.splice(1, 1);
+                    }
+            
+                    // Если язык не английский, добавляем его в путь
+                    let newPath = pathParts.join('/');
+                    if (lang !== 'en') {
+                        newPath = '/' + lang + newPath;
+                    }
+            
+                    // Если путь получился пустой — значит это главная страница
+                    if (newPath === '') newPath = '/';
+            
+                    document.getElementById("language-input").value = lang;
+                    document.getElementById("language-next").value = newPath;
+            
+                    document.getElementById("language-form").submit();
+                }
+            </script>
+            
+            <ul class="top_share">
+                  
+                  
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'main/icons/Facebook.png' %}" alt="f"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://t.me/Techdir_all"><img src="{% static 'main/icons/Telegram.png' %}" alt="tg"></a></li>
+                                                <li class="wechat" onmouseover="this.className = 'wechat on';" onmouseout="this.className = 'wechat';">
+                    <a href="javascript:;"><img src="{% static 'main/icons/WeChat.png' %}" alt="#"></a>
+                    <div class="wechat_nr">
+                        <div class="arrow"></div>
+                        <img src="{% static 'main/QR/WeChat_QR.jpg' %}" width="105" height="102">
+                    </div>
+                </li>
+                  
+                  
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.instagram.com/family_group_techdir"><img src="{% static 'main/icons/Instagram.png' %}" alt="Ins"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC20d32jQ_hJADtjW3l2x_Vw"><img src="{% static 'main/icons/YouTube.png' %}" alt="you"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://twitter.com/dahsolarpv"><img src="{% static 'main/icons/X-logo.png' %}" alt="tw"></a></li>
+                                            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $(".attr-nav").each(function(){  
+    $(".search > a", this).on("click", function(e){
+            e.preventDefault();
+            $(".top-search").slideToggle();
+        });
+    });
+    $(".input-group-addon.close-search").on("click", function(){
+        $(".top-search").slideUp();
+    });
+</script>
+<script type="text/javascript">
+$(function(){
+    $(".select").each(function(){
+        var s=$(this);
+        var z=parseInt(s.css("z-index"));
+        var dt=$(this).children("dt");
+        var dd=$(this).children("dd");
+        var _show=function(){dd.slideDown(200);dt.addClass("cur");s.css("z-index",z+1);};   
+        var _hide=function(){dd.slideUp(200);dt.removeClass("cur");s.css("z-index",z);};    
+        dt.click(function(){dd.is(":hidden")?_show():_hide();});
+        dd.find("a").click(function(){dt.html($(this).html());_hide();});     
+        $("body").click(function(i){ !$(i.target).parents(".select").first().is(s) ? _hide():"";});
+    })
+})
+</script>
+
+
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+    <div class="footerW clearfix">
+    <div class="fot-top clearfix">
+    	<div class="container">
+            <a href="{% url 'main:home' %}" class="fot-logo"><img src="{% static 'images/fot_logo1.png'%}" alt="DAH Solar Co. Ltd."></a>
+            <p>Global Technology Leading PV Enterprise DAH Solar Co., Ltd.&nbsp;focuses on the R&amp;D, manufacturing, and sales of high-efficiency power generation PV modules, integrated PV systems, and solar energy storage systems. DAH Solar committees to provide better solar solutions innovatively. With more and more needs for clean energy, DAH Solar continues to bring a more efficient, convenient, and reliable series of PV products to global users. Technological innovation and patented products With our leading technological innovation and excellent product quality, we enable global users more conveniently and stably to obtain efficient clean solar energy. We have 200 patented technologies used in our PV products. Our global patented product Full-Screen PV module achieves front A-side frameless design, which increases power generation by 6%-15% (field test result published by TUV Nord) compared to the regular PV modules. The world's first integrated PV system, SolarUnit, could maximize the installation area of the rooftop. SolarUnit made the integrated design of modules and inverters come true. SolarUnit provides users with a more efficient, convenient, safer, and beautiful residential PV system. SolarUnit promotes PV products in the era of home PV appliances. World Recognized PV Supplier DAH Solar's products have been sold in more than 100 countries and regions around the world. In Latin America, we have become the TOP 3 well-known PV companies in Brazil. In Europe, the demand for our innovative products, Full-Screen PV Modules, is exceeding supplies. Besides, to provide better service to global customers, we have established our warehouses in many countries and regions, like the EU stock in Rotterdam in the Netherlands. In addition, we have established very convenient purchase channels for global consumers. Customers can purchase DAH Solar’s products through distributors or official websites and E-commercial platforms. Social Responsibilities DAH Solar’s Solar Cells, Modules, and Inverters R&amp;D and Production Factories Bases not only attract a large number of local high-end technical talents but also creates more than 2,000 job positions for local residents. Every year, we hold many social activities, such as donations to charities, responses to the Covid-19 pandemic, contributing to community growth, etc. to advocate for social development. Our ultimate goal is to embrace the era of clean energy to protect the environment and the behalf of mankind. Employee Development DAH Solar is committed to creating a better career development platform for our employees. We seek equity for all genders and ages in the workplace. DAH Solar offers our employees a free team-building trip, annually. We believe that refreshing is another path to creation. DAH Solar is also concerned about the health condition of our employees. That's why we provide our employees with free health checks and a full package of healthcare. At DAH Solar, we treat our employees not only as team assets but as our own families.</p>
+            <ul class="fot-share">
+                  
+                  
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'images/fot_f.png'%}" alt="f"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.linkedin.com/company/dahsolarpv/"><img src="{% static 'images/fot_in.png'%}" alt="in"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.instagram.com/family_group_techdir"><img src="{% static 'images/fot_Ins.png'%}" alt="Ins"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC20d32jQ_hJADtjW3l2x_Vw"><img src="{% static 'images/fot_you.png'%}" alt="you"></a></li>
+                  
+                <li><a rel="nofollow" target="_blank" href="https://twitter.com/dahsolarpv"><img src="{% static 'images/fot_tw.png'%}" alt="tw"></a></li>
+                                            </ul>
+       </div>
+    </div>
+    <div class="footer">
+	<div class="container">
+            <div class="footer_m row">
+                <div id="right_column" class="fot_con col-sm-4 clearfix">
+                    <section id="blockbestsellers" class="block products_block column_box">
+                        <span class="fot_title"><em>{% translate 'Get in touch' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <div class="block_content toggle_content">
+                                                        <ul>
+                                                                <li class="fcon01"><p>{% translate 'Tel' %} : </p><a href="tel:+998977473283">+998977473283</a></li>
+                                                                                                                                 
+                                  
+                                                                                                                                                                                                                <li class="fcon04"><p>{% translate 'Telegram' %} : </p>                                                <a rel="nofollow" target="_blank" href="https://t.me/Techdir_all">
+                                                    @Techdir_all</a></li>
+                                                                                                </ul>
+                        </div>
+                    </section>
+                </div>
+                <div id="right_column" class="fot_nav col-sm-2 clearfix">
+                    <section id="blockbestsellers" class="block products_block column_box">
+                        <span class="fot_title"><em>{% translate 'Need Help' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <div class="block_content toggle_content">
+                            <ul>
+                                 
+                                <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a></li>
+                                 
+                                <li><a href="{% url 'dahsolar:dahsolar' %}">{% translate 'About Us' %}</a></li>
+                                 
+                                <li><a href="{% url 'products:products' %}">{% translate 'Products' %}</a></li>
+                                 
+                                <li><a href="{% url 'news:news' %}">{% translate 'News' %}</a></li>
+                                 
+                                <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a></li>
+                                 
+                                {% comment %} <li><a href="blog.html">Blog</a></li> {% endcomment %}
+                                                            </ul>
+                        </div>
+                    </section>
+                </div>
+                                <div id="right_column" class="fot_links col-sm-3 clearfix">
+                    <section id="blockbestsellers" class="block products_block column_box">
+                        <span class="fot_title"><em>{% translate 'Hot Products' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <div class="block_content toggle_content">
+                            <ul>
+                                {% for hot_product in hot_products %}
+                                                                <li><a href="{% url 'products:product_detail' hot_product.product.slug %}">{{ hot_product.product.prod_model }}</a></li>
+                                {% endfor %}
+                                                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fot-botW">
+    	<div class="container">
+            <div class="fot-bot clearfix">
+                <p class="copy">Copyright © 2015-2024 DAH Solar Co. Ltd..All Rights Reserved.<a href="https://www.dyyseo.com">dyyseo.com</a> </p>
+                            </div>
+        </div>
+    </div>
+</div>
+    {% endblock footer %}
+
+    <script type="text/javascript" src="{% static 'js/easyResponsiveTabs.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+
+</body>
