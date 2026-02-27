@@ -22,3 +22,4 @@ logs/
 staticfiles/
 media/
 node_modules/
+*.mo

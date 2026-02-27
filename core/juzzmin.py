@@ -101,11 +101,48 @@ JAZZMIN_SETTINGS = {
     # Custom icons for side menu apps/models See https://fontawesome.com/icons?d=gallery&m=free&v=5.0.0,5.0.1,5.0.10,5.0.11,5.0.12,5.0.13,5.0.2,5.0.3,5.0.4,5.0.5,5.0.6,5.0.7,5.0.8,5.0.9,5.1.0,5.1.1,5.2.0,5.3.0,5.3.1,5.4.0,5.4.1,5.4.2,5.13.0,5.12.0,5.11.2,5.11.1,5.10.0,5.9.0,5.8.2,5.8.1,5.7.2,5.7.1,5.7.0,5.6.3,5.5.0,5.4.2
     # for the full list of 5.13.0 free icon classes
     "icons": {
+        # Django built-in apps
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
-        "auth.Group": "fas fa-users",
+        "auth.group": "fas fa-users",
+
+        # News app
+        "news": "fas fa-newspaper",
         "news.News": "fas fa-newspaper",
         "news.NewsCategory": "fas fa-list",
+        "news.NewsImage": "fas fa-image",
+
+        # Contacts app
+        "contacts": "fas fa-address-book",
+        "contacts.Contact": "fas fa-address-book",
+
+        # DAH Solar app
+        "dahsolar": "fas fa-solar-panel",
+        "dahsolar.Overview": "fas fa-info-circle",
+        "dahsolar.Factory": "fas fa-industry",
+
+        # Main app
+        "main": "fas fa-home",
+        "main.Navbar": "fas fa-bars",
+        "main.Banner": "fas fa-image",
+
+        # Products app
+        "products": "fas fa-box-open",
+        "products.Brand": "fas fa-tags",
+        "products.Category": "fas fa-list",
+        "products.ProductType": "fas fa-th-large",
+        "products.Products": "fas fa-solar-panel",
+        "products.ProductsImage": "fas fa-images",
+
+        # Projects app
+        "projects": "fas fa-project-diagram",
+        "projects.Project": "fas fa-briefcase",
+        "projects.ProjectCategory": "fas fa-folder-open",
+        "projects.ProjectImage": "fas fa-images",
+
+        # Video app
+        "videoapp": "fas fa-video",
+        "videoapp.Video": "fas fa-play-circle",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",

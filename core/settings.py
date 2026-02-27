@@ -31,7 +31,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -40,7 +40,7 @@ INTERNAL_IPS = [
 ]
 
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
-ALLOWED_HOSTS = ['dahsolar.uz', 'www.dahsolar.uz', 'localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,dahsolar.uz,www.dahsolar.uz').split(',')
 
 # Application definition
 
@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'videoapp',
     'dahsolar',
     'contacts',
+
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -62,17 +64,16 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-#    'debug_toolbar',
-#    'fontawesomefree',
-    'bootstrap5',
 ]
+
+
+
 
 SITE_ID = 1
 
 MIDDLEWARE = [
-    #'debug_toolbar.middleware.DebugToolbarMiddleware', 
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,9 +81,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'core.urls'
 
@@ -100,10 +101,24 @@ TEMPLATES = [
                 # my context processor
                 'products.context_processors.hot_products',
                 'products.context_processors.categories_processor',
+                'products.context_processors.global_site_data',
             ],
         },
     },
 ]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",  # /1 — это номер базы данных в Redis
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 WSGI_APPLICATION = 'core.wsgi.application'
 

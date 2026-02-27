@@ -3,6 +3,7 @@
 <head>
     {% load static %}
     {% load i18n %}
+    {% load cache %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -56,11 +57,11 @@
 
  
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+{% comment %} <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WTLJR55');</script>
+})(window,document,'script','dataLayer','GTM-WTLJR55');</script> {% endcomment %}
 <!-- End Google Tag Manager --></head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -86,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     {% comment %} <input name="search_keyword" onkeydown="javascript:enterIn(event);" type="text" onfocus="if(this.value=='Search'){this.value='';}" onblur="if(this.value==''){this.value='Search';}" target="_blank" class="search_main form-control" placeholder="Search...">
                     <input type="submit" class="search_btn btn_search1" value=""> {% endcomment %}
                     <form action="{% url 'main:search_results' %}" method="GET">
-                        <input type="text" name="query" class="search_main form-control" placeholder="Search...">
+                        <input type="text" name="query" class="search_main form-control" placeholder="{% translate 'Search...'%}">
                         <input type="submit" class="search_btn btn_search1" value="">
                     </form>
                 </div>
@@ -95,21 +96,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </div>
 </div>
+{% cache 3600 header_block LANGUAGE_CODE %}
 <div class="top_headW">
     <div class="container">
     	<div class="top_head clearfix">
-                                    <a class="top_logo" href="{% url 'main:home' %}"><h1><img src="{% static 'main/DAHSolar.png' %}" alt="DAH Solar Co. Ltd."></h1></a>
-                                    <div class="attr-nav">
-                <div class="search"><a href="#"><i><img src="{% static 'images/search_btn.png' %}" style="width: 26px; height: 24px;"></i></a></div>
+            <a class="top_logo" href="{% url 'main:home' %}"><h1><img src="{% static 'main/DAHSolar.webp' %}" alt="DAH Solar Co. Ltd."></h1></a>
+            <div class="attr-nav">
+                <div class="search"><a href="#"><i><img src="{% static 'images/search_btn.webp' %}" style="width: 26px; height: 24px;"></i></a></div>
             </div>
             <div class="drop">
                 <dl class="select">
                     <dt>{% translate 'Language' %}</dt>
                     <dd>
                         <ul>
-                            <li><a href="#" onclick="changeLanguage('en')" title="english"><img src="{% static 'languages/en.png' %}" alt="english">English</a></li>
-                            <li><a href="#" onclick="changeLanguage('ru')" title="русский"><img src="{% static 'languages/ru.png' %}" alt="русский">Русский</a></li>
-                            <li><a href="#" onclick="changeLanguage('uz')" title="o'zbek"><img src="{% static 'languages/uz.png' %}" alt="o'zbek">O'zbek</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" title="english"><img src="{% static 'languages/en.webp' %}" alt="english">English</a></li>
+                            <li><a href="#" onclick="changeLanguage('ru')" title="русский"><img src="{% static 'languages/ru.webp' %}" alt="русский">Русский</a></li>
+                            <li><a href="#" onclick="changeLanguage('uz')" title="o'zbek"><img src="{% static 'languages/uz.webp' %}" alt="o'zbek">O'zbek</a></li>
                         </ul>
                     </dd>
                 </dl>
@@ -151,28 +153,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   
                   
                   
-                <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'main/icons/Facebook.png' %}" alt="f"></a></li>
+                <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'main/icons/Facebook.webp' %}" alt="f"></a></li>
                   
-                <li><a rel="nofollow" target="_blank" href="https://t.me/Techdir_all"><img src="{% static 'main/icons/Telegram.png' %}" alt="tg"></a></li>
+                <li><a rel="nofollow" target="_blank" href="https://t.me/Techdir_all"><img src="{% static 'main/icons/Telegram.webp' %}" alt="tg"></a></li>
                                                 <li class="wechat" onmouseover="this.className = 'wechat on';" onmouseout="this.className = 'wechat';">
-                    <a href="javascript:;"><img src="{% static 'main/icons/WeChat.png' %}" alt="#"></a>
+                    <a href="javascript:;"><img src="{% static 'main/icons/WeChat.webp' %}" alt="#"></a>
                     <div class="wechat_nr">
                         <div class="arrow"></div>
-                        <img src="{% static 'main/QR/WeChat_QR.jpg' %}" width="105" height="102">
+                        <img src="{% static 'main/QR/WeChat_QR.webp' %}" width="105" height="102">
                     </div>
                 </li>
                   
                   
                   
-                <li><a rel="nofollow" target="_blank" href="https://www.instagram.com/family_group_techdir"><img src="{% static 'main/icons/Instagram.png' %}" alt="Ins"></a></li>
+                <li><a rel="nofollow" target="_blank" href="https://www.instagram.com/family_group_techdir"><img src="{% static 'main/icons/Instagram.webp' %}" alt="Ins"></a></li>
                   
-                <li><a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC20d32jQ_hJADtjW3l2x_Vw"><img src="{% static 'main/icons/YouTube.png' %}" alt="you"></a></li>
+                <li><a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC20d32jQ_hJADtjW3l2x_Vw"><img src="{% static 'main/icons/YouTube.webp' %}" alt="you"></a></li>
                   
-                <li><a rel="nofollow" target="_blank" href="https://twitter.com/dahsolarpv"><img src="{% static 'main/icons/X-logo.png' %}" alt="tw"></a></li>
+                <li><a rel="nofollow" target="_blank" href="https://twitter.com/dahsolarpv"><img src="{% static 'main/icons/X-logo.webp' %}" alt="tw"></a></li>
                                             </ul>
         </div>
     </div>
 </div>
+{% endcache %}
 <script>
     $(".attr-nav").each(function(){  
     $(".search > a", this).on("click", function(e){
@@ -206,41 +209,32 @@ $(function(){
     {% endblock %}
 
     {% block footer %}
+    {% cache 604800 footer_block LANGUAGE_CODE %}
     <div class="footerW clearfix">
-    <div class="fot-top clearfix">
-    	<div class="container">
-            <a href="{% url 'main:home' %}" class="fot-logo"><img src="{% static 'images/fot_logo1.png'%}" alt="DAH Solar Co. Ltd."></a>
-            <p>Global Technology Leading PV Enterprise DAH Solar Co., Ltd.&nbsp;focuses on the R&amp;D, manufacturing, and sales of high-efficiency power generation PV modules, integrated PV systems, and solar energy storage systems. DAH Solar committees to provide better solar solutions innovatively. With more and more needs for clean energy, DAH Solar continues to bring a more efficient, convenient, and reliable series of PV products to global users. Technological innovation and patented products With our leading technological innovation and excellent product quality, we enable global users more conveniently and stably to obtain efficient clean solar energy. We have 200 patented technologies used in our PV products. Our global patented product Full-Screen PV module achieves front A-side frameless design, which increases power generation by 6%-15% (field test result published by TUV Nord) compared to the regular PV modules. The world's first integrated PV system, SolarUnit, could maximize the installation area of the rooftop. SolarUnit made the integrated design of modules and inverters come true. SolarUnit provides users with a more efficient, convenient, safer, and beautiful residential PV system. SolarUnit promotes PV products in the era of home PV appliances. World Recognized PV Supplier DAH Solar's products have been sold in more than 100 countries and regions around the world. In Latin America, we have become the TOP 3 well-known PV companies in Brazil. In Europe, the demand for our innovative products, Full-Screen PV Modules, is exceeding supplies. Besides, to provide better service to global customers, we have established our warehouses in many countries and regions, like the EU stock in Rotterdam in the Netherlands. In addition, we have established very convenient purchase channels for global consumers. Customers can purchase DAH Solar’s products through distributors or official websites and E-commercial platforms. Social Responsibilities DAH Solar’s Solar Cells, Modules, and Inverters R&amp;D and Production Factories Bases not only attract a large number of local high-end technical talents but also creates more than 2,000 job positions for local residents. Every year, we hold many social activities, such as donations to charities, responses to the Covid-19 pandemic, contributing to community growth, etc. to advocate for social development. Our ultimate goal is to embrace the era of clean energy to protect the environment and the behalf of mankind. Employee Development DAH Solar is committed to creating a better career development platform for our employees. We seek equity for all genders and ages in the workplace. DAH Solar offers our employees a free team-building trip, annually. We believe that refreshing is another path to creation. DAH Solar is also concerned about the health condition of our employees. That's why we provide our employees with free health checks and a full package of healthcare. At DAH Solar, we treat our employees not only as team assets but as our own families.</p>
-            <ul class="fot-share">
-                  
-                  
-                  
-                <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'images/fot_f.png'%}" alt="f"></a></li>
-                  
-                <li><a rel="nofollow" target="_blank" href="https://www.linkedin.com/company/dahsolarpv/"><img src="{% static 'images/fot_in.png'%}" alt="in"></a></li>
-                  
-                <li><a rel="nofollow" target="_blank" href="https://www.instagram.com/family_group_techdir"><img src="{% static 'images/fot_Ins.png'%}" alt="Ins"></a></li>
-                  
-                <li><a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC20d32jQ_hJADtjW3l2x_Vw"><img src="{% static 'images/fot_you.png'%}" alt="you"></a></li>
-                  
-                <li><a rel="nofollow" target="_blank" href="https://twitter.com/dahsolarpv"><img src="{% static 'images/fot_tw.png'%}" alt="tw"></a></li>
-                                            </ul>
-       </div>
-    </div>
-    <div class="footer">
-	<div class="container">
-            <div class="footer_m row">
-                <div id="right_column" class="fot_con col-sm-4 clearfix">
-                    <section id="blockbestsellers" class="block products_block column_box">
-                        <span class="fot_title"><em>{% translate 'Get in touch' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
-                        <div class="block_content toggle_content">
-                                                        <ul>
-                                                                <li class="fcon01"><p>{% translate 'Tel' %} : </p><a href="tel:+998977473283">+998977473283</a></li>
-                                                                                                                                 
-                                  
-                                                                                                                                                                                                                <li class="fcon04"><p>{% translate 'Telegram' %} : </p>                                                <a rel="nofollow" target="_blank" href="https://t.me/Techdir_all">
-                                                    @Techdir_all</a></li>
-                                                                                                </ul>
+        <div class="fot-top clearfix">
+            <div class="container">
+                <a href="{% url 'main:home' %}" class="fot-logo"><img src="{% static 'images/fot_logo1.webp'%}" alt="DAH Solar Co. Ltd."></a>
+                <p>Global Technology Leading PV Enterprise DAH Solar Co., Ltd.&nbsp;focuses on the R&amp;D, manufacturing, and sales of high-efficiency power generation PV modules, integrated PV systems, and solar energy storage systems. DAH Solar committees to provide better solar solutions innovatively. With more and more needs for clean energy, DAH Solar continues to bring a more efficient, convenient, and reliable series of PV products to global users. Technological innovation and patented products With our leading technological innovation and excellent product quality, we enable global users more conveniently and stably to obtain efficient clean solar energy. We have 200 patented technologies used in our PV products. Our global patented product Full-Screen PV module achieves front A-side frameless design, which increases power generation by 6%-15% (field test result published by TUV Nord) compared to the regular PV modules. The world's first integrated PV system, SolarUnit, could maximize the installation area of the rooftop. SolarUnit made the integrated design of modules and inverters come true. SolarUnit provides users with a more efficient, convenient, safer, and beautiful residential PV system. SolarUnit promotes PV products in the era of home PV appliances. World Recognized PV Supplier DAH Solar's products have been sold in more than 100 countries and regions around the world. In Latin America, we have become the TOP 3 well-known PV companies in Brazil. In Europe, the demand for our innovative products, Full-Screen PV Modules, is exceeding supplies. Besides, to provide better service to global customers, we have established our warehouses in many countries and regions, like the EU stock in Rotterdam in the Netherlands. In addition, we have established very convenient purchase channels for global consumers. Customers can purchase DAH Solar’s products through distributors or official websites and E-commercial platforms. Social Responsibilities DAH Solar’s Solar Cells, Modules, and Inverters R&amp;D and Production Factories Bases not only attract a large number of local high-end technical talents but also creates more than 2,000 job positions for local residents. Every year, we hold many social activities, such as donations to charities, responses to the Covid-19 pandemic, contributing to community growth, etc. to advocate for social development. Our ultimate goal is to embrace the era of clean energy to protect the environment and the behalf of mankind. Employee Development DAH Solar is committed to creating a better career development platform for our employees. We seek equity for all genders and ages in the workplace. DAH Solar offers our employees a free team-building trip, annually. We believe that refreshing is another path to creation. DAH Solar is also concerned about the health condition of our employees. That's why we provide our employees with free health checks and a full package of healthcare. At DAH Solar, we treat our employees not only as team assets but as our own families.</p>
+                <ul class="fot-share">
+                    <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'images/fot_f.webp'%}" alt="f"></a></li>
+                    <li><a rel="nofollow" target="_blank" href="https://www.linkedin.com/company/dahsolarpv/"><img src="{% static 'images/fot_in.webp'%}" alt="in"></a></li>
+                    <li><a rel="nofollow" target="_blank" href="https://www.instagram.com/family_group_techdir"><img src="{% static 'images/fot_Ins.webp'%}" alt="Ins"></a></li>
+                    <li><a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC20d32jQ_hJADtjW3l2x_Vw"><img src="{% static 'images/fot_you.webp'%}" alt="you"></a></li>
+                    <li><a rel="nofollow" target="_blank" href="https://twitter.com/dahsolarpv"><img src="{% static 'images/fot_tw.webp'%}" alt="tw"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="footer_m row">
+                    <div id="right_column" class="fot_con col-sm-4 clearfix">
+                        <section id="blockbestsellers" class="block products_block column_box">
+                            <span class="fot_title"><em>{% translate 'Get in touch' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                            <div class="block_content toggle_content">
+                                <ul>
+                                    <li class="fcon01"><p>{% translate 'Tel' %} : </p><a href="tel:+998977473283">+998977473283</a></li>
+                                    <li class="fcon04"><p>{% translate 'Telegram' %} : </p><a rel="nofollow" target="_blank" href="https://t.me/Techdir_all">@Techdir_all</a></li>
+                                </ul>
                         </div>
                     </section>
                 </div>
@@ -283,11 +277,12 @@ $(function(){
     <div class="fot-botW">
     	<div class="container">
             <div class="fot-bot clearfix">
-                <p class="copy">Copyright © 2015-2024 DAH Solar Co. Ltd..All Rights Reserved.<a href="https://www.dyyseo.com">dyyseo.com</a> </p>
+                <p class="copy">Copyright © 2015-2024 DAH Solar Uzbekistan. All Rights Reserved.</a> </p>
                             </div>
         </div>
     </div>
 </div>
+{% endcache %}
     {% endblock footer %}
 
     <script type="text/javascript" src="{% static 'js/easyResponsiveTabs.js'%}"></script>

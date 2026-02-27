@@ -1,64 +1,88 @@
-from django.shortcuts import render
-from products.models import Products, Categories, Second_Category
+from django.core.paginator import Paginator
+from django.shortcuts import render, get_object_or_404
+from products.models import Products, Categories, Type, Second_Category
 from projects.models import Project, ProjectCategory
 from news.models import News, NewsCategory
 from videoapp.models import Video
 
-
 def home(request):
-    category_solar_system = Second_Category.objects.get(
-        id=1)  # id=1 это категория Solar Unit
-    category_pv_module = Categories.objects.get(
-        id=1)  # id=1 это категория PV_Modules
-    pv_modules = Products.objects.filter(
-        category=category_pv_module).order_by('-id')[:6]
-    solar_systems = solar_systems = Products.objects.filter(second_category__second_category="Solar Unit")[:6]
+    # Используем .filter().first(), чтобы сайт не падал при пустой БД
+    category_solar_system = Second_Category.objects.filter(id=1).first()
+    category_pv_module = Categories.objects.filter(category="PV Module").first()
+    
+    # Фильтруем модули, если категория существует
+    pv_modules = Products.objects.filter(category=category_pv_module).order_by('-id')[:6] if category_pv_module else []
+    
+    # Новости по категориям (используем filter().first() для безопасности)
+    global_exhibitions = NewsCategory.objects.filter(id=1).first()
+    events = NewsCategory.objects.filter(id=2).first()
+    social_activities = NewsCategory.objects.filter(id=3).first()
 
-    projects = Project.objects.all().order_by('id')[:6]
-    project_categories = ProjectCategory.objects.all()
-    global_exhibitions = NewsCategory.objects.get(
-        id=1)  # id=1 это категория Global Exhibitions
-    events = NewsCategory.objects.get(id=2)  # id=2 это категория Events
-    social_activities = NewsCategory.objects.get(
-        id=3)  # id=3 это категория Social Activities
-    news_global_exhibitions = News.objects.filter(
-        category=global_exhibitions).order_by('id')[:6]
-    news_events = News.objects.filter(category=events).order_by('id')[:6]
-    news_social_activities = News.objects.filter(
-        category=social_activities).order_by('id')[:6]
-    news_categories = NewsCategory.objects.all()
-    videos = Video.objects.order_by('-id')[:3]
     context = {
         "pv_modules": pv_modules,
-        "solar_systems": solar_systems,
-        "projects": projects,
-        "project_categories": project_categories,
-        "news_global_exhibitions": news_global_exhibitions,
-        "news_events": news_events,
-        "news_social_activities": news_social_activities,
-        "news_categories": news_categories,
-        "videos": videos
+        "solar_systems": Products.objects.filter(second_category__second_category="Solar Unit")[:6],
+        "projects": Project.objects.all().order_by('id')[:6],
+        "news_global_exhibitions": News.objects.filter(category=global_exhibitions).order_by('id')[:6] if global_exhibitions else [],
+        "news_events": News.objects.filter(category=events).order_by('id')[:6] if events else [],
+        "news_social_activities": News.objects.filter(category=social_activities).order_by('id')[:6] if social_activities else [],
+        "videos": Video.objects.order_by('-id')[:3]
     }
+    return render(request, 'main/home.html', context)
 
-    return render(request, 'main/home.html', context=context)
+
+def products(request):
+    products_all = Products.objects.all().order_by('-id')
+    paginator = Paginator(products_all, 9)
+    page_obj = paginator.get_page(request.GET.get('page'))
+    
+    return render(request, 'products/products.html', {'page_obj': page_obj})
+
+
+def detail_view(request, slug):
+    product = get_object_or_404(Products, slug=slug)
+    
+    context = {
+        'product': product,
+        'previous_product': Products.objects.filter(id__lt=product.id).order_by('-id').first(), #type: ignore
+        'next_product': Products.objects.filter(id__gt=product.id).order_by('id').first(), #type: ignore
+        'related_products': Products.objects.filter(category=product.category).exclude(id=product.id)[:6], #type: ignore
+    }
+    return render(request, 'products/detail_view.html', context)
+
+
+def category_view(request, slug):
+    category_page = get_object_or_404(Categories, slug=slug)
+    products_list = Products.objects.filter(category__slug=slug).order_by('-id')
+    
+    paginator = Paginator(products_list, 9)
+    page_obj = paginator.get_page(request.GET.get('page'))
+    
+    return render(request, 'products/category.html', {
+        'category_page': category_page, 
+        'page_obj': page_obj
+    })
+
+
+def type_view(request, category_slug, slug):
+    category_page = get_object_or_404(Categories, slug=category_slug)
+    type_page = get_object_or_404(Type, slug=slug)
+    products_list = Products.objects.filter(prod_type__slug=slug).order_by('-id')
+    
+    paginator = Paginator(products_list, 9)
+    page_obj = paginator.get_page(request.GET.get('page'))
+    
+    return render(request, 'products/type.html', {
+        'category_page': category_page,
+        'type_page': type_page,
+        'page_obj': page_obj
+    })
 
 
 def search_results(request):
     query = request.GET.get("query")
-    results = Products.objects.filter(
-        prod_model__icontains=query) if query else None
-    new_products = Products.objects.order_by('-id')[:4]
-    first_news = News.objects.order_by('-id')[:1]
-    news = News.objects.order_by('-id')[1:4]
-    news_categories = NewsCategory.objects.all()
-    project_categories = ProjectCategory.objects.all()
-    context = {
-        'new_products': new_products,
-        'news': news,
-        'first_news': first_news,
+    results = Products.objects.filter(prod_model__icontains=query) if query else None
+    
+    return render(request, "main/search_results.html", {
         "results": results,
-        "news_categories": news_categories,
-        "project_categories": project_categories,
         "query": query
-    }
-    return render(request, "main/search_results.html", context=context)
+    })

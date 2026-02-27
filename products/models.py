@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django_resized import ResizedImageField
 
 
 class Brand(models.Model):
@@ -33,7 +34,7 @@ class Categories(models.Model):
 
 
 class Type(models.Model):
-    category = models.ForeignKey(Categories, on_delete=models.CASCADE, default=1, related_name='types')
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE, default=1, related_name='types') #type: ignore
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
     product_type = models.CharField(max_length=255)
 
@@ -68,7 +69,14 @@ class Products(models.Model):
     warranty = models.CharField(max_length=255)
     payment = models.CharField(max_length=255)
     advantages = models.TextField(null=True)
-    doc_img = models.ImageField()
+    doc_img = ResizedImageField(
+        size=[1200, 900],
+        quality=75,
+        upload_to='products/webp/',
+        force_format='WEBP',  # Вот это заставит Pillow сохранить файл как WebP
+        blank=True,
+        null=True        # Ключевой параметр
+    )
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
 
     def save(self, *args, **kwargs):
@@ -104,7 +112,14 @@ class HotProduct(models.Model):
 class ProductsImage(models.Model):
     product = models.ForeignKey(
         Products, on_delete=models.CASCADE, related_name="products_images")
-    image = models.ImageField()
+    image = image = ResizedImageField(
+        size=[1200, 900],
+        quality=75,
+        upload_to='products/webp/',
+        force_format='WEBP',  # Вот это заставит Pillow сохранить файл как WebP
+        blank=True,
+        null=True         # Ключевой параметр
+    )
 
 
 class ProductsAdvantage(models.Model):

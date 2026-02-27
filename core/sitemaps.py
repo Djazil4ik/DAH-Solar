@@ -24,7 +24,7 @@ class CategoriesSitemap(Sitemap):
         return Categories.objects.all()
 
     def location(self, obj):
-        return reverse("products:category", kwargs={"slug": obj.slug})
+        return reverse("products:category", kwargs={"slug": obj.slug}) #type: ignore
 
 # Type sitemap
 class TypeSitemap(Sitemap):
@@ -35,7 +35,7 @@ class TypeSitemap(Sitemap):
         return Type.objects.all()
 
     def location(self, obj):
-        return reverse("products:type", kwargs={"category_slug": obj.category.slug, "slug": obj.slug})
+        return reverse("products:type", kwargs={"category_slug": obj.category.slug, "slug": obj.slug}) #type: ignore
 
 # Products sitemap
 class ProductsSitemap(Sitemap):
@@ -46,7 +46,7 @@ class ProductsSitemap(Sitemap):
         return Products.objects.all()
 
     def location(self, obj):
-        return reverse("products:product_detail", kwargs={"slug": obj.slug})
+        return reverse("products:product_detail", kwargs={"slug": obj.slug}) #type: ignore
 
 # News sitemap
 class NewsSitemap(Sitemap):
@@ -57,7 +57,7 @@ class NewsSitemap(Sitemap):
         return News.objects.all()
 
     def location(self, obj):
-        return reverse("news:news_detail", kwargs={"slug": obj.slug})
+        return reverse("news:news_detail", kwargs={"slug": obj.slug}) #type: ignore
 
 # ProjectCategory sitemap
 class ProjectCategorySitemap(Sitemap):
@@ -68,7 +68,7 @@ class ProjectCategorySitemap(Sitemap):
         return ProjectCategory.objects.all()
 
     def location(self, obj):
-        return reverse("projects:category_view", kwargs={"slug": obj.slug})
+        return reverse("projects:category_view", kwargs={"slug": obj.slug}) #type: ignore
 
 # Project sitemap
 class ProjectSitemap(Sitemap):
@@ -79,4 +79,4 @@ class ProjectSitemap(Sitemap):
         return Project.objects.all()
 
     def location(self, obj):
-        return reverse("projects:detail_view", kwargs={"slug": obj.slug})
+        return reverse("projects:detail_view", kwargs={"slug": obj.slug}) #type: ignore

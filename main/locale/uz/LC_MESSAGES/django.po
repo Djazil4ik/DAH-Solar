@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-12 15:16+0000\n"
+"POT-Creation-Date: 2026-02-20 04:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,85 +18,346 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: templates/main/base.html:76
+#: templates/main/base.html:85
 msgid "What are you looking for?"
 msgstr "Siz nimani qidiryapsiz?"
 
-#: templates/main/base.html:100
+#: templates/main/base.html:91
+msgid "Search..."
+msgstr "Qidiruv..."
+
+#: templates/main/base.html:110
 msgid "Language"
 msgstr "Til"
 
-#: templates/main/base.html:228
+#: templates/main/base.html:233
 msgid "Get in touch"
 msgstr "Aloqada bo'ling"
 
-#: templates/main/base.html:231
+#: templates/main/base.html:236
 msgid "Tel"
 msgstr "Telba"
 
-#: templates/main/base.html:234
+#: templates/main/base.html:237
 msgid "Telegram"
 msgstr "Telegramma"
 
-#: templates/main/base.html:242
+#: templates/main/base.html:244
 msgid "Need Help"
 msgstr "Yordam kerak"
 
-#: templates/main/base.html:246 templates/main/home.html:19
-#: templates/main/search_results.html:16
+#: templates/main/base.html:248 templates/main/home.html:20
+#: templates/main/home.html:78 templates/main/search_results.html:31
+#: templates/main/search_results.html:89
 msgid "Home"
 msgstr "Uy"
 
-#: templates/main/base.html:248
+#: templates/main/base.html:250
 msgid "About Us"
 msgstr "Biz haqimizda"
 
-#: templates/main/base.html:250 templates/main/home.html:21
-#: templates/main/search_results.html:18
+#: templates/main/base.html:252 templates/main/home.html:22
+#: templates/main/home.html:80 templates/main/search_results.html:33
+#: templates/main/search_results.html:91
 msgid "Products"
 msgstr "Mahsulotlar"
 
-#: templates/main/base.html:252 templates/main/home.html:53
-#: templates/main/search_results.html:50
+#: templates/main/base.html:254 templates/main/home.html:45
+#: templates/main/home.html:100 templates/main/search_results.html:58
+#: templates/main/search_results.html:113
 msgid "News"
 msgstr "Yangiliklar"
 
-#: templates/main/base.html:254 templates/main/home.html:68
+#: templates/main/base.html:256 templates/main/home.html:60
+#: templates/main/home.html:114 templates/main/search_results.html:129
 msgid "Contact Us"
 msgstr "Biz bilan bog'lanish"
 
-#: templates/main/base.html:264
+#: templates/main/base.html:266
 msgid "Hot Products"
 msgstr "Issiq mahsulotlar"
 
-#: templates/main/home.html:6
+#: templates/main/home.html:7
 msgid "DAH Solar - Reinvents PV Module"
 msgstr "Dah Quyosh - Qayta tiklaydi PV modul"
 
-#: templates/main/home.html:46 templates/main/search_results.html:43
+#: templates/main/home.html:38 templates/main/home.html:93
+#: templates/main/search_results.html:50
+#: templates/main/search_results.html:105
 msgid "Projects"
 msgstr "Loyihalar"
 
-#: templates/main/home.html:63
+#: templates/main/home.html:55 templates/main/home.html:109
+#: templates/main/home.html:221 templates/main/search_results.html:68
 msgid "Overview"
 msgstr "Umumiy nuqtai nazar"
 
-#: templates/main/home.html:64
+#: templates/main/home.html:56 templates/main/home.html:110
+#: templates/main/home.html:222 templates/main/search_results.html:69
 msgid "DAH Factories"
 msgstr "Dah ficts"
 
-#: templates/main/home.html:65
+#: templates/main/home.html:57 templates/main/home.html:111
+#: templates/main/search_results.html:70
 msgid "Vision &  Mission"
 msgstr "Vision va Missiya"
 
-#: templates/main/home.html:176
+#: templates/main/home.html:163
 msgid "Our Products"
 msgstr "Bizning mahsulotlarimiz"
 
-#: templates/main/home.html:177
+#: templates/main/home.html:164
 msgid "Quality First, Service Foremost"
 msgstr "Birinchi navbatda sifat, xizmatni mamert"
 
-#: templates/main/home.html:199
+#: templates/main/home.html:186
 msgid "View More Products"
 msgstr "Ko'proq mahsulotlarni ko'rish"
+
+#: templates/main/home.html:213
+msgid "Welcome To DAH Solar"
+msgstr "DAH Solar kompaniyasiga xush kelibsiz"
+
+#: templates/main/home.html:214
+msgid "Excellent Smart PV Module Leading Runner"
+msgstr "Ajoyib Smart PV moduli yetakchi yuguruvchisi"
+
+#: templates/main/home.html:223
+msgid "Certificates List"
+msgstr "Sertifikatlar ro'yxati"
+
+#: templates/main/home.html:230
+msgid "Who We Are"
+msgstr "Biz kimmiz"
+
+#: templates/main/home.html:231 templates/main/home.html:232
+#: templates/main/home.html:242
+#| msgid ""
+#| " Being established in 2009, DAH Solar is an innovation-driven and "
+#| "technology-leading company in PV product manufacturing. The production "
+#| "capacity in 2024 will reach 6GW solar cells, 10GW PV modules, 300,000 sets "
+#| "SolarUnit, 5GW silicon wafers and 10GW vertical integration manufacturing "
+#| "base under construction, Solar Unit. DAH Solar contributes to providing "
+#| "high-efficiency PV modules, high-quality solar cells, high-tech integrated "
+#| "solar systems, and high-value energy storage for our valued customers. DAH "
+#| "Solar's products have been sold to more than 120 countries and regions "
+#| "around the world including Germany, Netherlands, Spain, Brazil, Mexico, "
+#| "Australia, Japan and soon. Technology innovation has been the most important"
+#| " driving force of the development of DAH Solar. DAH Solar invests more than "
+#| "15%% annually in research and development. DAH Solar is the founder and the "
+#| "master of the Full-Screen PV Module. The Full-Screen PV Module which has no "
+#| "frame on all sides on the front holds a global patent over 18 countries and "
+#| "regions, it can increase the power generation by 6-15%%. Besides, DAH Solar "
+#| "invents the world's first integrated PV system, SolarUnit. DAH Solar's "
+#| "products have international authoritative certifications such as TUV, IEC, "
+#| "CE, and INMETRO, domestic industry certifications such as CQC, Leader, "
+#| "ISO9001, ISO14001, ISO45001, etc. DAH Solar will always regard the user "
+#| "demand as the key focus of product research and innovation and keep on "
+#| "bringing more efficient, stable and intelligent photovoltaic products. "
+msgid ""
+"Being established in 2009, DAH Solar is an innovation-driven and technology-"
+"leading company in PV product manufacturing. The production capacity in 2024"
+" will reach 6GW solar cells, 10GW PV modules, 300,000 sets SolarUnit, 5GW "
+"silicon wafers and 10GW vertical integration manufacturing base under "
+"construction, Solar Unit. DAH Solar contributes to providinghigh-"
+"efficiencyPVmodules, high-qualitysolarcells, high-techintegrated solars "
+"ystems, and high-value energy storage for our value dcustomers. DAH Solar’s "
+"products have been sold to more than 120 countries and regions around the "
+"world includingGermany, Netherlands, Spain, Brazil, Mexico, Australia, Japan"
+" and soon. &nbsp; Technology innovation has been the most important driving "
+"force of the development of DAH Solar. DAH Solar invests more than 15%% "
+"annually in&nbsp; research and development. DAH Solar is the founder and the"
+" master of the Full-Screen PV Module. The Full-Screen PV Module which has no"
+" frame on all sides on the front holds a global patent over 18 countries and"
+" regions, it can increase the power generation by 6-15%%. Besides, DAH Solar"
+" invents the world’s first integrated PV system, SolarUnit. DAH Solar’s "
+"products have international authoritative certifications such as TUV, IEC, "
+"CE,and INMETRO,domestic industry certifications such as CQC, Leader, "
+"ISO9001, ISO14001, ISO45001, etc. DAH Solar will always regard the user "
+"demand as the key focus of product research and innovation and keep on "
+"bringing more efficient, stable and intelligent photovoltaicproducts. "
+msgstr ""
+"2009-yilda tashkil etilgan DAH Solar — fotoelektr (PV) mahsulotlarini ishlab"
+" chiqarishda innovatsiyalarga tayanuvchi va texnologik yetakchi kompaniya "
+"hisoblanadi. 2024-yilda ishlab chiqarish quvvati: 6 GVt quyosh elementlari, "
+"10 GVt PV modullari, 300 000 to'plam SolarUnit, 5 GVt kremniy plastinalari "
+"va qurilayotgan 10 GVtli vertikal integratsiyalashgan bazani tashkil etadi. "
+"DAH Solar mijozlarga yuqori samarali PV modullari, sifatli quyosh "
+"elementlari, yuqori texnologiyali quyosh tizimlari va energiya saqlash "
+"yechimlarini taqdim etadi. Kompaniya mahsulotlari dunyoning 120 dan ortiq "
+"mamlakatlarida, jumladan Germaniya, Niderlandiya, Ispaniya, Braziliya, "
+"Meksika, Avstraliya va Yaponiyada sotilmoqda. Texnologik innovatsiyalar DAH "
+"Solar rivojlanishining asosiy kuchi bo'lib, kompaniya har yili R&D sohasiga "
+"15%% dan ortiq sarmoya kiritadi. DAH Solar — ramkasiz to'liq ekranli (Full-"
+"Screen PV Module) modulining asoschisi. Ushbu texnologiya 18 ta davlatda "
+"patentlangan bo'lib, energiya ishlab chiqarishni 6-15%% ga oshirishi mumkin."
+" Shuningdek, kompaniya dunyodagi birinchi integratsiyalashgan SolarUnit "
+"tizimini ixtiro qildi. Mahsulotlar TUV, IEC, CE, INMETRO kabi xalqaro va "
+"CQC, ISO9001, ISO14001 kabi sanoat sertifikatlariga ega. DAH Solar doimo "
+"foydalanuvchi talabini e'tiborda tutib, yanada samarali va aqlli fotoelektr "
+"mahsulotlarini yetkazib berishda davom etadi."
+
+msgid "View More"
+msgstr "Ko'proq ko'rish"
+
+#: templates/main/home.html:240
+msgid "How We Produce"
+msgstr "Issiq mahsulotlar"
+
+#: templates/main/home.html:241
+#| msgid ""
+#| "DAH Solar has 4 high-end technology factories with fully automatic workshops"
+#| " and equipment. Annually DAH Solar's intelligent factories could produce 5.5"
+#| " GW capacity for TOPCon solar cells, 10 GW TOPCon PV modules (over all is "
+#| "2024 simiyearly production goal). DAH Solar is conjecting the cultivation of"
+#| " the mass production of N-type PV modules, Integrative microinverters, and "
+#| "solar storage in the next few years. DAH Solar aims to provide a low-carbon "
+#| "lifestyle, so we maintain our intelligent factories environment friendly, "
+#| "low-carbon, and green. DAH factories maintain high productivity by equipping"
+#| " factories with advanced automatic equipment. We grasp the leading "
+#| "manufacturing technique. DAH Solar committees provide high-quality PV "
+#| "products, so we have strict inspections and quality control protocols. Our "
+#| "highly efficient logistics guarantee the fastest delivery to customers all "
+#| "over the world."
+msgid ""
+" DAH Solar has 4 high-end technology factories with fully automatic "
+"workshops and equipment. Annually DAH Solar’s intelligent factories could "
+"produce&nbsp;5.5 GW capacity for TOPCon solar cells, 10 GW TOPCon PV "
+"modules(over all is 2024 simiyearly production goal).&nbsp;&nbsp;DAH Solar "
+"is conjecting the cultivation of the mass production of N-type PV modules, "
+"Integrative microinverters, and solar storage in the next few years. DAH "
+"Solar aims to provide a low-carbon lifestyle, so we maintain our intelligent"
+" factories environment friendly, low-carbon, and green.&nbsp; DAH factories "
+"maintain high productivity by equipping factories with advanced automatic "
+"equipment. We grasp the leading manufacturing technique. DAH Solar "
+"committees provide high-quality PV products, so we have strict inspections "
+"and quality control protocols. Our highly efficient logistics guarantee the "
+"fastest delivery to customers all over the world."
+msgstr ""
+"DAH Solar to'liq avtomatik ustaxonalar va uskunalarga ega 4 ta yuqori "
+"texnologiyali zavodga ega. Har yili DAH Solar aqlli zavodlari TOPCon quyosh "
+"batareyalari uchun 5,5 GVt quvvat, 10 GVt TOPCon PV modullarini ishlab "
+"chiqarishi mumkin (barchasi 2024 yilga mo'ljallangan ishlab chiqarish "
+"maqsadi). DAH Solar kelgusi bir necha yil ichida N-tipli PV modullarini, "
+"Integrativ mikroinverterlarni va quyosh batareyasini saqlashni ommaviy "
+"ishlab chiqarishni o'stirishni taxmin qilmoqda. DAH Solar kam uglerodli "
+"turmush tarzini ta'minlashga qaratilgan, shuning uchun biz aqlli "
+"zavodlarimizni atrof-muhitga mos, kam uglerodli va yashil rangda saqlaymiz. "
+"DAH zavodlari zavodlarni ilg'or avtomatik uskunalar bilan jihozlash orqali "
+"yuqori mahsuldorlikni saqlaydi. Biz etakchi ishlab chiqarish texnologiyasini"
+" tushunamiz. DAH Quyosh qo'mitalari yuqori sifatli PV mahsulotlarini taqdim "
+"etadi, shuning uchun bizda qattiq tekshiruvlar va sifat nazorati "
+"protokollari mavjud. Bizning yuqori samarali logistikamiz butun dunyo "
+"bo'ylab mijozlarga eng tez yetkazib berishni kafolatlaydi."
+
+#: templates/main/home.html:247
+#| msgid ""
+#| "DAH Solar PV modules have been certifited by TUV, CEC, CE, INMETRO, FIDE, "
+#| "ISO19001, ISO14001, OHSMS18001, CQC etc domestic & international authorized "
+#| "certifications."
+msgid ""
+" "
+"DAH Solar PV modules have been certifited by TUV, CEC, CE, INMETRO, FIDE, ISO19001, ISO14001, OHSMS18001, CQC etc domestic & international authorized certifications."
+" "
+msgstr ""
+"DAH Quyosh PV modullari TUV, CEC, Idoralar, INMETRO, FIDE, ISO19001, "
+"ISO14001, OHSMS18001, CQC va boshqalar mahalliy va xalqaro vakolatli "
+"sertifikatlar tomonidan sertifikatlangan."
+
+#: templates/main/home.html:280
+#| msgid "View More"
+msgid "View More Teams"
+msgstr "Ko'proq ko'rish"
+
+#: templates/main/home.html:289
+msgid "Project Cases"
+msgstr "Loyihalar"
+
+#: templates/main/home.html:290
+msgid ""
+"More than 120 countries have installed DAH Solar PV Modules and Solar "
+"Systems all over the world."
+msgstr ""
+"120 dan ortiq mamlakatlar butun dunyo bo'ylab DAH quyoshli PV modullari va "
+"quyosh tizimlarini o'rnatdilar."
+
+#: templates/main/home.html:318
+msgid "View More Projects"
+msgstr "Ko'proq mahsulotlarni ko'rish"
+
+#: templates/main/home.html:328
+msgid "News Center"
+msgstr "Yangiliklar markazi"
+
+#: templates/main/home.html:329
+#| msgid ""
+#| "Get more advanced market technology and communicate with customers deeply."
+msgid ""
+"More than 10 exhibitions from global market every year.<br>Get more advanced"
+" market technology and communicate with customers deeply."
+msgstr ""
+"Ilg'or bozor texnologiyasini oling va mijozlar bilan chuqur muloqot qiling."
+
+#: templates/main/home.html:333
+msgid "Global Exhibitions"
+msgstr "Global ko'rgazmalar"
+
+#: templates/main/home.html:334
+msgid "Events"
+msgstr "Voqealar"
+
+#: templates/main/home.html:335
+msgid "Social Activities"
+msgstr "Ijtimoiy faoliyat"
+
+#: templates/main/home.html:397
+msgid "Video Center"
+msgstr "Video markazi"
+
+#: templates/main/home.html:398
+msgid "DAH Solar Always shows the truest side to the customers."
+msgstr "DAH Solar har doim mijozlarga eng haqiqiy tomonni ko'rsatadi."
+
+#: templates/main/search_results.html:6 templates/main/search_results.html:10
+msgid "Search results for"
+msgstr "uchun qidiruv natijalari"
+
+#: templates/main/search_results.html:14
+msgid "Find the best solar solutions. Search results for"
+msgstr "Eng yaxshi quyosh yechimlarini toping. uchun qidiruv natijalari"
+
+#: templates/main/search_results.html:18
+msgid "search, solar solutions, DAH Solar, results for"
+msgstr "qidiruv, quyosh yechimlari, DAH Solar, uchun natijalar"
+
+#: templates/main/search_results.html:121
+msgid "DAH Solar"
+msgstr "DAH Solar"
+
+#~ msgid "DAH Solar - High Efficiency Solar Panels"
+#~ msgstr "DAH Solar - Yuqori samarali quyosh panellari"
+
+#~ msgid ""
+#~ "Anhui Daheng Energy Technology Co.,LTD. specializes in solar panels and "
+#~ "power systems with 10+ years of experience."
+#~ msgstr ""
+#~ "Anhui Daheng Energy Technology Co., LTD.10+ yillik tajribaga ega quyosh "
+#~ "panellari va energiya tizimlariga ixtisoslashgan."
+
+#~ msgid "Solar Panels, Solar Power System, PV Modules"
+#~ msgstr "Quyosh panellari, quyosh energiyasi tizimi, PV modullari"
+
+#~ msgid "Previous page"
+#~ msgstr "Oldingi sahifa"
+
+#~ msgid "Next page"
+#~ msgstr "Keyingi sahifa"
+
+#~ msgid "PV Module"
+#~ msgstr "PV moduli"
+
+#~ msgid "Solar System"
+#~ msgstr "Quyosh tizimi"
+
+#~ msgid "More than 10 exhibitions from global market every year."
+#~ msgstr "Har yili jahon bozoridan 10 dan ortiq ko'rgazmalar."
