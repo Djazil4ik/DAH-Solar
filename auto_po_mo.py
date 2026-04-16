@@ -1,7 +1,13 @@
 import time
 import re
+import os
 from googletrans import Translator
 import polib
+import dotenv
+
+dotenv.load_dotenv()  # Загружаем переменные окружения из .env файла
+
+language = os.getenv("DEST_LANGUAGE", "ru")  # Получаем язык из переменной окружения или используем русский по умолчанию
 
 
 def fix_punctuation_spacing(text):
@@ -11,7 +17,7 @@ def fix_punctuation_spacing(text):
     return text
 
 
-def translate_po_file(po_path, src_lang='en', dest_lang='uz', delay=0.5):
+def translate_po_file(po_path, src_lang='en', dest_lang=language, delay=0.5):
     """
     Автоматический перевод .po файла
     
@@ -78,4 +84,4 @@ def translate_po_file(po_path, src_lang='en', dest_lang='uz', delay=0.5):
 
 
 if __name__ == "__main__":
-    translate_po_file("locale/uz/LC_MESSAGES/django.po")
+    translate_po_file(f"locale/{language}/LC_MESSAGES/django.po")
