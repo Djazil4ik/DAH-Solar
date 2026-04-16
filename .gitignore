@@ -23,3 +23,7 @@ staticfiles/
 media/
 node_modules/
 *.mo
+serve.py
+some.html
+dahsolar_products_*.csv
+dahsolar_products_*.json
