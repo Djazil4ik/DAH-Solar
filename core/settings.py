@@ -53,8 +53,6 @@ INSTALLED_APPS = [
     'videoapp',
     'dahsolar',
     'contacts',
-
-
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -64,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'ckeditor',
 ]
 
 
