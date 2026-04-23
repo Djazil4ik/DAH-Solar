@@ -40,7 +40,7 @@ INTERNAL_IPS = [
 ]
 
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,dahsolar.uz,www.dahsolar.uz').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,dahsolar.uz,www.dahsolar.uz,127.0.0.1').split(',')
 
 # Application definition
 
