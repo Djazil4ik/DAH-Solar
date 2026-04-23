@@ -1,3 +1,4 @@
+# products/views.py
 from django.core.paginator import Paginator
 from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404
