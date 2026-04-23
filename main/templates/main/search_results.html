@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block description %}
-    {% translate "Find the best solar solutions. Search results for" %} {{ request.GET.query }}
+    {% trans "Find the best solar solutions." as meta_desc %}
+<meta name="description" content="{{ meta_desc }} {{ request.GET.query }}">
 {% endblock %}
 
 {% block keywords %}
@@ -71,7 +72,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a><em>|</em></li> 
+                                <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a><em>|</em></li> 
                             </ul>
                         </nav>
                     </div>	
@@ -120,9 +121,9 @@
 
                     <li><a href="{% url 'dahsolar:dahsolar' %}">{% translate 'DAH Solar' %}</a>
                         <ul class="vmegamenu">
-                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
-                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
-                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission</a></li>
+                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">{% translate 'Overview' %}</a></li>
+                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">{% translate 'DAH Factories' %}</a></li>
+                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">{% translate 'Vision &  Mission' %}</a></li>
                         </ul>
                     </li>
 
@@ -139,9 +140,9 @@
     <div class="container">
         <div class="breadcrumb clearfix">
             <div class="bread-right">
-                <a class="home" href="{% url 'main:home' %}" title="Return to Home">Home</a>
+                <a class="home" href="{% url 'main:home' %}" title="{% translate 'Return to Home' %}">{% translate 'Home' %}</a>
                 <i></i>
-                <h2>Search</h2>
+                <h2>{% translate 'Search' %}</h2>
             </div>
         </div>
     </div>
@@ -153,7 +154,7 @@
             <div class="page_left col-sm-2 col-xs-12 clearfix">
                 <div id="right_column" class="left-nav column">
                     <section class="block blockcms column_box">
-                        <span><em>Categories</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <span><em>{% translate 'Categories' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
                         <div class="htmleaf-content toggle_content">
                             <ul class="mtree">
                                 {% for category in navbar_categories %}
@@ -173,7 +174,7 @@
 
                 <div id="right_column" class="left-pro column">
                     <section class="block blockcms column_box">
-                        <span><em>New Products</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <span><em>{% translate 'New Products' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
                         <div class="htmleaf-content toggle_content">
                             <ul>
                                 {% for new_product in new_products %}
@@ -184,7 +185,7 @@
                                     <div class="lnews-right">
                                         <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="left-pro-t">{{ new_product.prod_model }}</a>
                                         <p>Full-Screen | {{ new_product.prod_type }} | {{ new_product.max_power }}</p>
-                                        <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">Read More<i class="fa fa-caret-right"></i></a>
+                                        <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">{% translate 'Read More' %}<i class="fa fa-caret-right"></i></a>
                                     </div>
                                 </li>
                                 {% endfor %}
@@ -195,7 +196,7 @@
 
                 <div id="right_column" class="left-news column">
                     <section class="block blockcms column_box">
-                        <span><em>Latest News</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+                        <span><em>{% translate 'Latest News' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
                         <div class="htmleaf-content toggle_content">
                             <div class="news_left_1">
                                 {% for first_new in first_news %}
@@ -224,12 +225,12 @@
                 <div class="main">
                     <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
                         <div class="cbp-vm-options">
-                            <p>View :</p>
-                            <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid">Grid View</a>
-                            <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list">List View</a>
+                            <p>{% translate 'View' %} :</p>
+                            <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid">{% translate 'Grid View' %}</a>
+                            <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list">{% translate 'List View' %}</a>
                         </div>
 
-                        <h2>Search results</h2>
+                        <h2>{% translate 'Search results' %}</h2>
 
                         {% if results %}
                         <ul class="clearfix">
@@ -239,7 +240,7 @@
                                     <div class="cbp-vm-image">
                                         <div class="img">
                                             <a class="cbp-vm-img" href="{% url 'products:product_detail' result.slug %}" title="{{ result.prod_model }}">
-                                                <img id="product_detail_img" alt="Half-Cell High Efficiency PV Module with Silver Frame" src="{{ result.products_images.first.image.url }}">
+                                                <img id="product_detail_img" alt="{{ result.prod_model }}" src="{{ result.products_images.first.image.url }}">
                                             </a>
                                             <div class="icon">
                                                 <a href="{% url 'products:product_detail' result.slug %}" title="{{ result.prod_model }}">
@@ -249,10 +250,10 @@
                                         </div>
                                     </div>
                                     <div class="cbp-list-center">
-                                        <a href="{% url 'products:product_detail' result.slug %}" title="DHM-72X10-540~555W" class="cbp-title">{{ result.prod_model }}</a>
+                                        <a href="{% url 'products:product_detail' result.slug %}" title="{{ result.prod_model }}" class="cbp-title">{{ result.prod_model }}</a>
                                         <div class="cbp-vm-details">{{ result.sub_title }}</div>      
                                         <div class="cbp-list-more">
-                                            <a href="{% url 'products:product_detail' result.slug %}" title="DHM-72X10-540~555W" class="cbp-list-view more1">view detail</a>
+                                            <a href="{% url 'products:product_detail' result.slug %}" title="{{ result.prod_model }}" class="cbp-list-view more1">{% translate 'view detail' %}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +261,7 @@
                             {% endfor %}
                         </ul>
                         {% else %}
-                        <p>Ничего не найдено.</p>
+                        <p>{% translate 'No results found' %}</p>
                         {% endif %}
                     </div>
                     <script type="text/javascript" src="{% static 'js/cbpViewModeSwitch.js' %}"></script>
