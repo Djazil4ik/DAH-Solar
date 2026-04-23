@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-20 04:30+0000\n"
+"POT-Creation-Date: 2026-03-27 05:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,142 +18,259 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: templates/main/base.html:85
+#: templates/main/base.html:100
 msgid "What are you looking for?"
 msgstr "Что Вы ищете?"
 
-#: templates/main/base.html:91
+#: templates/main/base.html:106
 msgid "Search..."
 msgstr "Поиск..."
 
-#: templates/main/base.html:110
+#: templates/main/base.html:127
 msgid "Language"
 msgstr "Язык"
 
-#: templates/main/base.html:233
+#: templates/main/base.html:235
+#, python-format
+msgid ""
+"Global Technology Leading PV Enterprise DAH Solar Co., Ltd.&nbsp;focuses on "
+"the R&amp;D, manufacturing, and sales of high-efficiency power generation PV"
+" modules, integrated PV systems, and solar energy storage systems. DAH Solar"
+" committees to provide better solar solutions innovatively. With more and "
+"more needs for clean energy, DAH Solar continues to bring a more efficient, "
+"convenient, and reliable series of PV products to global users. "
+"Technological innovation and patented products With our leading "
+"technological innovation and excellent product quality, we enable global "
+"users more conveniently and stably to obtain efficient clean solar energy. "
+"We have 200 patented technologies used in our PV products. Our global "
+"patented product Full-Screen PV module achieves front A-side frameless "
+"design, which increases power generation by 6%%-15%% (field test result "
+"published by TUV Nord) compared to the regular PV modules. The world's first"
+" integrated PV system, SolarUnit, could maximize the installation area of "
+"the rooftop. SolarUnit made the integrated design of modules and inverters "
+"come true. SolarUnit provides users with a more efficient, convenient, "
+"safer, and beautiful residential PV system. SolarUnit promotes PV products "
+"in the era of home PV appliances. World Recognized PV Supplier DAH Solar's "
+"products have been sold in more than 100 countries and regions around the "
+"world. In Latin America, we have become the TOP 3 well-known PV companies in"
+" Brazil. In Europe, the demand for our innovative products, Full-Screen PV "
+"Modules, is exceeding supplies. Besides, to provide better service to global"
+" customers, we have established our warehouses in many countries and "
+"regions, like the EU stock in Rotterdam in the Netherlands. In addition, we "
+"have established very convenient purchase channels for global consumers. "
+"Customers can purchase DAH Solar’s products through distributors or official"
+" websites and E-commercial platforms. Social Responsibilities DAH Solar’s "
+"Solar Cells, Modules, and Inverters R&amp;D and Production Factories Bases "
+"not only attract a large number of local high-end technical talents but also"
+" creates more than 2,000 job positions for local residents. Every year, we "
+"hold many social activities, such as donations to charities, responses to "
+"the Covid-19 pandemic, contributing to community growth, etc. to advocate "
+"for social development. Our ultimate goal is to embrace the era of clean "
+"energy to protect the environment and the behalf of mankind. Employee "
+"Development DAH Solar is committed to creating a better career development "
+"platform for our employees. We seek equity for all genders and ages in the "
+"workplace. DAH Solar offers our employees a free team-building trip, "
+"annually. We believe that refreshing is another path to creation. DAH Solar "
+"is also concerned about the health condition of our employees. That's why we"
+" provide our employees with free health checks and a full package of "
+"healthcare. At DAH Solar, we treat our employees not only as team assets but"
+" as our own families."
+msgstr ""
+"Ведущее в мире фотоэлектрическое предприятие DAH Solar Co., Ltd. "
+"специализируется на исследованиях и разработках, производстве и продаже "
+"высокоэффективных фотоэлектрических модулей для выработки электроэнергии, "
+"интегрированных фотоэлектрических систем и систем хранения солнечной "
+"энергии. Комитеты DAH Solar предлагают лучшие инновационные решения в "
+"области солнечной энергии. Учитывая все большую потребность в чистой "
+"энергии, DAH Solar продолжает предлагать пользователям по всему миру более "
+"эффективную, удобную и надежную серию фотоэлектрических продуктов. "
+"Технологические инновации и запатентованные продукты Благодаря нашим "
+"передовым технологическим инновациям и превосходному качеству продукции мы "
+"даем возможность пользователям во всем мире более удобно и стабильно "
+"получать эффективную чистую солнечную энергию. У нас есть 200 "
+"запатентованных технологий, используемых в нашей фотоэлектрической "
+"продукции. Наш запатентованный во всем мире полноэкранный фотомодуль имеет "
+"безрамную конструкцию с передней стороны А, что увеличивает выработку "
+"электроэнергии на 6%%-15%% (результаты полевых испытаний опубликованы TUV "
+"Nord) по сравнению с обычными фотоэлектрическими модулями. Первая в мире "
+"интегрированная фотоэлектрическая система SolarUnit может максимально "
+"увеличить площадь установки на крыше. Компания SolarUnit воплотила в жизнь "
+"интегрированный дизайн модулей и инверторов. SolarUnit предоставляет "
+"пользователям более эффективную, удобную, безопасную и красивую домашнюю "
+"фотоэлектрическую систему. SolarUnit продвигает фотоэлектрическую продукцию "
+"в эпоху домашних фотоэлектрических приборов. Продукция DAH Solar, "
+"признанного во всем мире поставщика фотоэлектрических систем, продается "
+"более чем в 100 странах и регионах по всему миру. В Латинской Америке мы "
+"вошли в ТОП-3 известных фотоэлектрических компаний Бразилии. В Европе спрос "
+"на нашу инновационную продукцию — полноэкранные фотоэлектрические модули — "
+"превышает предложение. Кроме того, чтобы обеспечить лучшее обслуживание "
+"клиентов по всему миру, мы открыли наши склады во многих странах и регионах,"
+" например, склад ЕС в Роттердаме в Нидерландах. Кроме того, мы создали очень"
+" удобные каналы закупок для потребителей по всему миру. Клиенты могут "
+"приобретать продукцию DAH Solar через дистрибьюторов или на официальных веб-"
+"сайтах и ​​платформах электронной коммерции. Социальная ответственность "
+"Научно-исследовательские и производственные предприятия DAH Solar по "
+"производству солнечных элементов, модулей и инверторов не только привлекают "
+"большое количество местных высококлассных технических талантов, но и создают"
+" более 2000 рабочих мест для местных жителей. Каждый год мы проводим "
+"множество социальных мероприятий, таких как пожертвования в "
+"благотворительные организации, меры реагирования на пандемию Covid-19, "
+"содействие росту сообщества и т. д. в целях пропаганды социального развития."
+" Наша конечная цель — войти в эпоху чистой энергии для защиты окружающей "
+"среды и интересов человечества. Развитие сотрудников DAH Solar стремится "
+"создать лучшую платформу для развития карьеры для наших сотрудников. Мы "
+"стремимся к равенству для всех полов и возрастов на рабочем месте. DAH Solar"
+" ежегодно предлагает своим сотрудникам бесплатную поездку для тимбилдинга. "
+"Мы считаем, что обновление — это еще один путь к творчеству. DAH Solar также"
+" обеспокоена состоянием здоровья наших сотрудников. Именно поэтому мы "
+"предоставляем нашим сотрудникам бесплатные медицинские осмотры и полный "
+"пакет медицинского обслуживания. В DAH Solar мы относимся к нашим "
+"сотрудникам не только как к активу команды, но и как к своей семье."
+
+#: templates/main/base.html:250
 msgid "Get in touch"
 msgstr "Свяжитесь с нами"
 
-#: templates/main/base.html:236
+#: templates/main/base.html:253
 msgid "Tel"
 msgstr "Тел"
 
-#: templates/main/base.html:237
+#: templates/main/base.html:254
 msgid "Telegram"
 msgstr "Телеграм"
 
-#: templates/main/base.html:244
+#: templates/main/base.html:261
 msgid "Need Help"
 msgstr "Нужна помощь"
 
-#: templates/main/base.html:248 templates/main/home.html:20
-#: templates/main/home.html:78 templates/main/search_results.html:31
-#: templates/main/search_results.html:89
+#: templates/main/base.html:265 templates/main/home.html:18
+#: templates/main/home.html:90 templates/main/search_results.html:32
+#: templates/main/search_results.html:90
+#: templates/main/search_results.html:143
 msgid "Home"
 msgstr "Главная"
 
-#: templates/main/base.html:250
+#: templates/main/base.html:267
 msgid "About Us"
 msgstr "О нас"
 
-#: templates/main/base.html:252 templates/main/home.html:22
-#: templates/main/home.html:80 templates/main/search_results.html:33
-#: templates/main/search_results.html:91
+#: templates/main/base.html:269 templates/main/home.html:22
+#: templates/main/home.html:92 templates/main/search_results.html:34
+#: templates/main/search_results.html:92
 msgid "Products"
 msgstr "Продукция"
 
-#: templates/main/base.html:254 templates/main/home.html:45
-#: templates/main/home.html:100 templates/main/search_results.html:58
-#: templates/main/search_results.html:113
+#: templates/main/base.html:271 templates/main/home.html:55
+#: templates/main/home.html:115 templates/main/search_results.html:59
+#: templates/main/search_results.html:114
 msgid "News"
 msgstr "Новости"
 
-#: templates/main/base.html:256 templates/main/home.html:60
-#: templates/main/home.html:114 templates/main/search_results.html:129
+#: templates/main/base.html:273 templates/main/home.html:73
+#: templates/main/home.html:130 templates/main/search_results.html:75
+#: templates/main/search_results.html:130
 msgid "Contact Us"
 msgstr "Связаться с нами"
 
-#: templates/main/base.html:266
+#: templates/main/base.html:283
 msgid "Hot Products"
 msgstr "Горячие продукты"
 
-#: templates/main/home.html:7
+#: templates/main/home.html:6
 msgid "DAH Solar - Reinvents PV Module"
-msgstr "DAH Solar - Revents PV Module"
+msgstr "DAH Solar — новое изобретение фотоэлектрического модуля"
 
-#: templates/main/home.html:38 templates/main/home.html:93
-#: templates/main/search_results.html:50
-#: templates/main/search_results.html:105
+#: templates/main/home.html:46 templates/main/home.html:107
+#: templates/main/search_results.html:51
+#: templates/main/search_results.html:106
 msgid "Projects"
 msgstr "Проекты"
 
-#: templates/main/home.html:55 templates/main/home.html:109
-#: templates/main/home.html:221 templates/main/search_results.html:68
+#: templates/main/home.html:67 templates/main/home.html:125
+#: templates/main/home.html:243 templates/main/search_results.html:69
+#: templates/main/search_results.html:124
 msgid "Overview"
 msgstr "Обзор"
 
-#: templates/main/home.html:56 templates/main/home.html:110
-#: templates/main/home.html:222 templates/main/search_results.html:69
+#: templates/main/home.html:68 templates/main/home.html:126
+#: templates/main/home.html:244 templates/main/search_results.html:70
+#: templates/main/search_results.html:125
 msgid "DAH Factories"
 msgstr "DAH Фабрики"
 
-#: templates/main/home.html:57 templates/main/home.html:111
-#: templates/main/search_results.html:70
-msgid "Vision &  Mission"
+#: templates/main/home.html:69 templates/main/home.html:127
+msgid "Vision & Mission"
 msgstr "Видение и Миссия"
 
-#: templates/main/home.html:163
+#: templates/main/home.html:157
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: templates/main/home.html:161
+msgid "Next page"
+msgstr "Следующая страница"
+
+#: templates/main/home.html:169
 msgid "Our Products"
 msgstr "Наша Продукция"
 
-#: templates/main/home.html:164
+#: templates/main/home.html:170
 msgid "Quality First, Service Foremost"
 msgstr "Качество первым, услуги пержде всего"
 
-#: templates/main/home.html:186
+#: templates/main/home.html:175 templates/main/home.html:176
+msgid "PV Module"
+msgstr "Фотоэлектрический модуль"
+
+#: templates/main/home.html:179 templates/main/home.html:180
+msgid "Solar System"
+msgstr "Солнечная система"
+
+#: templates/main/home.html:202 templates/main/home.html:223
 msgid "View More Products"
 msgstr "Посмотреть Больше продуктов"
 
-#: templates/main/home.html:213
+#: templates/main/home.html:235
 msgid "Welcome To DAH Solar"
 msgstr "Добро пожаловать в DAH Solar"
 
-#: templates/main/home.html:214
+#: templates/main/home.html:236
 msgid "Excellent Smart PV Module Leading Runner"
 msgstr ""
 "Победитель в номинации «Отличный интеллектуальный фотоэлектрический модуль»"
 
-#: templates/main/home.html:223
+#: templates/main/home.html:245
 msgid "Certificates List"
 msgstr "Список сертификатов"
 
-#: templates/main/home.html:230
+#: templates/main/home.html:254
 msgid "Who We Are"
 msgstr "Кто мы"
 
-#: templates/main/home.html:231
+#: templates/main/home.html:257
+#, python-format
 msgid ""
-"Being established in 2009, DAH Solar is an innovation-driven and technology-"
-"leading company in PV product manufacturing. The production capacity in 2024"
-" will reach 6GW solar cells, 10GW PV modules, 300,000 sets SolarUnit, 5GW "
-"silicon wafers and 10GW vertical integration manufacturing base under "
-"construction, Solar Unit. DAH Solar contributes to providinghigh-"
-"efficiencyPVmodules, high-qualitysolarcells, high-techintegrated solars "
+" Being established in 2009, DAH Solar is an innovation-driven and "
+"technology-leading company in PV product manufacturing.The production "
+"capacity in 2024 will reach 6GW solar cells,10GW PV modules, 300,000 sets "
+"SolarUnit, 5GW silicon wafers and 10GW vertical integration manufacturing "
+"base under construction, Solar Unit. DAH Solar contributes to providinghigh-"
+"efficiencyPVmodules,high-qualitysolarcells,high-techintegrated solars "
 "ystems, and high-value energy storage for our value dcustomers. DAH Solar’s "
 "products have been sold to more than 120 countries and regions around the "
 "world includingGermany, Netherlands, Spain, Brazil, Mexico, Australia, Japan"
 " and soon. &nbsp; Technology innovation has been the most important driving "
 "force of the development of DAH Solar. DAH Solar invests more than 15%% "
 "annually in&nbsp; research and development. DAH Solar is the founder and the"
-" master of the Full-Screen PV Module. The Full-Screen PV Module which has no"
-" frame on all sides on the front holds a global patent over 18 countries and"
-" regions, it can increase the power generation by 6-15%%. Besides, DAH Solar"
-" invents the world’s first integrated PV system, SolarUnit. DAH Solar’s "
+" master of the Full-Screen PV Module.The Full-Screen PV Module which has no "
+"frame on all sides on the front holds a global patent over 18 countries and "
+"regions, it can increase the power generation by 6-15%%. Besides, DAH Solar "
+"invents the world’s first integrated PV system, SolarUnit. DAH Solar’s "
 "products have international authoritative certifications such as TUV, IEC, "
 "CE,and INMETRO,domestic industry certifications such as CQC, Leader, "
 "ISO9001, ISO14001, ISO45001, etc. DAH Solar will always regard the user "
 "demand as the key focus of product research and innovation and keep on "
-"bringing more efficient, stable and intelligent photovoltaicproducts. "
+"bringing more efficient, stable and intelligent photovoltaicproducts."
 msgstr ""
 "Основанная в 2009 году, компания DAH Solar является инновационным "
 "технологическим лидером в производстве фотоэлектрической продукции. В 2024 "
@@ -175,18 +292,18 @@ msgstr ""
 " пользователей, предлагая эффективные и интеллектуальные решения для "
 "солнечной энергетики."
 
-#: templates/main/home.html:232 templates/main/home.html:242
+#: templates/main/home.html:261 templates/main/home.html:277
 msgid "View More"
 msgstr "Посмотреть Больше"
 
-#: templates/main/home.html:240
+#: templates/main/home.html:272
 msgid "How We Produce"
 msgstr "Как мы производим"
 
-#: templates/main/home.html:241
+#: templates/main/home.html:274
 msgid ""
-" DAH Solar has 4 high-end technology factories with fully automatic "
-"workshops and equipment. Annually DAH Solar’s intelligent factories could "
+"DAH Solar has 4 high-end technology factories with fully automatic workshops"
+" and equipment. Annually DAH Solar’s intelligent factories could "
 "produce&nbsp;5.5 GW capacity for TOPCon solar cells, 10 GW TOPCon PV "
 "modules(over all is 2024 simiyearly production goal).&nbsp;&nbsp;DAH Solar "
 "is conjecting the cultivation of the mass production of N-type PV modules, "
@@ -215,28 +332,20 @@ msgstr ""
 "протоколы проверки и контроля качества. Наша высокоэффективная логистика "
 "гарантирует самую быструю доставку клиентам по всему миру."
 
-#: templates/main/home.html:247
-#| msgid ""
-#| "bDAH Solar PV modules have been certifited by TUV, CEC, CE, INMETRO, FIDE, ISO19001, ISO14001, OHSMS18001, CQC etc domestic & international authorized certifications."
+#: templates/main/home.html:283
 msgid ""
-" "
-"DAH Solar PV modules have been certifited by TUV, CEC, CE, INMETRO, FIDE, ISO19001, ISO14001, OHSMS18001, CQC etc domestic & international authorized certifications."
-" "
+"DAH Solar PV modules have been certifited by TUV, CEC, CE, INMETRO, FIDE, "
+"ISO19001, ISO14001, OHSMS18001, CQC etc."
 msgstr ""
 "Солнечные фотоэлектрические модули DAH сертифицированы TUV, CEC, CE, "
 "INMETRO, FIDE, ISO19001, ISO14001, OHSMS18001, CQC и т. д. внутренними и "
 "международными авторизованными сертификатами."
 
-#: templates/main/home.html:280
-#| msgid "View More"
-msgid "View More Teams"
-msgstr "Посмотреть Больше"
-
-#: templates/main/home.html:289
+#: templates/main/home.html:302
 msgid "Project Cases"
 msgstr "Проекты"
 
-#: templates/main/home.html:290
+#: templates/main/home.html:303
 msgid ""
 "More than 120 countries have installed DAH Solar PV Modules and Solar "
 "Systems all over the world."
@@ -244,38 +353,38 @@ msgstr ""
 "Более 120 стран установили солнечные фотоэлектрические модули и солнечные "
 "системы DAH по всему миру."
 
-#: templates/main/home.html:318
+#: templates/main/home.html:327
 msgid "View More Projects"
 msgstr "Посмотреть Больше продуктов"
 
-#: templates/main/home.html:328
+#: templates/main/home.html:339
 msgid "News Center"
 msgstr "Центр новостей"
 
-#: templates/main/home.html:329
+#: templates/main/home.html:340
 msgid ""
-"More than 10 exhibitions from global market every year.<br>Get more advanced"
-" market technology and communicate with customers deeply."
+"More than 10 exhibitions from global market every year.<br />Get more "
+"advanced market technology and communicate with customers deeply."
 msgstr ""
 "Получите более передовые рыночные технологии и глубже общайтесь с клиентами."
 
-#: templates/main/home.html:333
+#: templates/main/home.html:344
 msgid "Global Exhibitions"
 msgstr "Глобальные выставки"
 
-#: templates/main/home.html:334
+#: templates/main/home.html:345
 msgid "Events"
 msgstr "События"
 
-#: templates/main/home.html:335
+#: templates/main/home.html:346
 msgid "Social Activities"
 msgstr "Социальная деятельность"
 
-#: templates/main/home.html:397
+#: templates/main/home.html:374
 msgid "Video Center"
 msgstr "Видеоцентр"
 
-#: templates/main/home.html:398
+#: templates/main/home.html:375
 msgid "DAH Solar Always shows the truest side to the customers."
 msgstr "DAH Solar всегда показывает клиентам самую истинную сторону."
 
@@ -284,16 +393,72 @@ msgid "Search results for"
 msgstr "Результаты поиска для"
 
 #: templates/main/search_results.html:14
-msgid "Find the best solar solutions. Search results for"
+msgid "Find the best solar solutions."
 msgstr "Найдите лучшие солнечные решения. Результаты поиска для"
 
-#: templates/main/search_results.html:18
+#: templates/main/search_results.html:19
 msgid "search, solar solutions, DAH Solar, results for"
 msgstr "поиск, солнечные решения, DAH Solar, результаты для"
 
-#: templates/main/search_results.html:121
+#: templates/main/search_results.html:71
+#: templates/main/search_results.html:126
+msgid "Vision &  Mission"
+msgstr "Видение и Миссия"
+
+#: templates/main/search_results.html:122
 msgid "DAH Solar"
 msgstr "DAH Solar"
+
+#: templates/main/search_results.html:143
+msgid "Return to Home"
+msgstr "Вернуться домой"
+
+#: templates/main/search_results.html:145
+msgid "Search"
+msgstr "Поиск..."
+
+#: templates/main/search_results.html:157
+msgid "Categories"
+msgstr "Категории"
+
+#: templates/main/search_results.html:177
+msgid "New Products"
+msgstr "Продукция"
+
+#: templates/main/search_results.html:188
+msgid "Read More"
+msgstr "Посмотреть Больше"
+
+#: templates/main/search_results.html:199
+msgid "Latest News"
+msgstr "Последние новости"
+
+#: templates/main/search_results.html:228
+msgid "View"
+msgstr "Вид"
+
+#: templates/main/search_results.html:229
+msgid "Grid View"
+msgstr "Представление в виде сетки"
+
+#: templates/main/search_results.html:230
+msgid "List View"
+msgstr "Просмотр списка"
+
+#: templates/main/search_results.html:233
+msgid "Search results"
+msgstr "Результаты поиска"
+
+#: templates/main/search_results.html:256
+msgid "view detail"
+msgstr "просмотреть детали"
+
+#: templates/main/search_results.html:264
+msgid "No results found"
+msgstr "Результаты поиска для"
+
+#~ msgid "View More Teams"
+#~ msgstr "Посмотреть Больше"
 
 #~ msgid "DAH Solar - High Efficiency Solar Panels"
 #~ msgstr "DAH Solar – Высокоэффективные солнечные панели"
@@ -308,18 +473,6 @@ msgstr "DAH Solar"
 #~ msgid "Solar Panels, Solar Power System, PV Modules"
 #~ msgstr ""
 #~ "Солнечные Панели, Солнечная Энергетическая Система, Фотоэлектрические Модули"
-
-#~ msgid "Previous page"
-#~ msgstr "Предыдущая страница"
-
-#~ msgid "Next page"
-#~ msgstr "Следующая страница"
-
-#~ msgid "PV Module"
-#~ msgstr "Фотоэлектрический модуль"
-
-#~ msgid "Solar System"
-#~ msgstr "Солнечная система"
 
 #~ msgid "More than 10 exhibitions from global market every year."
 #~ msgstr "Более 10 выставок мирового рынка каждый год."
