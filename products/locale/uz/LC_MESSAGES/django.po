@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-20 12:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: models.py:11 models.py:72
+msgid "Brand"
+msgstr "Brend"
+
+#: models.py:18 models.py:42 models.py:69
+#| msgid "Categories"
+msgid "Category"
+msgstr "Kategoriyalar"
+
+#: models.py:19 models.py:43
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:44 models.py:73
+#| msgid "Products"
+msgid "Product Type"
+msgstr "Mahsulotlar"
+
+#: models.py:70
+#| msgid "Products"
+msgid "Product Model"
+msgstr "Mahsulotlar"
+
+#: models.py:71
+msgid "Sub Title"
+msgstr "Pastki sarlavha"
+
+#: models.py:74
+msgid "Maximum Power"
+msgstr "Maksimal quvvat"
+
+#: models.py:75
+msgid "Dimensions"
+msgstr "O'lchamlari"
+
+#: models.py:76
+msgid "Certificate"
+msgstr "Sertifikat"
+
+#: models.py:77
+msgid "Warranty"
+msgstr "Kafolat"
+
+#: models.py:78
+msgid "Payment"
+msgstr "To'lov"
+
+#: models.py:79 templates/products/detail_view.html:347
+msgid "Advantages"
+msgstr "Afzalliklar"
+
+#: templates/products/category.html:5
+msgid "DAH Solar Global Patent Full-Screen PV Module"
+msgstr "DAH Quyosh global patenti toʻliq ekranli PV moduli"
+
+#: templates/products/category.html:18 templates/products/category.html:76
+#: templates/products/category.html:136 templates/products/detail_view.html:25
+#: templates/products/detail_view.html:105
+#: templates/products/detail_view.html:193 templates/products/products.html:18
+#: templates/products/type.html:18
+msgid "Home"
+msgstr "Uy"
+
+#: templates/products/category.html:20 templates/products/category.html:78
+#: templates/products/category.html:138 templates/products/detail_view.html:28
+#: templates/products/detail_view.html:108 templates/products/products.html:20
+#: templates/products/type.html:20
+msgid "Products"
+msgstr "Mahsulotlar"
+
+#: templates/products/category.html:36 templates/products/category.html:91
+#: templates/products/detail_view.html:52
+#: templates/products/detail_view.html:127
+#: templates/products/detail_view.html:403 templates/products/products.html:36
+#: templates/products/type.html:36
+msgid "Projects"
+msgstr "Loyihalar"
+
+#: templates/products/category.html:43 templates/products/category.html:98
+#: templates/products/detail_view.html:62
+#: templates/products/detail_view.html:137 templates/products/products.html:43
+#: templates/products/type.html:43
+msgid "News"
+msgstr "Yangiliklar"
+
+#: templates/products/category.html:53 templates/products/category.html:107
+#: templates/products/detail_view.html:75
+#: templates/products/detail_view.html:150
+msgid "Overview"
+msgstr "Umumiy koʻrinish"
+
+#: templates/products/category.html:54 templates/products/category.html:108
+#: templates/products/detail_view.html:78
+#: templates/products/detail_view.html:153
+msgid "DAH Factories"
+msgstr "DAH zavodlari"
+
+#: templates/products/category.html:55 templates/products/category.html:109
+msgid "Vision &  Mission "
+msgstr "Vizyon va Missiya"
+
+#: templates/products/category.html:58 templates/products/category.html:112
+#: templates/products/detail_view.html:87
+#: templates/products/detail_view.html:162
+msgid "Contact Us"
+msgstr "Biz bilan bog'lanish"
+
+#: templates/products/category.html:105
+msgid "DAH Solar"
+msgstr "DAH Quyosh"
+
+#: templates/products/category.html:136
+#: templates/products/detail_view.html:193
+msgid "Return to Home"
+msgstr "Uyga qaytish"
+
+#: templates/products/category.html:152
+#: templates/products/detail_view.html:210
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: templates/products/category.html:170
+#: templates/products/detail_view.html:232
+msgid "New Products"
+msgstr "Yangi mahsulotlar"
+
+#: templates/products/category.html:179
+#: templates/products/detail_view.html:250
+msgid "Read More"
+msgstr "Ko'proq o'qish"
+
+#: templates/products/category.html:190
+#: templates/products/detail_view.html:260
+msgid "Latest News"
+msgstr "So'ngi yangiliklar"
+
+#: templates/products/category.html:212
+msgid "View"
+msgstr "Ko'rish"
+
+#: templates/products/category.html:213
+msgid "Grid View"
+msgstr "To‘r ko‘rinishi"
+
+#: templates/products/category.html:214
+msgid "List View"
+msgstr "Roʻyxat koʻrinishi"
+
+#: templates/products/category.html:231
+msgid "View detail"
+msgstr "Tafsilotni ko'rish"
+
+#: templates/products/category.html:243
+msgid "first page"
+msgstr "birinchi sahifa"
+
+#: templates/products/category.html:244
+msgid "previous"
+msgstr "oldingi"
+
+#: templates/products/category.html:250
+msgid "last page"
+msgstr "oxirgi sahifa"
+
+#: templates/products/category.html:252
+msgid "A total of"
+msgstr "Jami"
+
+#: templates/products/category.html:252
+msgid "pages"
+msgstr "sahifalar"
+
+#: templates/products/detail_view.html:82
+#: templates/products/detail_view.html:157
+#| msgid "Vision &  Mission "
+msgid "Vision &  Mission"
+msgstr "Vizyon va Missiya"
+
+#: templates/products/detail_view.html:308
+msgid "Brand:"
+msgstr "Brend:"
+
+#: templates/products/detail_view.html:312
+msgid "Type:"
+msgstr "Turi:"
+
+#: templates/products/detail_view.html:316
+msgid "Max.Power:"
+msgstr "Maksimal quvvat:"
+
+#: templates/products/detail_view.html:320
+msgid "Dimensions:"
+msgstr "O'lchamlari:"
+
+#: templates/products/detail_view.html:324
+msgid "Certificate:"
+msgstr "Sertifikat:"
+
+#: templates/products/detail_view.html:328
+msgid "Warranty:"
+msgstr "Kafolat:"
+
+#: templates/products/detail_view.html:332
+msgid "Payment:"
+msgstr "Toʻlov:"
+
+#: templates/products/detail_view.html:337
+#| msgid "Contact Us"
+msgid "Contact Now"
+msgstr "Biz bilan bog'lanish"
+
+#: templates/products/detail_view.html:343
+#| msgid "Products"
+msgid "Product Detail"
+msgstr "Mahsulotlar"
+
+#: templates/products/detail_view.html:369
+msgid "Please contact our"
+msgstr "Iltimos, bizning"
+
+#: templates/products/detail_view.html:369
+msgid "Online Service Representative"
+msgstr "Onlayn xizmat vakili"
+
+#: templates/products/detail_view.html:369
+msgid "to get detail information and quotation about our"
+msgstr "haqida batafsil ma'lumot va kotirovkalarni olish uchun"
+
+#: templates/products/detail_view.html:369
+#| msgid "Products"
+msgid "products"
+msgstr "Mahsulotlar"
+
+#: templates/products/detail_view.html:393
+msgid "FAQs"
+msgstr "Tez-tez so'raladigan savollar"
+
+#: templates/products/detail_view.html:419
+#| msgid "previous"
+msgid "Previous:"
+msgstr "oldingi"
+
+#: templates/products/detail_view.html:426
+msgid "Next:"
+msgstr "Keyingisi:"
+
+#: templates/products/detail_view.html:449
+msgid "Send A Message"
+msgstr "Xabar yuborish"
+
+#: templates/products/detail_view.html:451
+msgid ""
+"You can contact us any way that is convenient for you. We are available 24/7"
+" via instagram, telegram or telephone."
+msgstr ""
+"Siz uchun qulay bo'lgan har qanday usulda biz bilan bog'lanishingiz mumkin. "
+"Biz instagram, telegram yoki telefon orqali 24/7 ishlaymiz."
+
+#: templates/products/detail_view.html:454
+msgid "Instagram:"
+msgstr "Instagram:"
+
+#: templates/products/detail_view.html:460
+msgid "Telegram:"
+msgstr "Telegram:"
+
+#: templates/products/detail_view.html:466
+msgid "Tel:"
+msgstr "Tel:"
+
+#: templates/products/detail_view.html:485
+#| msgid "New Products"
+msgid "Related Products"
+msgstr "Yangi mahsulotlar"

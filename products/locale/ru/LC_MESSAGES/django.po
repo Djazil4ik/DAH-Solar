@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-20 12:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: models.py:11 models.py:72
+msgid "Brand"
+msgstr "Бренд"
+
+#: models.py:18 models.py:42 models.py:69
+#| msgid "Categories"
+msgid "Category"
+msgstr "Категории"
+
+#: models.py:19 models.py:43
+msgid "Slug"
+msgstr "ЧПУ(Slug)"
+
+#: models.py:44 models.py:73
+#| msgid "Products"
+msgid "Product Type"
+msgstr "Продукты"
+
+#: models.py:70
+#| msgid "Products"
+msgid "Product Model"
+msgstr "Продукты"
+
+#: models.py:71
+msgid "Sub Title"
+msgstr "Подзаголовок"
+
+#: models.py:74
+msgid "Maximum Power"
+msgstr "Максимальная мощность"
+
+#: models.py:75
+msgid "Dimensions"
+msgstr "Размеры"
+
+#: models.py:76
+msgid "Certificate"
+msgstr "Сертификат"
+
+#: models.py:77
+msgid "Warranty"
+msgstr "Гарантия"
+
+#: models.py:78
+msgid "Payment"
+msgstr "Оплата"
+
+#: models.py:79 templates/products/detail_view.html:347
+msgid "Advantages"
+msgstr "Преимущества"
+
+#: templates/products/category.html:5
+msgid "DAH Solar Global Patent Full-Screen PV Module"
+msgstr ""
+"Полноэкранный фотоэлектрический модуль с глобальным патентом DAH Solar"
+
+#: templates/products/category.html:18 templates/products/category.html:76
+#: templates/products/category.html:136 templates/products/detail_view.html:25
+#: templates/products/detail_view.html:105
+#: templates/products/detail_view.html:193 templates/products/products.html:18
+#: templates/products/type.html:18
+msgid "Home"
+msgstr "Главная"
+
+#: templates/products/category.html:20 templates/products/category.html:78
+#: templates/products/category.html:138 templates/products/detail_view.html:28
+#: templates/products/detail_view.html:108 templates/products/products.html:20
+#: templates/products/type.html:20
+msgid "Products"
+msgstr "Продукты"
+
+#: templates/products/category.html:36 templates/products/category.html:91
+#: templates/products/detail_view.html:52
+#: templates/products/detail_view.html:127
+#: templates/products/detail_view.html:403 templates/products/products.html:36
+#: templates/products/type.html:36
+msgid "Projects"
+msgstr "Проекты"
+
+#: templates/products/category.html:43 templates/products/category.html:98
+#: templates/products/detail_view.html:62
+#: templates/products/detail_view.html:137 templates/products/products.html:43
+#: templates/products/type.html:43
+msgid "News"
+msgstr "Новости"
+
+#: templates/products/category.html:53 templates/products/category.html:107
+#: templates/products/detail_view.html:75
+#: templates/products/detail_view.html:150
+msgid "Overview"
+msgstr "Обзор"
+
+#: templates/products/category.html:54 templates/products/category.html:108
+#: templates/products/detail_view.html:78
+#: templates/products/detail_view.html:153
+msgid "DAH Factories"
+msgstr "Заводы DAH"
+
+#: templates/products/category.html:55 templates/products/category.html:109
+msgid "Vision &  Mission "
+msgstr "Видение и миссия"
+
+#: templates/products/category.html:58 templates/products/category.html:112
+#: templates/products/detail_view.html:87
+#: templates/products/detail_view.html:162
+msgid "Contact Us"
+msgstr "Связаться с нами"
+
+#: templates/products/category.html:105
+msgid "DAH Solar"
+msgstr "DAH Solar"
+
+#: templates/products/category.html:136
+#: templates/products/detail_view.html:193
+msgid "Return to Home"
+msgstr "Вернуться на Главную"
+
+#: templates/products/category.html:152
+#: templates/products/detail_view.html:210
+msgid "Categories"
+msgstr "Категории"
+
+#: templates/products/category.html:170
+#: templates/products/detail_view.html:232
+msgid "New Products"
+msgstr "Новые продукты"
+
+#: templates/products/category.html:179
+#: templates/products/detail_view.html:250
+msgid "Read More"
+msgstr "Читать далее"
+
+#: templates/products/category.html:190
+#: templates/products/detail_view.html:260
+msgid "Latest News"
+msgstr "Последние новости"
+
+#: templates/products/category.html:212
+msgid "View"
+msgstr "Вид"
+
+#: templates/products/category.html:213
+msgid "Grid View"
+msgstr "Представление в виде сетки"
+
+#: templates/products/category.html:214
+msgid "List View"
+msgstr "Просмотр списка"
+
+#: templates/products/category.html:231
+msgid "View detail"
+msgstr "Посмотреть детали"
+
+#: templates/products/category.html:243
+msgid "first page"
+msgstr "первая страница"
+
+#: templates/products/category.html:244
+msgid "previous"
+msgstr "предыдущий"
+
+#: templates/products/category.html:250
+msgid "last page"
+msgstr "последняя страница"
+
+#: templates/products/category.html:252
+msgid "A total of"
+msgstr "Всего"
+
+#: templates/products/category.html:252
+msgid "pages"
+msgstr "страниц"
+
+#: templates/products/detail_view.html:82
+#: templates/products/detail_view.html:157
+#| msgid "Vision &  Mission "
+msgid "Vision &  Mission"
+msgstr "Видение и миссия"
+
+#: templates/products/detail_view.html:308
+msgid "Brand:"
+msgstr "Бренд:"
+
+#: templates/products/detail_view.html:312
+msgid "Type:"
+msgstr "Тип:"
+
+#: templates/products/detail_view.html:316
+msgid "Max.Power:"
+msgstr "Макс. Мощность:"
+
+#: templates/products/detail_view.html:320
+msgid "Dimensions:"
+msgstr "Размеры:"
+
+#: templates/products/detail_view.html:324
+msgid "Certificate:"
+msgstr "Сертификат:"
+
+#: templates/products/detail_view.html:328
+msgid "Warranty:"
+msgstr "Гарантия:"
+
+#: templates/products/detail_view.html:332
+msgid "Payment:"
+msgstr "Оплата:"
+
+#: templates/products/detail_view.html:337
+#| msgid "Contact Us"
+msgid "Contact Now"
+msgstr "Связаться с нами"
+
+#: templates/products/detail_view.html:343
+#| msgid "Products"
+msgid "Product Detail"
+msgstr "Продукты"
+
+#: templates/products/detail_view.html:369
+msgid "Please contact our"
+msgstr "Пожалуйста, свяжитесь с нашим"
+
+#: templates/products/detail_view.html:369
+msgid "Online Service Representative"
+msgstr "Представителем онлайн-сервиса"
+
+#: templates/products/detail_view.html:369
+msgid "to get detail information and quotation about our"
+msgstr "чтобы получить подробную информацию и предложение о нашем"
+
+#: templates/products/detail_view.html:369
+#| msgid "Products"
+msgid "products"
+msgstr "Продукты"
+
+#: templates/products/detail_view.html:393
+msgid "FAQs"
+msgstr "Часто задаваемые вопросы"
+
+#: templates/products/detail_view.html:419
+#| msgid "previous"
+msgid "Previous:"
+msgstr "Предыдущий"
+
+#: templates/products/detail_view.html:426
+msgid "Next:"
+msgstr "Следующий:"
+
+#: templates/products/detail_view.html:449
+msgid "Send A Message"
+msgstr "Отправить сообщение"
+
+#: templates/products/detail_view.html:451
+msgid ""
+"You can contact us any way that is convenient for you. We are available 24/7"
+" via instagram, telegram or telephone."
+msgstr ""
+"Вы можете связаться с нами любым удобным для вас способом. Мы доступны 24/7 "
+"через Instagram, Telegram или по телефону."
+
+#: templates/products/detail_view.html:454
+msgid "Instagram:"
+msgstr "Инстаграм:"
+
+#: templates/products/detail_view.html:460
+msgid "Telegram:"
+msgstr "Телеграм:"
+
+#: templates/products/detail_view.html:466
+msgid "Tel:"
+msgstr "Тел:"
+
+#: templates/products/detail_view.html:485
+#| msgid "New Products"
+msgid "Related Products"
+msgstr "Связанные продукты"
