@@ -213,10 +213,38 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CSRF_TRUSTED_ORIGINS = [
     "https://dahsolar.uz",
     "https://www.dahsolar.uz",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000"
 ]
 
 SECURE_SSL_REDIRECT = False
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
+
+CELERY_BROKER_URL = "redis://localhost:6379/2"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/2"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = "Asia/Tashkent"
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike'],
+            ['Format', 'FontSize'],  # Font убрали
+            ['TextColor', 'BGColor'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+        ],
+        'height': 200,
+        'width': '100%',
+        'allowedContent': True,
+        'autoParagraph': False,
+    }
+}
