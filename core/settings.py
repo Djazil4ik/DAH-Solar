@@ -164,7 +164,7 @@ LANGUAGES = [
     ('uz', _('Uzbek'))
 ]
 
-LOCALE_PATH = [
+LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
 
