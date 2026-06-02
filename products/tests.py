@@ -23,7 +23,7 @@ class ProductModelTest(TestCase):
         cat1 = Categories.objects.create(category="Solar")
         cat2 = Categories.objects.create(category="Solar")
         self.assertNotEqual(cat1.slug, cat2.slug)
-        self.assertTrue(cat2.slug.startswith("solar-"))
+        self.assertTrue(cat2.slug.startswith("solar-")) #type: ignore
 
     def test_product_creation(self):
         """Проверяем создание продукта и его слаг"""

@@ -26,6 +26,7 @@ class TypeTranslationOptions(TranslationOptions):
 class SecondCategoryTranslationOptions(TranslationOptions):
     fields = ('second_category',)
 
+
 @register(Categories)
 class CategoriesTranslationOptions(TranslationOptions):
     fields = ('category',)
