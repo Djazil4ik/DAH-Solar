@@ -7,6 +7,54 @@
 {% endblock %}
 
 {% block content %}
+<style>
+    /* Стили для чистоты и иерархии */
+    .news-detail .title h2 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    .project-date {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .news-detail h3 {
+        font-size: 20px;
+        color: #444;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    /* Блок с дополнительными картинками */
+    .project-image-block {
+        margin-vertical: 25px;
+    }
+
+    /* Адаптивность картинок, чтобы они не искажались */
+    .project-img {
+        width: 100%;
+        max-width: 850px;
+        height: auto; /* Заменяет кривой хардкод 850х850 */
+        object-fit: cover;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Подпись к картинке */
+    .project-img-caption {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+        background-color: #ffffff;
+        margin-top: 5px;
+    }
+
+    
+</style>
 <div class="abc-01 large nav_section">               
     <div class="container">
   	<div class="nav_box">
@@ -198,34 +246,41 @@
             </div>
         </section>
     </div>    
-</div>                        <div class="page_right col-sm-9 col-xs-12 clearfix">
+</div>                        
+<div class="page_right col-sm-9 col-xs-12 clearfix">
     <div class="news-detail clearfix">
+        
+        <!-- Заголовок и дата -->
         <div class="title">
-            <em>{{ project.project_name }}</em>
-            <p>{{ project.date|date:"SHORT_DATE_FORMAT" }}</p>
+            <h2 style="">{{ project.project_name }}</h2>
+            {% comment %} <p class="project-date">{{ project.date|date:"SHORT_DATE_FORMAT" }}</p> {% endcomment %}
         </div>
-        <div class="text newm"><p>
-            {% if project.body_text %}
-            <span style="color:rgba(0, 0, 0, 0.9); font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;font-size:14px;background-color:#ffffff;"=""><span style="font-size:14px;">{{ project.body_text }}</span></span><span style="font-size:14px;"></span> 
+        
+        <!-- Основной контент кейса -->
+        <div class="text newm">
+            {% if project.subtitle %}
+                <h3>{{ project.subtitle }}</h3>
             {% endif %}
-        </p>
-        {% for project_item in project.images.all %}
-        {% if project_item.image %}
-<p>
-	<img src="{{ project_item.image.url }}" alt="" width="850" height="850" title="" align=""> 
-        {% endif %}
-</p>
-<p>
-	<br>
-</p>
-         {% if project_item.text %}
-<p>
-	<span style="color: rgb(0, 0, 0); font-size: 14px; 微软雅黑; font-size:14px;background-color:#ffffff;">{{ project_item.text }}</span><br>
-</p>        
-        {% endif %}
-
-{% endfor %}
-</div>
+            
+            {% if project.body_text %}
+                <div class="project-body">
+                    {{ project.body_text|safe }}
+                </div>
+            {% endif %}
+            
+            <!-- Дополнительные изображения и описания к ним -->
+            {% for project_item in project.images.all %}
+                {% if project_item.image %}
+                    <div class="project-image-block">
+                        <img src="{{ project_item.image.url }}" alt="{{ project_item.text|default:project.project_name }}" class="img-responsive project-img">
+                        
+                        {% if project_item.text %}
+                            <p class="project-img-caption"><span>{{ project_item.text }}</span><br></p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
                     
                     <div class="page_turn clearfix">
                         <ul class="left clearfix">

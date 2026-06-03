@@ -204,7 +204,7 @@
                                 </div>
                             </div>
                             <a href="" title="{{ project.project_name }}" class="in_categL_t">{{ project.project_name }}</a>
-                            <p>{{ project.body_text|truncatechars:139 }}</p>
+                            <p>{{ project.body_text|truncatechars:139|safe }}</p>
                         </div>
                     </li>
                     {% endfor %}

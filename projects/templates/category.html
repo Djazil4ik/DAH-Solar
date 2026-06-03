@@ -208,8 +208,8 @@
                             <a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}" class="fa fa-search"></a>
                         </div>
                     </div>
-                    <a href="" title="{{ project.project_name }}" class="in_categL_t">{{ project.project_name }}</a>
-                    <p>{{ project.body_text|truncatechars:139 }}</p>
+                    <a href="{% url 'projects:detail_view' project.slug %}" title="{{ project.project_name }}" class="in_categL_t">{{ project.project_name }}</a>
+                    <p>{{ project.body_text|truncatechars_html:139|safe }}</p>
                 </div>
             </li>
             {% endfor %}

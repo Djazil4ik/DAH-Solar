@@ -37,6 +37,7 @@ class ProjectCategory(models.Model):
 
 class Project(models.Model):
     project_name = models.CharField(max_length=255)
+    subtitle = models.TextField(null=True, blank=True)
     body_text = RichTextField()
     date = models.DateTimeField(default=now)
     category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
@@ -68,7 +69,7 @@ class ProjectImage(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField()
-    text = models.TextField(blank=True, null=True)
+    text = RichTextField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
