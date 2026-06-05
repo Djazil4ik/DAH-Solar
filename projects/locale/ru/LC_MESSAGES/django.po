@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 14:07+0000\n"
+"POT-Creation-Date: 2026-06-05 14:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: models.py:10
+msgid "Category Name"
+msgstr "Название категории"
+
+#: models.py:11 models.py:44
+msgid "Slug"
+msgstr "ЧПУ"
+
+#: models.py:39
+msgid "Project Name"
+msgstr "Название проекта"
+
+#: models.py:40
+msgid "Subtitle"
+msgstr "Подзаголовок"
+
+#: models.py:41
+msgid "Body Text"
+msgstr "Основной текст"
+
+#: models.py:42
+msgid "Date"
+msgstr "Дата"
+
+#: models.py:43
+#| msgid "Category Name"
+msgid "Category"
+msgstr "Категория"
+
+#: models.py:71
+msgid "Image"
+msgstr "Изображение"
+
+#: models.py:72
+msgid "Text"
+msgstr "Текст"
 
 #: templates/category.html:18 templates/category.html:76
 #: templates/category.html:134 templates/detail_view.html:62
@@ -119,12 +156,10 @@ msgid "pages"
 msgstr "страниц"
 
 #: templates/detail_view.html:153
-#| msgid "Vision & Mission "
 msgid "Vision &  Mission "
 msgstr "Видение и миссия"
 
 #: templates/detail_view.html:285
-#| msgid "previous"
 msgid "Previous"
 msgstr "Предыдущий"
 

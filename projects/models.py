@@ -7,8 +7,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class ProjectCategory(models.Model):
-    category_name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=False, blank=True, null=True)
+    category_name = models.CharField(max_length=255, verbose_name=_("Category Name"))
+    slug = models.SlugField(unique=False, blank=True, null=True, verbose_name=_("Slug"))
 
 
     def save(self, *args, **kwargs):
@@ -36,12 +36,12 @@ class ProjectCategory(models.Model):
 
 
 class Project(models.Model):
-    project_name = models.CharField(max_length=255)
-    subtitle = models.TextField(null=True, blank=True)
-    body_text = RichTextField()
-    date = models.DateTimeField(default=now)
-    category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
-    slug = models.SlugField(max_length=255, unique=True, blank=True,  null=True)
+    project_name = models.CharField(max_length=255, verbose_name=_("Project Name"))
+    subtitle = models.TextField(null=True, blank=True, verbose_name=_("Subtitle"))
+    body_text = RichTextField(verbose_name=_("Body Text"))
+    date = models.DateTimeField(default=now, verbose_name=_("Date"))
+    category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects', null=True, blank=True, verbose_name=_("Category")  )
+    slug = models.SlugField(max_length=255, unique=True, blank=True,  null=True, verbose_name=_("Slug"))
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -68,8 +68,8 @@ class Project(models.Model):
 class ProjectImage(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField()
-    text = RichTextField(null=True, blank=True)
+    image = models.ImageField(upload_to='project_images/', verbose_name=_("Image"))
+    text = RichTextField(null=True, blank=True, verbose_name=_("Text"))
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

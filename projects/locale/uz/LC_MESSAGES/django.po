@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 14:07+0000\n"
+"POT-Creation-Date: 2026-06-05 14:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: models.py:10
+msgid "Category Name"
+msgstr "Kategoriya nomi"
+
+#: models.py:11 models.py:44
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:39
+msgid "Project Name"
+msgstr "Loyihalar"
+
+#: models.py:40
+msgid "Subtitle"
+msgstr "Subtitr"
+
+#: models.py:41
+msgid "Body Text"
+msgstr "Tana matni"
+
+#: models.py:42
+msgid "Date"
+msgstr "Sana"
+
+#: models.py:43
+#| msgid "Category Name"
+msgid "Category"
+msgstr "Kategoriya nomi"
+
+#: models.py:71
+msgid "Image"
+msgstr "Rasm"
+
+#: models.py:72
+msgid "Text"
+msgstr "Matn"
 
 #: templates/category.html:18 templates/category.html:76
 #: templates/category.html:134 templates/detail_view.html:62
@@ -76,7 +113,6 @@ msgid "DAH Solar"
 msgstr "DAH Quyosh"
 
 #: templates/category.html:109 templates/projects.html:106
-#| msgid "Vision &  Mission "
 msgid "Vision & Mission "
 msgstr "Vizyon va Missiya"
 
@@ -124,7 +160,6 @@ msgid "Vision &  Mission "
 msgstr "Vizyon va Missiya"
 
 #: templates/detail_view.html:285
-#| msgid "previous"
 msgid "Previous"
 msgstr "oldingi"
 

@@ -25,7 +25,7 @@ msgstr "Бренд"
 #: models.py:18 models.py:42 models.py:69
 #| msgid "Categories"
 msgid "Category"
-msgstr "Категории"
+msgstr "Категория"
 
 #: models.py:19 models.py:43
 msgid "Slug"
