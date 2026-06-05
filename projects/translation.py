@@ -7,7 +7,7 @@ class ProjectCategoryTranslationOptions(TranslationOptions):
 
 @register(Project)
 class ProjectTranslationOptions(TranslationOptions):
-    fields = ('project_name', 'body_text',)
+    fields = ('project_name', 'body_text', 'subtitle')
 
 @register(ProjectImage)
 class ProjectImageTranslationOptions(TranslationOptions):

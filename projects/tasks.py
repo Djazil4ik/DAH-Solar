@@ -34,6 +34,12 @@ def translate_project_task(project_id):
         update_fields['project_name_uz'] = safe_translate(
             text=project.project_name, src='en', dest='uz')
 
+    if project.subtitle:
+        update_fields['subtitle_ru'] = safe_translate(
+            text=project.subtitle, src='en', dest='ru')
+        update_fields['subtitle_uz'] = safe_translate(
+            text=project.subtitle, src='en', dest='uz')
+
     if project.body_text:
         update_fields['body_text_ru'] = translate_html(
             html_content=project.body_text, src='en', dest='ru')
