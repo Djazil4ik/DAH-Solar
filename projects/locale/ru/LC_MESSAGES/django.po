@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-05 14:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: templates/category.html:18 templates/category.html:76
+#: templates/category.html:134 templates/detail_view.html:62
+#: templates/detail_view.html:120 templates/detail_view.html:178
+#: templates/projects.html:15 templates/projects.html:73
+#: templates/projects.html:131
+msgid "Home"
+msgstr "Главная"
+
+#: templates/category.html:20 templates/category.html:78
+#: templates/detail_view.html:64 templates/detail_view.html:122
+#: templates/projects.html:17 templates/projects.html:75
+msgid "Products"
+msgstr "Продукты"
+
+#: templates/category.html:36 templates/category.html:91
+#: templates/category.html:136 templates/category.html:150
+#: templates/detail_view.html:80 templates/detail_view.html:135
+#: templates/detail_view.html:180 templates/detail_view.html:195
+#: templates/projects.html:33 templates/projects.html:88
+#: templates/projects.html:133 templates/projects.html:145
+msgid "Projects"
+msgstr "Проекты"
+
+#: templates/category.html:43 templates/category.html:98
+#: templates/detail_view.html:87 templates/detail_view.html:142
+#: templates/projects.html:40 templates/projects.html:95
+msgid "News"
+msgstr "Новости"
+
+#: templates/category.html:53 templates/category.html:107
+#: templates/detail_view.html:97 templates/detail_view.html:151
+#: templates/projects.html:50 templates/projects.html:104
+msgid "Overview"
+msgstr "Обзор"
+
+#: templates/category.html:54 templates/category.html:108
+#: templates/detail_view.html:98 templates/detail_view.html:152
+#: templates/projects.html:51 templates/projects.html:105
+msgid "DAH Factories"
+msgstr "Заводы DAH"
+
+#: templates/category.html:55 templates/detail_view.html:99
+#: templates/projects.html:52
+msgid "Vision & Mission"
+msgstr "Видение и миссия"
+
+#: templates/category.html:58 templates/category.html:112
+#: templates/detail_view.html:102 templates/detail_view.html:156
+#: templates/projects.html:55 templates/projects.html:109
+msgid "Contact Us"
+msgstr "Связаться с нами"
+
+#: templates/category.html:105 templates/detail_view.html:149
+#: templates/projects.html:102
+msgid "DAH Solar"
+msgstr "DAH Solar"
+
+#: templates/category.html:109 templates/projects.html:106
+msgid "Vision & Mission "
+msgstr "Видение и миссия"
+
+#: templates/category.html:134 templates/detail_view.html:178
+msgid "Return to Home"
+msgstr "Вернуться домой"
+
+#: templates/category.html:163 templates/detail_view.html:208
+#: templates/projects.html:158
+msgid "New Products"
+msgstr "Продукты"
+
+#: templates/category.html:172 templates/detail_view.html:217
+#: templates/projects.html:167
+msgid "Read More"
+msgstr "Читать далее"
+
+#: templates/category.html:183 templates/detail_view.html:228
+#: templates/projects.html:178
+msgid "Latest News"
+msgstr "Последние новости"
+
+#: templates/category.html:219 templates/projects.html:214
+msgid "first page"
+msgstr "первая страница"
+
+#: templates/category.html:220 templates/projects.html:215
+msgid "previous"
+msgstr "предыдущая"
+
+#: templates/category.html:226 templates/projects.html:221
+msgid "last page"
+msgstr "последняя страница"
+
+#: templates/category.html:228 templates/projects.html:223
+msgid "A total of"
+msgstr "Всего"
+
+#: templates/category.html:228 templates/projects.html:223
+msgid "pages"
+msgstr "страниц"
+
+#: templates/detail_view.html:153
+#| msgid "Vision & Mission "
+msgid "Vision &  Mission "
+msgstr "Видение и миссия"
+
+#: templates/detail_view.html:285
+#| msgid "previous"
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: templates/detail_view.html:288
+msgid "Next"
+msgstr "Следующий"

@@ -8,7 +8,6 @@
 
 {% block content %}
 <style>
-    /* Стили для чистоты и иерархии */
     .news-detail .title h2 {
         font-size: 28px;
         color: #333;
@@ -29,12 +28,10 @@
         font-weight: 600;
     }
 
-    /* Блок с дополнительными картинками */
     .project-image-block {
         margin-vertical: 25px;
     }
 
-    /* Адаптивность картинок, чтобы они не искажались */
     .project-img {
         width: 100%;
         max-width: 850px;
@@ -44,7 +41,6 @@
         margin-bottom: 10px;
     }
 
-    /* Подпись к картинке */
     .project-img-caption {
         font-size: 14px;
         color: #555;
@@ -98,12 +94,12 @@
                                                                  
                                                                                                 <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
                                                                             <ul class="vmegamenu">
-                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
-                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
-                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="{% translate 'Overview' %}">{% translate 'Overview' %}</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="{% translate 'DAH Factories' %}">{% translate 'DAH Factories' %}</a></li>
+                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="{% translate 'Vision & Mission' %}">{% translate 'Vision & Mission' %}</a></li>
                                                                                     </ul>
                                                                     </li>
-                                                                <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a><em>|</em>
+                                                                <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a><em>|</em>
                                                                     </li> 
                             </ul>
                         </nav>
@@ -121,9 +117,9 @@
                 <div class="mobile-menu">
                     <nav id="mobile-menu">
                         <ul>
-                            <li><a href="{% url 'main:home' %}">Home</a></li>
+                            <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a></li>
 
-                            <li><a href="{% url 'products:products' %}">Products</a>
+                            <li><a href="{% url 'products:products' %}">{% translate 'Products' %}</a>
                                 <ul class="vmegamenu">
                                     {% for category in navbar_categories %}
                                         <li><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a>
@@ -136,28 +132,28 @@
                                     {% endfor %}        
                                 </ul>
                             </li>
-                                                        <li><a href="{% url 'projects:projects' %}">Projects</a>
+                                                        <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a>
                                                                 <ul class="vmegamenu">
                                                                     {% for project_category in project_categories %}
                                                                     <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
                                                                     {% endfor %}    
                                                                 </ul>
                                                             </li>
-                                                        <li><a href="{% url "news:news" %}">News</a>
+                                                        <li><a href="{% url "news:news" %}">{% translate 'News' %}</a>
                                                                 <ul class="vmegamenu">
                                                                     {% for category in news_categories %}
                                                                     <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
                                                                     {% endfor %}
                                                                 </ul>
                                                             </li>
-                                                                                    <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a>
+                                                                                    <li><a href="{% url 'dahsolar:dahsolar' %}">{% translate 'DAH Solar' %}</a>
                                                                     <ul class="vmegamenu">
-                                                                                    <li><a href="{% url 'dahsolar:overview' %}" title="Overview">Overview</a></li>
-                                                                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">DAH Factories</a></li>
-                                                                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">Vision &  Mission </a></li>
+                                                                                    <li><a href="{% url 'dahsolar:overview' %}" title="{% translate 'Overview' %}">{% translate 'Overview' %}</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="{% translate 'DAH Factories' %}">{% translate 'DAH Factories' %}</a></li>
+                                                                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="{% translate 'Vision &  Mission ' %}">{% translate 'Vision &  Mission ' %}</a></li>
                                                                             </ul>
                                                             </li>
-                                                        <li><a href="{% url 'contact-us:contact-us' %}">Contact Us</a>
+                                                        <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a>
                                                             </li>
                             <!--                            <li><a href="--><!--">--><!--</a>-->
 <!--                                --><!--                                <ul class="vmegamenu">-->
@@ -179,9 +175,9 @@
             <div class="container">
                 <div class="breadcrumb clearfix">
                     <div class="bread-right">
-                        <a class="home" href="{% url 'main:home' %}" title="Return to Home">Home</a>
+                        <a class="home" href="{% url 'main:home' %}" title="{% translate 'Return to Home' %}">{% translate 'Home' %}</a>
                                                         <i></i>
-                        <a href="{% url 'projects:projects' %}">Projects</a>
+                        <a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a>
                                         <i></i>
                         <a href="">{{ project.category.category_name }}</a>
                         <i></i><h2>{{ project.project_name }}</h2>
@@ -196,7 +192,7 @@
             <div class="page_left col-sm-2 col-xs-12 clearfix">
         <div id="right_column" class="left-nav column">
         <section class="block blockcms column_box">
-            <span><em>Projects</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <span><em>{% translate 'Projects' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
                         <div class="htmleaf-content toggle_content">
                 <ul class="mtree">
                                         {% for project_category in project_categories %}
@@ -209,7 +205,7 @@
     </div>
     <div id="right_column" class="left-pro column">
         <section class="block blockcms column_box">
-            <span><em>New Products</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <span><em>{% translate 'New Products' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
             <div class="htmleaf-content toggle_content">
                 <ul>
                     {% for new_product in new_products %}
@@ -217,8 +213,8 @@
                         <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}"><img id="{{ new_product.category }}" alt="{{ new_product.category }}" src="{{ new_product.products_images.first.image.url }}"></a>
                         <div class="lnews-right">
                             <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="left-pro-t">{{ new_product.prod_model }}</a>
-                            <p>Full-Screen |&nbsp;{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
-                            <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">Read More<i class="fa fa-caret-right"></i></a>
+                            <p>&nbsp;{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
+                            <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">{% translate 'Read More' %}<i class="fa fa-caret-right"></i></a>
                         </div>
                     </li>
                     {% endfor %}
@@ -229,7 +225,7 @@
 
      <div id="right_column" class="left-news column">
         <section class="block blockcms column_box">
-            <span><em>Latest News</em><i class="column_icon_toggle icon-plus-sign"></i></span>
+            <span><em>{% translate 'Latest News' %}</em><i class="column_icon_toggle icon-plus-sign"></i></span>
             <div class="htmleaf-content toggle_content">
                                 <div class="news_left_1">
                     {% for first_new in first_news %}
@@ -285,10 +281,10 @@
                     <div class="page_turn clearfix">
                         <ul class="left clearfix">
                             {% if previous_project %}
-                                                        <li><p>Previous : </p><a href="{% url 'projects:detail_view' previous_project.slug %}">{{ previous_project.project_name }}</a></li>
+                                                        <li><p>{% translate 'Previous' %} : </p><a href="{% url 'projects:detail_view' previous_project.slug %}">{{ previous_project.project_name }}</a></li>
                             {% endif %}
                             {% if next_project %}              
-                                                        <li><p>Next : </p><a href="{% url 'projects:detail_view' next_project.slug %}">{{ next_project.project_name }}</a></li>
+                                                        <li><p>{% translate 'Next' %} : </p><a href="{% url 'projects:detail_view' next_project.slug %}">{{ next_project.project_name }}</a></li>
                             {% endif %}
                                                     </ul>
                         <div class="right">

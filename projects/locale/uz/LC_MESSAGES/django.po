@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-05 14:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/category.html:18 templates/category.html:76
+#: templates/category.html:134 templates/detail_view.html:62
+#: templates/detail_view.html:120 templates/detail_view.html:178
+#: templates/projects.html:15 templates/projects.html:73
+#: templates/projects.html:131
+msgid "Home"
+msgstr "Uy"
+
+#: templates/category.html:20 templates/category.html:78
+#: templates/detail_view.html:64 templates/detail_view.html:122
+#: templates/projects.html:17 templates/projects.html:75
+msgid "Products"
+msgstr "Mahsulotlar"
+
+#: templates/category.html:36 templates/category.html:91
+#: templates/category.html:136 templates/category.html:150
+#: templates/detail_view.html:80 templates/detail_view.html:135
+#: templates/detail_view.html:180 templates/detail_view.html:195
+#: templates/projects.html:33 templates/projects.html:88
+#: templates/projects.html:133 templates/projects.html:145
+msgid "Projects"
+msgstr "Loyihalar"
+
+#: templates/category.html:43 templates/category.html:98
+#: templates/detail_view.html:87 templates/detail_view.html:142
+#: templates/projects.html:40 templates/projects.html:95
+msgid "News"
+msgstr "Yangiliklar"
+
+#: templates/category.html:53 templates/category.html:107
+#: templates/detail_view.html:97 templates/detail_view.html:151
+#: templates/projects.html:50 templates/projects.html:104
+msgid "Overview"
+msgstr "Umumiy koʻrinish"
+
+#: templates/category.html:54 templates/category.html:108
+#: templates/detail_view.html:98 templates/detail_view.html:152
+#: templates/projects.html:51 templates/projects.html:105
+msgid "DAH Factories"
+msgstr "DAH zavodlari"
+
+#: templates/category.html:55 templates/detail_view.html:99
+#: templates/projects.html:52
+msgid "Vision & Mission"
+msgstr "Vizyon va Missiya"
+
+#: templates/category.html:58 templates/category.html:112
+#: templates/detail_view.html:102 templates/detail_view.html:156
+#: templates/projects.html:55 templates/projects.html:109
+msgid "Contact Us"
+msgstr "Biz bilan bog'lanish"
+
+#: templates/category.html:105 templates/detail_view.html:149
+#: templates/projects.html:102
+msgid "DAH Solar"
+msgstr "DAH Quyosh"
+
+#: templates/category.html:109 templates/projects.html:106
+#| msgid "Vision &  Mission "
+msgid "Vision & Mission "
+msgstr "Vizyon va Missiya"
+
+#: templates/category.html:134 templates/detail_view.html:178
+msgid "Return to Home"
+msgstr "Uyga qaytish"
+
+#: templates/category.html:163 templates/detail_view.html:208
+#: templates/projects.html:158
+msgid "New Products"
+msgstr "Mahsulotlar"
+
+#: templates/category.html:172 templates/detail_view.html:217
+#: templates/projects.html:167
+msgid "Read More"
+msgstr "Ko'proq o'qish"
+
+#: templates/category.html:183 templates/detail_view.html:228
+#: templates/projects.html:178
+msgid "Latest News"
+msgstr "So'ngi yangiliklar"
+
+#: templates/category.html:219 templates/projects.html:214
+msgid "first page"
+msgstr "birinchi sahifa"
+
+#: templates/category.html:220 templates/projects.html:215
+msgid "previous"
+msgstr "oldingi"
+
+#: templates/category.html:226 templates/projects.html:221
+msgid "last page"
+msgstr "oxirgi sahifa"
+
+#: templates/category.html:228 templates/projects.html:223
+msgid "A total of"
+msgstr "Jami"
+
+#: templates/category.html:228 templates/projects.html:223
+msgid "pages"
+msgstr "sahifalar"
+
+#: templates/detail_view.html:153
+msgid "Vision &  Mission "
+msgstr "Vizyon va Missiya"
+
+#: templates/detail_view.html:285
+#| msgid "previous"
+msgid "Previous"
+msgstr "oldingi"
+
+#: templates/detail_view.html:288
+msgid "Next"
+msgstr "Keyingisi"
