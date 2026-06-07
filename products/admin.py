@@ -99,3 +99,4 @@ class ProductsAdmin(TranslationAdmin):
 class HotProductAdmin(admin.ModelAdmin):
     list_display = ('product', 'order')
     list_editable = ('order',)
+    list_select_related = ('product',)

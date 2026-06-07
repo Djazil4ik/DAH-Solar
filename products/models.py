@@ -1,3 +1,4 @@
+#products/models.py
 from django.core.cache import cache
 from django.db import models
 from django.db import transaction
@@ -102,11 +103,15 @@ class Products(models.Model):
             self.slug = slug
 
         super().save(*args, **kwargs)
-        from .tasks import translate_product_task
-        transaction.on_commit(lambda: translate_product_task.delay(self.id))  # type: ignore
-        cache.delete_pattern('category_*') #type: ignore
-        cache.delete_pattern('product_detail_*') #type: ignore
-        cache.delete_pattern('type_*') #type: ignore
+
+        def _post_commit():
+            from .tasks import translate_product_task
+            translate_product_task.delay(self.id) #type: ignore
+            cache.delete_pattern('category_*') #type: ignore
+            cache.delete_pattern('product_detail_*') #type: ignore
+            cache.delete_pattern('type_*') #type: ignore
+
+        transaction.on_commit(_post_commit)
 
     def __str__(self):
         return self.prod_model
@@ -117,22 +122,19 @@ class HotProduct(models.Model):
     order = models.PositiveIntegerField(default=0)  # Порядок вывода
 
     class Meta:
-        ordering = ['order']  # Сначала сортируем по полю order
-
-    def __str__(self):
-        return f"Hot: {self.product.prod_model}"
+        ordering = ['order']
 
 
 class ProductsImage(models.Model):
     product = models.ForeignKey(
         Products, on_delete=models.CASCADE, related_name="products_images")
-    image = image = ResizedImageField(
+    image = ResizedImageField(
         size=[1200, 900],
         quality=75,
         upload_to='products/webp/',
-        force_format='WEBP',  # Вот это заставит Pillow сохранить файл как WebP
+        force_format='WEBP',
         blank=True,
-        null=True         # Ключевой параметр
+        null=True
     )
 
 
