@@ -29,6 +29,13 @@ def categories_processor(request):
         cache.set('navbar_categories', cats, 86400)  # На сутки
     return {'navbar_categories': cats}
 
+
 def hot_products(request):
-    hot_products = HotProduct.objects.select_related('product')
-    return {'hot_products': hot_products}
+    data = cache.get('hot_products')
+    if not data:
+        data = list(
+            HotProduct.objects
+            .select_related('product__category', 'product__prod_type', 'product__brand')
+        )
+        cache.set('hot_products', data, 3600)
+    return {'hot_products': data}
