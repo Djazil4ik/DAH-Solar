@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-23 16:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/contacts/contact.html:5
+msgid ""
+"Contact Us | Monocrystalline Lightweight Solar Panels,Solar Energy System"
+msgstr ""
+"Biz bilan bog'laning | Monokristalli engil quyosh panellari, quyosh "
+"energiyasi tizimi"
+
+#: templates/contacts/contact.html:52 templates/contacts/contact.html:104
+msgid "Vision &  Mission"
+msgstr "Vizyon va Missiya"
+
+#: templates/contacts/contact.html:55 templates/contacts/contact.html:107
+#: templates/contacts/contact.html:125 templates/contacts/contact.html:134
+msgid "Contact Us"
+msgstr "Biz bilan bog'lanish"
+
+#: templates/contacts/contact.html:137
+msgid "Global customer service"
+msgstr "Global mijozlarga xizmat ko'rsatish"
+
+#: templates/contacts/contact.html:139
+msgid "Sales Support"
+msgstr "Sotishni qo'llab-quvvatlash"
+
+#: templates/contacts/contact.html:140
+msgid "Instagram"
+msgstr "Instagram"
+
+#: templates/contacts/contact.html:153
+msgid "Telegram"
+msgstr "Telegram"

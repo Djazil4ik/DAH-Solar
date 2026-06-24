@@ -56,7 +56,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="{% url "news:news" %}">{% translate 'News' %}</a><em>|</em>
+                                <li><a href="{% url "news:news" %}">{% translate 'Newsroom' %}</a><em>|</em>
                                     <ul class="vmegamenu">
                                         {% for category in news_categories %}
                                         <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
@@ -111,7 +111,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="{% url "news:news" %}">{% translate 'News' %}</a>
+                    <li><a href="{% url "news:news" %}">{% translate 'Newsroom' %}</a>
                         <ul class="vmegamenu">
                             {% for category in news_categories %}
                             <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>

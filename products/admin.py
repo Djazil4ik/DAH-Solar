@@ -7,6 +7,7 @@ from .models import (
 )
 from ckeditor.widgets import CKEditorWidget
 
+
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
     list_display = ('brand',)

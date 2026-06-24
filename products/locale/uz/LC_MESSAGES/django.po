@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-20 12:02+0000\n"
+"POT-Creation-Date: 2026-06-07 11:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: models.py:11 models.py:72
+#: models.py:12 models.py:74
 msgid "Brand"
 msgstr "Brend"
 
-#: models.py:18 models.py:42 models.py:69
-#| msgid "Categories"
+#: models.py:19 models.py:44 models.py:71
 msgid "Category"
 msgstr "Kategoriyalar"
 
-#: models.py:19 models.py:43
+#: models.py:20 models.py:45
 msgid "Slug"
 msgstr "Slug"
 
-#: models.py:44 models.py:73
-#| msgid "Products"
+#: models.py:46 models.py:75
 msgid "Product Type"
 msgstr "Mahsulotlar"
 
-#: models.py:70
-#| msgid "Products"
+#: models.py:72
 msgid "Product Model"
 msgstr "Mahsulotlar"
 
-#: models.py:71
+#: models.py:73
 msgid "Sub Title"
 msgstr "Pastki sarlavha"
 
-#: models.py:74
+#: models.py:76
 msgid "Maximum Power"
 msgstr "Maksimal quvvat"
 
-#: models.py:75
+#: models.py:77
 msgid "Dimensions"
 msgstr "O'lchamlari"
 
-#: models.py:76
+#: models.py:78
 msgid "Certificate"
 msgstr "Sertifikat"
 
-#: models.py:77
+#: models.py:79
 msgid "Warranty"
 msgstr "Kafolat"
 
-#: models.py:78
+#: models.py:80
 msgid "Payment"
 msgstr "To'lov"
 
-#: models.py:79 templates/products/detail_view.html:347
+#: models.py:81 templates/products/detail_view.html:347
 msgid "Advantages"
 msgstr "Afzalliklar"
 
@@ -129,28 +126,23 @@ msgstr "Biz bilan bog'lanish"
 msgid "DAH Solar"
 msgstr "DAH Quyosh"
 
-#: templates/products/category.html:136
-#: templates/products/detail_view.html:193
+#: templates/products/category.html:136 templates/products/detail_view.html:193
 msgid "Return to Home"
 msgstr "Uyga qaytish"
 
-#: templates/products/category.html:152
-#: templates/products/detail_view.html:210
+#: templates/products/category.html:152 templates/products/detail_view.html:210
 msgid "Categories"
 msgstr "Kategoriyalar"
 
-#: templates/products/category.html:170
-#: templates/products/detail_view.html:232
+#: templates/products/category.html:170 templates/products/detail_view.html:232
 msgid "New Products"
 msgstr "Yangi mahsulotlar"
 
-#: templates/products/category.html:179
-#: templates/products/detail_view.html:250
+#: templates/products/category.html:179 templates/products/detail_view.html:250
 msgid "Read More"
 msgstr "Ko'proq o'qish"
 
-#: templates/products/category.html:190
-#: templates/products/detail_view.html:260
+#: templates/products/category.html:190 templates/products/detail_view.html:260
 msgid "Latest News"
 msgstr "So'ngi yangiliklar"
 
@@ -192,7 +184,6 @@ msgstr "sahifalar"
 
 #: templates/products/detail_view.html:82
 #: templates/products/detail_view.html:157
-#| msgid "Vision &  Mission "
 msgid "Vision &  Mission"
 msgstr "Vizyon va Missiya"
 
@@ -225,12 +216,10 @@ msgid "Payment:"
 msgstr "Toʻlov:"
 
 #: templates/products/detail_view.html:337
-#| msgid "Contact Us"
 msgid "Contact Now"
 msgstr "Biz bilan bog'lanish"
 
 #: templates/products/detail_view.html:343
-#| msgid "Products"
 msgid "Product Detail"
 msgstr "Mahsulotlar"
 
@@ -247,7 +236,6 @@ msgid "to get detail information and quotation about our"
 msgstr "haqida batafsil ma'lumot va kotirovkalarni olish uchun"
 
 #: templates/products/detail_view.html:369
-#| msgid "Products"
 msgid "products"
 msgstr "Mahsulotlar"
 
@@ -256,7 +244,6 @@ msgid "FAQs"
 msgstr "Tez-tez so'raladigan savollar"
 
 #: templates/products/detail_view.html:419
-#| msgid "previous"
 msgid "Previous:"
 msgstr "oldingi"
 
@@ -270,8 +257,8 @@ msgstr "Xabar yuborish"
 
 #: templates/products/detail_view.html:451
 msgid ""
-"You can contact us any way that is convenient for you. We are available 24/7"
-" via instagram, telegram or telephone."
+"You can contact us any way that is convenient for you. We are available 24/7 "
+"via instagram, telegram or telephone."
 msgstr ""
 "Siz uchun qulay bo'lgan har qanday usulda biz bilan bog'lanishingiz mumkin. "
 "Biz instagram, telegram yoki telefon orqali 24/7 ishlaymiz."
@@ -289,6 +276,5 @@ msgid "Tel:"
 msgstr "Tel:"
 
 #: templates/products/detail_view.html:485
-#| msgid "New Products"
 msgid "Related Products"
 msgstr "Yangi mahsulotlar"

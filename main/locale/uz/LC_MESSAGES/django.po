@@ -473,3 +473,6 @@ msgstr "uchun qidiruv natijalari"
 
 #~ msgid "More than 10 exhibitions from global market every year."
 #~ msgstr "Har yili jahon bozoridan 10 dan ortiq ko'rgazmalar."
+
+msgid "Newsroom"
+msgstr "Yangiliklar xonasi"

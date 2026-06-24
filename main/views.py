@@ -1,6 +1,7 @@
 # main/views.py
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Prefetch
 from products.models import Products, Categories, Type
 from projects.models import Project
 from news.models import News, NewsCategory
@@ -18,17 +19,18 @@ def home(request):
     solar_systems = Products.objects.filter(category=category_solar_system).prefetch_related('products_images').order_by('-id')[:6] if category_solar_system else []
 
     # Новости по категориям (используем filter().first() для безопасности)
-    global_exhibitions = NewsCategory.objects.filter(slug="global-exhibitions").first()
-    events = NewsCategory.objects.filter(slug="events").first()
-    social_activities = NewsCategory.objects.filter(slug="social-activities").first()
+    news_queryset = News.objects.order_by('id').prefetch_related('images')
+
+    news_categories = NewsCategory.objects.prefetch_related(
+        Prefetch('news', queryset=news_queryset, to_attr='limited_news')
+    )
 
     context = {
         "pv_modules": pv_modules,
         "solar_systems": solar_systems,
         "projects": Project.objects.all().order_by('id')[:6],
-        "news_global_exhibitions": News.objects.filter(category=global_exhibitions).order_by('id')[:6] if global_exhibitions else [],
-        "news_events": News.objects.filter(category=events).order_by('id')[:6] if events else [],
-        "news_social_activities": News.objects.filter(category=social_activities).order_by('id')[:6] if social_activities else [],
+        # Передаем категории с уже готовыми внутри новостями
+        "news_categories": news_categories,
         "videos": Video.objects.order_by('-id')[:3]
     }
     return render(request, 'main/home.html', context)

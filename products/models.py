@@ -34,7 +34,6 @@ class Categories(models.Model):
         super().save(*args, **kwargs)
         from .tasks import translate_category_task
         transaction.on_commit(lambda: translate_category_task.delay(self.id))  # type: ignore
-        translate_category_task.delay(self.id) #type: ignore
 
     def __str__(self):
         return self.category

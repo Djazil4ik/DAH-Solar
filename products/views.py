@@ -35,9 +35,9 @@ def detail_view(request, slug):
         siblings = Products.objects.select_related('category', 'prod_type')
 
         previous_product = siblings.filter(
-            id__lt=product.id).order_by('-id').first()
+            id__lt=product.id).order_by('-id').first() #type: ignore
         next_product = siblings.filter(
-            id__gt=product.id).order_by('id').first()
+            id__gt=product.id).order_by('id').first() #type: ignore
 
         related_products = list(
             siblings.filter(category=product.category).exclude(
