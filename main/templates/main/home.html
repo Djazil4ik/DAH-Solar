@@ -143,13 +143,13 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <a href="javascript:void(0)" rel="nofollow"><img src="{% static 'images/full-screen.webp' %}" alt="" class="slide-image" fetchpriority="high"/></a>
+                <a href="javascript:void(0)" rel="nofollow"><img src="{% static 'images/full-screen.webp' %}" width="1920" height="720" alt="" class="slide-image" fetchpriority="high"/></a>
             </div>
             <div class="item">
-                <a href="javascript:void(0)" rel="nofollow"><img src="{% static 'images/pv-system.webp' %}" alt="" class="slide-image" loading="lazy"/></a>
+                <a href="javascript:void(0)" rel="nofollow"><img src="{% static 'images/pv-system.webp' %}" width="1920" height="720" alt="" class="slide-image" loading="lazy"/></a>
             </div>
             <div class="item">
-                <a href=""><img src="{% static 'images/warehouse.webp' %}" alt="" class="slide-image" loading="lazy"/></a>
+                <a href=""><img src="{% static 'images/warehouse.webp' %}" width="1920" height="720" alt="" class="slide-image" loading="lazy"/></a>
             </div>
         </div>
         <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
@@ -187,7 +187,7 @@
                         <li class="col-sm-3 col-xs-6">
                             <div class="top-proL-m">
                                 <a href="{% url 'products:product_detail' pv_module.slug %}" title="{{ pv_module.prod_model }}" class="top-proL-img">
-                                    <img alt="{{ pv_module.prod_type }}" src="{{ pv_module.products_images.first.image.url }}" />
+                                    <img alt="{{ pv_module.prod_type }}" src="{{ pv_module.products_images.first.image.url }}" width="300" height="200" />
                                     <i class="fa fa-link"></i>
                                 </a>
                                 <div class="top-proL-w">
@@ -208,7 +208,7 @@
                         <li class="col-sm-3 col-xs-6">
                             <div class="top-proL-m">
                                 <a href="{% url 'products:product_detail' solar_system.slug %}" title="{{ solar_system.prod_model }}" class="top-proL-img">
-                                    <img alt="Integrative PV System" src="{{ solar_system.products_images.first.image.url }}" />
+                                    <img alt="Integrative PV System" src="{{ solar_system.products_images.first.image.url }}" width="300" height="200"/>
                                     <i class="fa fa-link"></i>
                                 </a>
                                 <div class="top-proL-w">
