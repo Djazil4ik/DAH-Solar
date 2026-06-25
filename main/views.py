@@ -5,7 +5,6 @@ from django.db.models import Prefetch
 from products.models import Products, Categories, Type
 from projects.models import Project
 from news.models import News, NewsCategory
-from videoapp.models import Video
 
 def home(request):
     # Используем .filter().first(), чтобы сайт не падал при пустой БД
@@ -31,7 +30,6 @@ def home(request):
         "projects": Project.objects.all().order_by('id')[:6],
         # Передаем категории с уже готовыми внутри новостями
         "news_categories": news_categories,
-        "videos": Video.objects.order_by('-id')[:3]
     }
     return render(request, 'main/home.html', context)
 

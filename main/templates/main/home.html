@@ -384,23 +384,7 @@
         </div>
     </div>
 </div>
+<br>
+<br>
 
-<div class="in_videoW">
-    <div class="container">
-        <div class="in_title">
-            <span>{% translate "Video Center" %}</span>
-            <p>{% translate "DAH Solar Always shows the truest side to the customers." %}</p>
-        </div>
-        <ul class="in_videoL clearfix row">
-            {% for video in videos %}
-            <li class="col-sm-4 col-xs-12">
-                <div class="in_videoL_m">
-                    <a href="" title="{{ video.title }}"><img src="{{ video.preview.url }}" alt="{{ video.title }}" /><i></i></a>
-                    <h4><a href="" title="{{ video.title }}">{{ video.title }}</a></h4>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
 {% endblock %}
