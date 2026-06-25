@@ -204,7 +204,7 @@
           <div class="text newm">
             {% for news_part in news_item.images.all %} 
               {% if news_part.body_text %}
-                <p><span style="font-size: 14px">{{ news_part.body_text|linebreaksbr }}</span></p>
+                <p><span style="font-size: 14px">{{ news_part.body_text|safe }}</span></p>
                 <p style="text-align: center"><span style="font-size: 14px"></span></p>
                 <p><br/></p>
               {% endif %} 
