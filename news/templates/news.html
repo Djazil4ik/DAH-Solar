@@ -198,7 +198,7 @@
             </div>
             <div class="page_right col-sm-9 col-xs-12 clearfix">
                 <ul class="news_list">
-                    {% for news in news_list %}
+                    {% for news in page_obj.object_list %}
                         <li class="clearfix">
                             <div class="news_list_img">
                                 <a href="{% url 'news:news_detail' news.slug %}" title="{{ news.news_title }}"><img src="{{ news.preview.url }}" alt="{{ news.news_title }}"></a>

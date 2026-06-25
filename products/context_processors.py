@@ -1,3 +1,4 @@
+#products/context_processors.py
 from .models import HotProduct, Categories
 from .models import Products
 from news.models import News, NewsCategory
@@ -6,17 +7,29 @@ from django.core.cache import cache
 
 
 def global_site_data(request):
-    # Пытаемся достать всё разом из кэша
     data = cache.get('global_site_data')
     if not data:
         data = {
-            'new_products': list(Products.objects.order_by('-id')[:4]),
-            'first_news': list(News.objects.order_by('-id')[:1]),
-            'news': list(News.objects.order_by('-id')[1:4]),
-            'project_categories': list(ProjectCategory.objects.all()),
-            'news_categories': list(NewsCategory.objects.all()),
+            'new_products': list(
+                Products.objects
+                .select_related('category', 'prod_type', 'brand')
+                .order_by('-id')[:4]
+            ),
+            'first_news': list(
+                News.objects
+                .select_related('category')
+                .only('slug', 'news_title', 'preview', 'created_at', 'category')
+                .order_by('-created_at')[:1]
+            ),
+            'news': list(
+                News.objects
+                .select_related('category')
+                .only('slug', 'news_title', 'preview', 'created_at', 'category')
+                .order_by('-created_at')[1:4]
+            ),
+            'project_categories': list(ProjectCategory.objects.only('slug', 'category_name')),
+            'news_categories': list(NewsCategory.objects.only('slug', 'category_name')),
         }
-        # Кэшируем на 1 час (3600 сек)
         cache.set('global_site_data', data, 3600)
     return data
 

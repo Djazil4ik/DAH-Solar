@@ -1,7 +1,5 @@
+#dahsolar/views.py
 from django.shortcuts import render
-
-# Импорты моделей больше не нужны здесь, если они используются только 
-# для передачи в контекст (так как это делает context processor)
 
 def dahsolar(request):
     return render(request, 'dahsolar/dahsolar.html')
