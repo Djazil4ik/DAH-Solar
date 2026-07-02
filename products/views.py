@@ -16,7 +16,7 @@ def products(request):
     page_obj = cache.get(cache_key)
 
     if not page_obj:
-        paginator = Paginator(_product_qs(), 9)
+        paginator = Paginator(_product_qs(), 6)
         page_obj = paginator.get_page(page_number)
         cache.set(cache_key, page_obj, 3600)
 

@@ -1,20 +1,20 @@
-"""
-URL configuration for core project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-"""
-
-from django.contrib import admin
-from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
+from django.urls import include, path
 from django.views.generic import TemplateView
-from django.contrib.sitemaps.views import sitemap
 
-from django.contrib.sitemaps.views import sitemap
-from core.sitemaps import ProductsSitemap, NewsSitemap, ProjectSitemap, StaticViewSitemap, CategoriesSitemap, TypeSitemap, ProjectCategorySitemap
+from core.sitemaps import (
+    CategoriesSitemap,
+    NewsSitemap,
+    ProductsSitemap,
+    ProjectCategorySitemap,
+    ProjectSitemap,
+    StaticViewSitemap,
+    TypeSitemap,
+)
 
 sitemaps = {
     'products': ProductsSitemap,
@@ -26,13 +26,16 @@ sitemaps = {
     'project_categories': ProjectCategorySitemap,
 }
 
+# Системные урлы без префиксов языков (роботы и ситмапы должны быть по одному адресу)
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', TemplateView.as_view(
+        template_name="robots.txt", content_type="text/plain")),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
 ]
 
-
+# Мультиязычные урлы приложения
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
@@ -44,8 +47,9 @@ urlpatterns += i18n_patterns(
     prefix_default_language=False,
 )
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+# Раздача статики и медиа ТОЛЬКО во время разработки
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

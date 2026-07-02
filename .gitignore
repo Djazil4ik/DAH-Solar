@@ -28,3 +28,6 @@ some.html
 dahsolar_products_*.csv
 dahsolar_products_*.json
 images_dahsolar_global
+import_products.py
+import_images.py
+urls.txt

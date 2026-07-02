@@ -185,7 +185,7 @@
                                 {% for first_new in first_news %}
                                     <a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}" class="img"><img src="{{ first_new.preview.url }}" alt="{{ first_new.news_title }}"></a>
                                     <h4><a href="{% url 'news:news_detail' first_new.slug %}" title="DAH Solar makes its debut in the US. RE+2024 ended perfectly!">{{ first_new.news_title }}</a></h4>
-                                    <p>{{ first_new.images.first.body_text }}</p>
+                                    <p>{{ first_new.images.first.body_text|safe }}</p>
                                 {% endfor %}
                             </div>
                             <ul>

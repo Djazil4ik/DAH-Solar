@@ -9,14 +9,13 @@
 
 <div class="abc-01 large nav_section">               
     <div class="container">
-  	<div class="nav_box">
+  	    <div class="nav_box">
             <header id="nav">
                 <div class="mainmenu-area bg-color-2 hidden-xs hidden-sm">
                     <div class="mainmenu">
                         <nav>
                             <ul>
                                 <li><a href="{% url 'main:home' %}">{% translate 'Home' %}</a><em>|</em></li>
-
                                 <li class='product_vmegamenu active'><a href="{% url 'products:products' %}">{% translate 'Products' %}</a><em>|</em>
                                     <ul class="nav_list">
                                         {% for category in navbar_categories %}
@@ -33,30 +32,29 @@
                                         {% endfor %}                                                                                                                                                                                                                      	
                                     </ul>
                                 </li>
-                                                                <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a><em>|</em>
-                                                                        <ul class="vmegamenu">
-                                                                            {% for project_category in project_categories %}
-                                                                                <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
-                                                                            {% endfor %}
-                                                                        </ul>
-                                                                    </li>
-                                                                <li><a href="{% url "news:news" %}">{% translate 'News' %}</a><em>|</em>
-                                                                        <ul class="vmegamenu">
-                                                                                {% for category in news_categories %}
-                                                                                <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
-                                                                                {% endfor %}
-                                                                            </ul>
-                                                                    </li>
-                                                                 
-                                                                                                <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
-                                                                            <ul class="vmegamenu">
-                                                                                            <li><a href="{% url 'dahsolar:overview' %}" title="Overview">{% translate 'Overview' %}</a></li>
-                                                                                            <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">{% translate 'DAH Factories' %}</a></li>
-                                                                                            <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">{% translate 'Vision &  Mission ' %}</a></li>
-                                                                                    </ul>
-                                                                    </li>
-                                                                <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a><em>|</em>
-                                                                    </li> 
+                                <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a><em>|</em>
+                                    <ul class="vmegamenu">
+                                        {% for project_category in project_categories %}
+                                            <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li><a href="{% url "news:news" %}">{% translate 'Newsroom' %}</a><em>|</em>
+                                    <ul class="vmegamenu">
+                                        {% for category in news_categories %}
+                                            <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'dahsolar:dahsolar' %}">DAH Solar</a><em>|</em>
+                                    <ul class="vmegamenu">
+                                        <li><a href="{% url 'dahsolar:overview' %}" title="Overview">{% translate 'Overview' %}</a></li>
+                                        <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">{% translate 'DAH Factories' %}</a></li>
+                                        <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">{% translate 'Vision &  Mission ' %}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a><em>|</em>
+                                </li> 
                             </ul>
                         </nav>
                     </div>	
@@ -74,7 +72,6 @@
                     <nav id="mobile-menu">
                         <ul>
                             <li><a href="{% url "main:home" %}">{% translate 'Home' %}</a></li>
-
                             <li><a href="{% url 'products:products' %}">{% translate 'Products' %}</a>
                                 <ul class="vmegamenu">
                                     {% for category in navbar_categories %}
@@ -111,11 +108,6 @@
                                                             </li>
                                                         <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a>
                                                             </li>
-                            <!--                            <li><a href="--><!--">--><!--</a>-->
-<!--                                --><!--                                <ul class="vmegamenu">-->
-<!--                                    --><!--                                    <li><a href="--><!--" title="--><!--">--><!--</a></li>-->
-<!--                                    --><!--                                </ul>-->
-<!--                                --><!--                            </li>-->
                                                                                                                                         </ul>	
                     </nav>
                 </div>
@@ -175,7 +167,7 @@
                         <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}"><img id="{{ new_product.category }}" alt="{{ new_product.category }}" src="{{ new_product.products_images.first.image.url }}"></a>
                         <div class="lnews-right">
                             <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="left-pro-t">{{ new_product.prod_model }}</a>
-                            <p>Full-Screen |&nbsp;{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
+                            <p>{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
                             <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="tab-pro-more">{% translate 'Read More' %}<i class="fa fa-caret-right"></i></a>
                         </div>
                     </li>
@@ -193,7 +185,7 @@
                     {% for first_new in first_news %}
                     <a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}" class="img"><img src="{{ first_new.images.first.image.url }}" alt="{{ first_new.news_title }}"></a>
                     <h4><a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}">{{ first_new.news_title }}</a></h4>
-                    <p>{{ first_new.images.first.body_text }}</p>
+                    <p>{{ first_new.images.first.body_text|safe }}</p>
                     {% endfor %}
                 </div>
                                 <ul>
