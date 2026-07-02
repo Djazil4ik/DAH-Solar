@@ -1,5 +1,5 @@
 from celery import shared_task
-from .models import Products, ProductsAdvantage, ProductsFAQ, Type, Second_Category
+from .models import Products, ProductsAdvantage, Type
 from core.translation_utils import safe_translate, translate_html
 
 
@@ -54,29 +54,6 @@ def translate_advantage_task(advantage_id):
 
 
 @shared_task
-def translate_faq_task(faq_id):
-    obj = ProductsFAQ.objects.filter(id=faq_id).first()
-    if not obj:
-        return
-
-    update_fields = {}
-    if obj.faq:
-        update_fields['faq_ru'] = safe_translate(
-            text=obj.faq, src='en', dest='ru')
-        update_fields['faq_uz'] = safe_translate(
-            text=obj.faq, src='en', dest='uz')
-
-    if obj.answer:
-        update_fields['answer_ru'] = safe_translate(
-            text=obj.answer, src='en', dest='ru')
-        update_fields['answer_uz'] = safe_translate(
-            text=obj.answer, src='en', dest='uz')
-
-    if update_fields:
-        ProductsFAQ.objects.filter(id=faq_id).update(**update_fields)
-
-
-@shared_task
 def translate_type_task(type_id):
     obj = Type.objects.filter(id=type_id).first()
     if not obj or not obj.product_type:
@@ -92,21 +69,6 @@ def translate_type_task(type_id):
     if update_fields:
         Type.objects.filter(id=type_id).update(**update_fields)
 
-@shared_task
-def translate_second_category_task(sc_id):
-    obj = Second_Category.objects.filter(id=sc_id).first()
-    if not obj or not obj.second_category:
-        return
-
-    update_fields = {}
-    if obj.second_category:
-        update_fields['second_category_ru'] = safe_translate(
-            text=obj.second_category, src='en', dest='ru')
-        update_fields['second_category_uz'] = safe_translate(
-            text=obj.second_category, src='en', dest='uz')
-    
-    if update_fields:
-        Second_Category.objects.filter(id=sc_id).update(**update_fields)
 
 
 @shared_task

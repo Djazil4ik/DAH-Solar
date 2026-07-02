@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Products, ProductsAdvantage, ProductsFAQ, Type, Second_Category, Categories
+from .models import Products, ProductsAdvantage, Type, Categories
 
 
 @register(Products)
@@ -12,19 +12,10 @@ class ProductsAdvantageTranslationOptions(TranslationOptions):
     fields = ('advantage',)
 
 
-@register(ProductsFAQ)
-class ProductsFAQTranslationOptions(TranslationOptions):
-    fields = ('faq', 'answer',)
-
 
 @register(Type)
 class TypeTranslationOptions(TranslationOptions):
     fields = ('product_type',)
-
-
-@register(Second_Category)
-class SecondCategoryTranslationOptions(TranslationOptions):
-    fields = ('second_category',)
 
 
 @register(Categories)

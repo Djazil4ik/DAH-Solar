@@ -2,8 +2,7 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 from .models import (
     Type, Brand, Products, Categories, ProductsImage,
-    ProductsAdvantage, ProductsFAQ, ProductsDescriptionImage,
-    Second_Category, HotProduct
+    ProductsAdvantage, ProductsDescriptionImage, HotProduct
 )
 from ckeditor.widgets import CKEditorWidget
 
@@ -39,13 +38,6 @@ class TypeAdmin(TranslationAdmin):
         }
 
 
-@admin.register(Second_Category)
-class SecondCategoryAdmin(admin.ModelAdmin):
-    list_display = ('second_category', 'product')
-    list_filter = ('product',)
-    search_fields = ('second_category',)
-
-
 class ProductsImageInline(admin.TabularInline):
     model = ProductsImage
     extra = 1
@@ -56,18 +48,8 @@ class ProductsAdvantageInline(TranslationTabularInline):
     extra = 1
 
 
-class ProductsFAQInline(TranslationTabularInline):
-    model = ProductsFAQ
-    extra = 1
-
-
 class ProductsDescriptionImageInline(admin.TabularInline):
     model = ProductsDescriptionImage
-    extra = 1
-
-
-class SecondCategoryInline(admin.TabularInline):
-    model = Second_Category
     extra = 1
 
 
@@ -76,9 +58,7 @@ class ProductsAdmin(TranslationAdmin):
     inlines = [
         ProductsImageInline,
         ProductsAdvantageInline,
-        ProductsFAQInline,
         ProductsDescriptionImageInline,
-        SecondCategoryInline,
     ]
     list_display = ('prod_model', 'category', 'prod_type', 'brand')
     list_filter = ('category', 'prod_type', 'brand')

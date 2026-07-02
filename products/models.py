@@ -77,7 +77,7 @@ class Products(models.Model):
     certificate = models.CharField(max_length=255, verbose_name=_("Certificate"))
     warranty = models.CharField(max_length=255, verbose_name=_("Warranty"))
     payment = models.CharField(max_length=255, verbose_name=_("Payment"))
-    advantages = models.TextField(null=True, verbose_name=_("Advantages"))
+    advantages = models.TextField(blank=True, null=True, verbose_name=_("Advantages"))
     doc_img = ResizedImageField(
         size=[1200, 900],
         quality=75,
@@ -148,28 +148,7 @@ class ProductsAdvantage(models.Model):
         transaction.on_commit(lambda: translate_advantage_task.delay(self.id))  # type: ignore
 
 
-class ProductsFAQ(models.Model):
-    product = models.ForeignKey(
-        Products, on_delete=models.CASCADE, related_name="faqs")
-    faq = models.TextField(null=True)
-    answer = models.TextField(null=True)
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        from .tasks import translate_faq_task
-        translate_faq_task.delay(self.id)  # type: ignore
-
-
 class ProductsDescriptionImage(models.Model):
     product = models.ForeignKey(
         Products, on_delete=models.CASCADE, related_name="decription_images")
     image = models.ImageField()
-
-
-class Second_Category(models.Model):
-    product = models.ForeignKey(
-        Products, on_delete=models.CASCADE, related_name="second_category", null=True)
-    second_category = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.second_category
