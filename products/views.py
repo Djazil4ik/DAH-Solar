@@ -65,7 +65,7 @@ def category_view(request, slug):
 
         paginator = Paginator(
             _product_qs().filter(category__slug=slug),
-            9,
+            6,
         )
         page_obj = paginator.get_page(page_number)
 
@@ -86,7 +86,7 @@ def type_view(request, category_slug, slug):
 
         paginator = Paginator(
             _product_qs().filter(prod_type__slug=slug),
-            9,
+            6,
         )
         page_obj = paginator.get_page(page_number)
 
