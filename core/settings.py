@@ -280,6 +280,7 @@ else:
     # Защита от кликджекинга и XSS на уровне браузера
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 if not DEBUG and os.getenv('SECURE_HSTS', 'False') == 'True':
     SECURE_HSTS_SECONDS = 31536000  # 1 year

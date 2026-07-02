@@ -140,7 +140,7 @@ class ProductsImage(models.Model):
 class ProductsAdvantage(models.Model):
     product = models.ForeignKey(
         Products, on_delete=models.CASCADE, related_name="products_advantages")
-    advantage = RichTextField(null=True)
+    advantage = RichTextField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
