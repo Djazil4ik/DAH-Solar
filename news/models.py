@@ -1,6 +1,8 @@
 from django.db import models, transaction
 from django.utils.timezone import now
 from django.utils.text import slugify
+from django_resized import ResizedImageField
+from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 
 
@@ -34,7 +36,7 @@ class News(models.Model):
     category = models.ForeignKey(
         NewsCategory, on_delete=models.CASCADE, related_name='news', null=True)
     created_at = models.DateTimeField(default=now)
-    preview = models.ImageField(null=True, blank=True)
+    preview = ResizedImageField(size=[1920, 1080], null=True, blank=True, verbose_name=_("Preview Image"), upload_to='news/previews/', force_format="WEBP", quality=75)
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def save(self, *args, **kwargs):
@@ -61,7 +63,7 @@ class News(models.Model):
 class NewsImage(models.Model):
     news = models.ForeignKey(
         News, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(null=True, blank=True)
+    image = ResizedImageField(size=[1920, 1080], null=True, blank=True, verbose_name=_("Image"), upload_to='news/images/', force_format="WEBP", quality=75)
     body_text = RichTextField(null=True)
 
     def save(self, *args, **kwargs):

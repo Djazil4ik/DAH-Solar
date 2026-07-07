@@ -3,6 +3,7 @@ from django.db import transaction
 from django.utils.timezone import now
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from django_resized import ResizedImageField
 from django.utils.translation import gettext_lazy as _
 
 
@@ -68,7 +69,7 @@ class Project(models.Model):
 class ProjectImage(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='project_images/', verbose_name=_("Image"))
+    image = ResizedImageField(size=[1920, 1080], upload_to='projects/images/', verbose_name=_("Image"), force_format="WEBP", quality=75)
     text = RichTextField(null=True, blank=True, verbose_name=_("Text"))
 
     def save(self, *args, **kwargs):
