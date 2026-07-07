@@ -38,7 +38,7 @@ class ProjectCategory(models.Model):
 class Project(models.Model):
     project_name = models.CharField(max_length=255, verbose_name=_("Project Name"))
     subtitle = models.TextField(null=True, blank=True, verbose_name=_("Subtitle"))
-    body_text = RichTextField(verbose_name=_("Body Text"))
+    body_text = RichTextField(verbose_name=_("Body Text"), null=True, blank=True)
     date = models.DateTimeField(default=now, verbose_name=_("Date"))
     category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects', null=True, blank=True, verbose_name=_("Category")  )
     slug = models.SlugField(max_length=255, unique=True, blank=True,  null=True, verbose_name=_("Slug"))
