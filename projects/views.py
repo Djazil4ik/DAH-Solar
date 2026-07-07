@@ -6,7 +6,7 @@ from django.views.decorators.cache import cache_page
 @cache_page(60 * 15)  # Cache the view for 15 minutes
 def projects(request):
     projects_list = Project.objects.all().order_by('-id')
-    paginator = Paginator(projects_list, 9)
+    paginator = Paginator(projects_list, 6)
     page_obj = paginator.get_page(request.GET.get('page'))
     
     return render(request, 'projects.html', {'page_obj': page_obj})
@@ -32,7 +32,7 @@ def category(request, slug):
     project_category = get_object_or_404(ProjectCategory, slug=slug)
     projects_list = Project.objects.filter(category=project_category).order_by('-id')
     
-    paginator = Paginator(projects_list, 9)
+    paginator = Paginator(projects_list, 6)
     page_obj = paginator.get_page(request.GET.get('page'))
     
     context = {
