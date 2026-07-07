@@ -29,7 +29,6 @@ class ProjectCategory(models.Model):
         super().save(*args, **kwargs)
         from .tasks import translate_project_category_task
         transaction.on_commit(lambda: translate_project_category_task.delay(self.id))  # type: ignore
-        translate_project_category_task.delay(self.id) #type: ignore
         
 
     def __str__(self):
@@ -60,7 +59,6 @@ class Project(models.Model):
         super().save(*args, **kwargs)
         from .tasks import translate_project_task
         transaction.on_commit(lambda: translate_project_task.delay(self.id))  # type: ignore
-        translate_project_task.delay(self.id) #type: ignore
 
     def __str__(self):
         return self.project_name
@@ -76,4 +74,3 @@ class ProjectImage(models.Model):
         super().save(*args, **kwargs)
         from .tasks import translate_project_image_task
         transaction.on_commit(lambda: translate_project_image_task.delay(self.id))  # type: ignore
-        translate_project_image_task.delay(self.id) #type: ignore
