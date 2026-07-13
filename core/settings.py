@@ -10,41 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-# import django.conf.locale
+
 from pathlib import Path
 from dotenv import load_dotenv
 from core.juzzmin import JAZZMIN_SETTINGS
 from django.utils.translation import gettext_lazy as _
-# from django.utils.translation import gettext_lazy
 import os 
-# import juzzmin
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-    "0.0.0.0",
-    "192.168.0.175"
-]
+INTERNAL_IPS = os.getenv('INTERNAL_IPS', '127.0.0.1,0.0.0.0').split(',') if os.getenv('INTERNAL_IPS') else ['']
 
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 if DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 else:
-    ALLOWED_HOSTS = os.getenv(
-        'ALLOWED_HOSTS', 'dahsolar.uz,www.dahsolar.uz').split(',')
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'dahsolar.uz,www.dahsolar.uz').split(',')
 
 # Application definition
 
@@ -75,7 +64,6 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,7 +71,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 
@@ -287,22 +274,22 @@ if not DEBUG and os.getenv('SECURE_HSTS', 'False') == 'True':
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/django_errors.log',  # Безопасная временная папка
+if ENABLE_LOGGING := os.getenv('ENABLE_LOGGING', 'False') == 'True':    
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'file': {
+                'level': 'ERROR',
+                'class': 'logging.FileHandler',
+                'filename': '/tmp/django_errors.log',  # Безопасная временная папка
+            },
         },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'ERROR',
-            'propagate': True,
+        'loggers': {
+            'django': {
+                'handlers': ['file'],
+                'level': 'ERROR',
+                'propagate': True,
+            },
         },
-    },
-}
+    }
