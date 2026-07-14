@@ -2,6 +2,8 @@
 from .models import News, NewsCategory
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
+from django_redis import cache
+from django.utils.translation import get_language
 
 
 def news(request):
@@ -24,12 +26,23 @@ def news_category(request, slug):
 
 
 def news_detail(request, slug):
+    lang = get_language()
+    cache_key = f'news_detail_{slug}_{lang}'
+    cached = cache.get(cache_key) #type: ignore
+    if cached:
+        return cached
+
     news_item = get_object_or_404(
-        News.objects.select_related('category'), slug=slug)
+        News.objects.select_related('category').prefetch_related('images'),
+        slug=slug
+    )
     previous_news = News.objects.filter(id__lt=news_item.id).order_by('-id').only('slug', 'news_title').first() #type: ignore
     next_news = News.objects.filter(id__gt=news_item.id).order_by('id').only('slug', 'news_title').first() #type: ignore
-    return render(request, 'news_detail.html', {
+
+    response = render(request, 'news_detail.html', {
         'news_item': news_item,
         'previous_news': previous_news,
         'next_news': next_news,
     })
+    cache.set(cache_key, response, 3600) #type: ignore
+    return response
