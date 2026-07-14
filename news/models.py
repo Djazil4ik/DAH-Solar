@@ -64,7 +64,7 @@ class NewsImage(models.Model):
     news = models.ForeignKey(
         News, on_delete=models.CASCADE, related_name='images')
     image = ResizedImageField(size=[1920, 1080], null=True, blank=True, verbose_name=_("Image"), upload_to='news/images/', force_format="WEBP", quality=75)
-    body_text = RichTextField(null=True)
+    body_text = RichTextField(null=True, blank=True, verbose_name=_("Body Text"))
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
