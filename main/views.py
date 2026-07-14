@@ -18,7 +18,7 @@ def home(request):
     solar_systems = Products.objects.filter(category=category_solar_system).prefetch_related('products_images').order_by('-id')[:6] if category_solar_system else []
 
     # Новости по категориям (используем filter().first() для безопасности)
-    news_queryset = News.objects.order_by('id').prefetch_related('images')
+    news_queryset = News.objects.order_by('-created_at').prefetch_related('images')
 
     news_categories = NewsCategory.objects.prefetch_related(
         Prefetch('news', queryset=news_queryset, to_attr='limited_news')
