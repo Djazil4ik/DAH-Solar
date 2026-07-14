@@ -2,7 +2,7 @@
 from .models import News, NewsCategory
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
-from django_redis import cache
+from django.core.cache import cache
 from django.utils.translation import get_language
 
 
