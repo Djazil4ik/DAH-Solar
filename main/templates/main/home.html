@@ -357,7 +357,7 @@
                                     <div class="tab-newsL-img">
                                         <a href="{% url 'news:news_detail' new_item.slug %}">
                                             {# Проверяем превью, если его нет — можно воткнуть заглушку #}
-                                            <img src="{{ new_item.preview.url }}" alt="{{ new_item.news_title }}" />
+                                            <img src="{{ new_item.preview.url }}" alt="{{ new_item.news_title }}" width="370px" height="278px" />
                                             <i class="fa fa-link"></i>
                                         </a>
                                     </div>
