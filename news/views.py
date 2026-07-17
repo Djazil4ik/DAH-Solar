@@ -1,5 +1,5 @@
 # news/views.py
-from .models import News, NewsCategory
+from .models import News, NewsCategory, NewsImage
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.core.cache import cache
@@ -33,7 +33,7 @@ def news_detail(request, slug):
         return cached
 
     news_item = get_object_or_404(
-        News.objects.select_related('category').prefetch_related('images'),
+        News.objects.select_related('category').prefetch_related('images', queryset=NewsImage.objects.order_by('id')), #type: ignore
         slug=slug
     )
     previous_news = News.objects.filter(id__lt=news_item.id).order_by('-id').only('slug', 'news_title').first() #type: ignore

@@ -68,6 +68,5 @@ class NewsImage(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        print(f"!!! NewsImage.save() called, id={self.id}, body_text={bool(self.body_text)}") # type: ignore
         from .tasks import translate_news_image_task
         transaction.on_commit(lambda: translate_news_image_task.delay(self.id))  # type: ignore
