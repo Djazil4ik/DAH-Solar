@@ -1,9 +1,11 @@
 from django.db import models, transaction
+from django.core.cache import cache
 from django.utils.timezone import now
 from django.utils.text import slugify
 from django_resized import ResizedImageField
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
+
 
 
 class NewsCategory(models.Model):
@@ -59,8 +61,16 @@ class News(models.Model):
             self.slug = slug
 
         super().save(*args, **kwargs)
-        from .tasks import translate_news_task
-        transaction.on_commit(lambda: translate_news_task.delay(self.id))  # type: ignore
+
+        def _post_commit():
+            from .tasks import translate_news_task
+            transaction.on_commit(lambda: translate_news_task.delay(self.id))  # type: ignore
+            cache.delete_pattern('news_list_*')  # type: ignore
+            cache.delete_pattern('news_category_*')  # type: ignore
+            cache.delete_pattern('news_detail_*')  # type: ignore
+
+        transaction.on_commit(_post_commit)
+
         
 
     def __str__(self) -> str:
