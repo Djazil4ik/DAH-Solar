@@ -206,7 +206,7 @@
                             <div class="text">
                             <a href="{% url 'news:news_detail' news.slug %}" title="{{ news.news_title }}" class="news_list_t">{{ news.news_title }}</a>
                             <div class="day"><i class="fa fa fa-clock-o"></i>{{ news.created_at|date:"SHORT_DATE_FORMAT" }}</div>
-                            <p>{{ news.news_title }} {{ news.images.first.body_text|safe|truncatechars:134 }}</p>
+                            <p>{{ news.news_title }} {{ news.images.first.body_text|striptags|truncatechars:134 }}</p>
                             <a class="more1" href="{% url 'news:news_detail' news.slug %}" title="{{ news.news_title }}">{% translate 'Read More' %}</a>
                         </div>
                     </li>
