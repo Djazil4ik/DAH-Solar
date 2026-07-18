@@ -24,18 +24,15 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 INTERNAL_IPS = os.getenv('INTERNAL_IPS', '127.0.0.1,0.0.0.0').split(',') if os.getenv('INTERNAL_IPS') else ['']
 
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 if DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 else:
     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'dahsolar.uz,www.dahsolar.uz').split(',')
 
-# Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -99,7 +96,7 @@ TEMPLATES = [
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",  # /1 — это номер базы данных в Redis
+        "LOCATION": "redis://127.0.0.1:6379/1", 
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
@@ -172,18 +169,6 @@ LOCALE_PATHS = [
 
 MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'uz')
 
-# EXTRA_LANG_INFO = {
-#     'uz': {
-#         'bidi': False,  # right-to-left
-#         'code': 'uz',
-#         'name': 'Uzbek',
-#         'name_local': "O'zbek",
-#     },
-# }
-
-# LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
-# django.conf.locale.LANG_INFO = LANG_INFO
-
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -200,9 +185,6 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# STATIC_DIRS = [
-#     BASE_DIR / 'static',
-# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -234,7 +216,7 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline', 'Strike'],
-            ['Format', 'FontSize'],  # Font убрали
+            ['Format', 'FontSize'],
             ['TextColor', 'BGColor'],
             ['NumberedList', 'BulletedList'],
             ['Link', 'Unlink'],
@@ -257,14 +239,12 @@ if DEBUG:
     CSRF_COOKIE_SECURE = False
     SESSION_COOKIE_SECURE = False
 else:
-    # На проде строго включаем защиту кук и редирект на HTTPS
     SECURE_SSL_REDIRECT = True
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True  # Чтобы JS не мог прочитать сессионную куку
+    SESSION_COOKIE_HTTPONLY = True
     CSRF_COOKIE_HTTPONLY = True
 
-    # Защита от кликджекинга и XSS на уровне браузера
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -282,7 +262,7 @@ if ENABLE_LOGGING := os.getenv('ENABLE_LOGGING', 'False') == 'True':
             'file': {
                 'level': 'ERROR',
                 'class': 'logging.FileHandler',
-                'filename': '/tmp/django_errors.log',  # Безопасная временная папка
+                'filename': '/tmp/django_errors.log',
             },
         },
         'loggers': {

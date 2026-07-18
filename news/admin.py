@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 from .models import News, NewsCategory, NewsImage
 
@@ -23,7 +24,13 @@ class NewsCategoryAdmin(TranslationAdmin):
 
 @admin.register(News)
 class NewsAdmin(TranslationAdmin):
+    list_display = ('news_title', 'category', 'created_at', 'image_preview', 'slug')
     inlines = [NewsImageInline]
+
+    def image_preview(self, obj):
+        if obj.preview:
+            return format_html('<img src="{}" width="180" height="auto" />', obj.preview.url)
+        return "-"
 
     class Media:
         js = (

@@ -39,6 +39,12 @@ class News(models.Model):
     preview = ResizedImageField(size=[1920, 1080], null=True, blank=True, verbose_name=_("Preview Image"), upload_to='news/previews/', force_format="WEBP", quality=75)
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
+
+    class Meta:
+        verbose_name = 'News'
+        verbose_name_plural = 'News'
+
+
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(self.news_title)
@@ -55,6 +61,7 @@ class News(models.Model):
         super().save(*args, **kwargs)
         from .tasks import translate_news_task
         transaction.on_commit(lambda: translate_news_task.delay(self.id))  # type: ignore
+        
 
     def __str__(self) -> str:
         return self.news_title
@@ -70,3 +77,4 @@ class NewsImage(models.Model):
         super().save(*args, **kwargs)
         from .tasks import translate_news_image_task
         transaction.on_commit(lambda: translate_news_image_task.delay(self.id))  # type: ignore
+        
