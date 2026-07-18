@@ -28,7 +28,7 @@ def news(request):
 def news_category(request, slug):
     lang = get_language()
     page = request.GET.get('page', 1)
-    cache_key = f'news_list_{page}_{lang}'
+    cache_key = f'news_category_{slug}_{page}_{lang}'
     cached = cache.get(cache_key)
     if cached:
         return cached
