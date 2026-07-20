@@ -244,7 +244,7 @@ $(window).load(function() {
                                             <a href="{% url 'products:product_detail' new_product.slug %}"
                                                title="{{ new_product.prod_model }}"
                                                class="left-pro-t">{{ new_product.prod_model }}</a>
-                                            <p>Full-Screen |&nbsp;{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
+                                            <p>{{ new_product.prod_type }} |&nbsp; {{ new_product.max_power }}</p>
                                             <a href="{% url 'products:product_detail' new_product.slug %}"
                                                title="{{ new_product.prod_model }}"
                                                class="tab-pro-more">{% translate 'Read More' %}<i class="fa fa-caret-right"></i></a>
@@ -264,12 +264,12 @@ $(window).load(function() {
                                     <a href="{% url 'news:news_detail' first_new.slug %}"
                                        title="{{ first_new.news_title }}"
                                        class="img">
-                                        <img src="{{ first_new.images.first.image.url }}"
+                                        <img src="{{ first_new.preview.url }}"
                                              alt="{{ first_new.news_title }}">
                                     </a>
                                     <h4>
                                         <a href="{% url 'news:news_detail' first_new.slug %}"
-                                           title="DAH Solar makes its debut in the US. RE+2024 ended perfectly!">{{ first_new.news_title }}</a>
+                                           title="{{ first_new.news_title }}">{{ first_new.news_title }}</a>
                                     </h4>
                                     <p>{{ first_new.images.first.body_text }}</p>
                                 {% endfor %}
@@ -277,8 +277,7 @@ $(window).load(function() {
                             <ul>
                                 {% for new in news %}
                                     <li>
-                                        <span>{{ new.created_at }}</span><a href="{% url 'news:news_detail' new.slug %}"
-   title="{{ new.news_title|truncatechars:60 }}">{{ new.news_title|truncatechars:60 }}</a>
+                                        <span>{{ new.created_at }}</span><a href="{% url 'news:news_detail' new.slug %}" title="{{ new.news_title|truncatechars:60 }}">{{ new.news_title|truncatechars:60 }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>

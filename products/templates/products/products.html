@@ -166,7 +166,7 @@
             <div class="htmleaf-content toggle_content">
                 <ul>
                     {% for new_product in new_products %}
-                                        <li class="clearfix">
+                        <li class="clearfix">
                         <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}"><img id="{{ new_product.category }}" alt="{{ new_product.category }}" src="{{ new_product.products_images.first.image.url }}"></a>
                         <div class="lnews-right">
                             <a href="{% url 'products:product_detail' new_product.slug %}" title="{{ new_product.prod_model }}" class="left-pro-t">{{ new_product.prod_model }}</a>
@@ -175,7 +175,7 @@
                         </div>
                     </li>
                     {% endfor %}
-                                    </ul>
+                </ul>
             </div>
         </section>
     </div>  
@@ -186,7 +186,7 @@
             <div class="htmleaf-content toggle_content">
                                 <div class="news_left_1">
                     {% for first_new in first_news %}
-                    <a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}" class="img"><img src="{{ first_new.images.first.image.url }}" alt="{{ first_new.news_title }}"></a>
+                    <a href="{% url 'news:news_detail' first_new.slug %}" title="{{ first_new.news_title }}" class="img"><img src="{{ first_new.preview.url }}" alt="{{ first_new.news_title }}"></a>
                     <h4><a href="{% url 'news:news_detail' first_new.slug %}" title="DAH Solar makes its debut in the US. RE+2024 ended perfectly!">{{ first_new.news_title }}</a></h4>
                     <p>{{ first_new.images.first.body_text }}</p>
                     {% endfor %}
