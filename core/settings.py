@@ -126,7 +126,7 @@ if USE_SQLITE := os.getenv('USE_SQLITE', 'False') == 'True':
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django_prometheus.db.backends.postgresql',
             'NAME': os.getenv('DB_NAME', 'dahsolar_db'),
             'USER': os.getenv('DB_USER', 'postgres'),
             'PASSWORD': os.getenv('DB_PASSWORD'),
