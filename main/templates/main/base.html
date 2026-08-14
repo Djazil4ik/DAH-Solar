@@ -1,44 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load i18n %}
+{% load static %}
+{% load cache %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
-    {% load static %}
-    {% load i18n %}
-    {% load cache %}
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="{% block description %}{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}{% endblock %}">
-    <link href="{% static 'images/favicon/favicon.ico' %}" rel="shortcut icon">
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
-    {% get_current_language as LANGUAGE_CODE %}
-    {% get_available_languages as LANGUAGES %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title & SEO Meta -->
+    <title>{% block title %}{% translate "Solar Panels & Solar Power Systems in Uzbekistan" %} | DAH Solar{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% translate 'Anhui Daheng Energy Technology Co.,LTD. specializes in developing, manufacturing and selling Solar Power Systems, Solar Cells, and Panels.' %}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{% translate 'Poly Solar Panels, Mono Solar Panels, Solar Power System, Узбекистан, Ташкент' %}{% endblock %}">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}">
+
+    <!-- Dynamic Hreflang Tags (SEO i18n) -->
+    {% load i18n_urls %}
     {% for lang_code, lang_name in LANGUAGES %}
-        {% if lang_code == LANGUAGE_CODE %}
-            <link rel="alternate" hreflang="{{ lang_code }}" href="{% if lang_code != 'en' %}https://dahsolar.uz/{{ lang_code }}{% else %}https://dahsolar.uz{% endif %}{{ request.get_full_path|slice:'3:' }}">
-        {% endif %}
+        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% change_lang lang_code %}">
     {% endfor %}
-    <link rel="alternate" hreflang="ru" href="https://dahsolar.uz/ru">
-    <link rel="alternate" hreflang="uz" href="https://dahsolar.uz/uz">
-    <link rel="alternate" hreflang="en" href="https://dahsolar.uz/en">
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="keywords" content="{% translate 'Poly Solar Panels,Mono Solar Panels,Solar Power System'%}">
-    <meta name="description" content="{% translate 'Anhui Daheng Energy Technology Co.,LTD. specializes in developing,manufacturing and selling all kinds of Solar Power System,Solar Cells,Solar Panels. We have more than 30 people in solar technical teams with more than 10 years experience are ready for designing for your solar power in any time.'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/flexnav.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-touch-slider.css'%}">
-    <script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap-touch-slider.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/nav.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.flexisel.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.velocity.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/demo.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/mainscript.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/wow.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/canvas.js'%}"></script>
+
+    <!-- x-default указывает на английскую версию без префикса -->
+    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{% change_lang 'en' %}">
+
+    <!-- Open Graph / Facebook / Telegram -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% block og_title %}{{ block.super }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ block.super }}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{% static 'images/og-default.jpg' %}{% endblock %}">
+    <meta property="og:site_name" content="DAH Solar Uzbekistan">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ block.super }}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{{ block.super }}{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{% static 'images/og-default.jpg' %}{% endblock %}">
+
+    <!-- Favicons -->
+    <link href="{% static 'images/favicon/favicon.ico' %}" rel="shortcut icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+
+    <!-- Critical Styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flexnav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-touch-slider.css' %}">
+
+    <!-- JS Non-blocking Loading -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" defer></script>
+    <script src="{% static 'js/bootstrap-touch-slider.js' %}" defer></script>
+    <script src="{% static 'js/nav.js' %}"></script>
+    <script src="{% static 'js/jquery.flexisel.js' %}" defer></script>
+    <script src="{% static 'js/jquery.velocity.min.js' %}" defer></script>
+    <script src="{% static 'js/demo.js' %}" defer></script>
+    <script src="{% static 'js/mainscript.js' %}" defer></script>
+    <script src="{% static 'js/wow.min.js' %}" defer></script>
+    <script src="{% static 'js/canvas.js' %}" defer></script>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DAH Solar Uzbekistan",
+        "url": "https://dahsolar.uz",
+        "logo": "https://dahsolar.uz{% static 'images/logo.png' %}",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+998-97-747-32-83",
+            "contactType": "sales",
+            "areaServed": "UZ",
+            "availableLanguage": ["Russian", "Uzbek", "English"]
+        }
+        }
+        </script>
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
     <style>
