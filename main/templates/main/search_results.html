@@ -10,10 +10,8 @@
     {% translate "Search results for" %} "{{ request.GET.query }}"
 {% endblock %}
 
-{% block description %}
-    {% trans "Find the best solar solutions." as meta_desc %}
-<meta name="description" content="{{ meta_desc }} {{ request.GET.query }}">
-{% endblock %}
+{% block description %}{% trans "Find the best solar solutions." %} {{ request.GET.query }}{% endblock %}
+
 
 {% block keywords %}
     {% translate "search, solar solutions, DAH Solar, results for" %} {{ request.GET.query }}
