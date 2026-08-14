@@ -6,57 +6,6 @@
 
 {% block content %}
 
-<div class="mobile-menu-area hidden-md hidden-lg">
-    <div class="container">
-        <div class="">
-            <div class="">
-                <div class="mobile-menu">
-                    <nav id="mobile-menu">
-                        <ul>
-                            <li><a href="{% url "main:home" %}">{% translate 'Home' %}</a></li>
-                            <li><a href="{% url 'products:products' %}">{% translate 'Products' %}</a>
-                                <ul class="vmegamenu">
-                                    {% for category in navbar_categories %}
-                                        <li><a href="{% url 'products:category' category.slug %}" title="{{ category.category }}">{{ category.category }}</a>
-                                            <ul class="vmegamenu">
-                                                {% for type in category.types.all reversed %}
-                                                    <li><a href="{% url 'products:type' category.slug type.slug %}" title="{{ type.product_type }}">{{ type.product_type }}</a></li>
-                                                {% endfor %}
-                                            </ul>
-                                        </li>
-                                    {% endfor %}        
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'projects:projects' %}">{% translate 'Projects' %}</a>
-                                <ul class="vmegamenu">
-                                    {% for project_category in project_categories %}
-                                        <li><a href="{% url 'projects:category_view' project_category.slug %}">{{ project_category.category_name }}</a></li>
-                                    {% endfor %}    
-                                </ul>
-                            </li>
-                            <li><a href="{% url "news:news" %}">{% translate 'Newsroom' %}</a>
-                                <ul class="vmegamenu">
-                                    {% for category in news_categories %}
-                                        <li><a href="{% url 'news:news_category' category.slug %}">{{ category.category_name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'dahsolar:dahsolar' %}">{% translate 'DAH Solar' %}</a>
-                                <ul class="vmegamenu">
-                                    <li><a href="{% url 'dahsolar:overview' %}" title="Overview">{% translate 'Overview' %}</a></li>
-                                    <li><a href="{% url 'dahsolar:dah-factories' %}" title="DAH Factories">{% translate 'DAH Factories' %}</a></li>
-                                    <li><a href="{% url 'dahsolar:vission-mission' %}" title="Vision &  Mission ">{% translate 'Vision &  Mission ' %}</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'contact-us:contact-us' %}">{% translate 'Contact Us' %}</a></li>
-                        </ul>	
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="page_banner">
     <img src="{% static 'images/16630347319324219727.webp' %}" alt="">
 </div>
