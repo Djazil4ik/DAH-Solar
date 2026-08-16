@@ -26,17 +26,32 @@ sitemaps = {
     'project_categories': ProjectCategorySitemap,
 }
 
-# Системные урлы без префиксов языков (роботы и ситмапы должны быть по одному адресу)
+# ==============================================================================
+# NON-PREFIXED URLS
+# Robots, sitemap, i18n switcher, and metrics must be reachable at a single
+# fixed address, so they stay outside the language-prefixed patterns below.
+# ==============================================================================
+
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-    path('robots.txt', TemplateView.as_view(
-        template_name="robots.txt", content_type="text/plain")),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap'),
-    path('', include('django_prometheus.urls'))
+    path(
+        'robots.txt',
+        TemplateView.as_view(template_name="robots.txt",
+                             content_type="text/plain"),
+    ),
+    path(
+        'sitemap.xml',
+        sitemap,
+        {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap',
+    ),
+    path('', include('django_prometheus.urls')),
 ]
 
-# Мультиязычные урлы приложения
+# ==============================================================================
+# LANGUAGE-PREFIXED APP URLS
+# ==============================================================================
+
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
@@ -48,7 +63,10 @@ urlpatterns += i18n_patterns(
     prefix_default_language=False,
 )
 
-# Раздача статики и медиа ТОЛЬКО во время разработки
+# ==============================================================================
+# DEVELOPMENT-ONLY: STATIC & MEDIA SERVING
+# ==============================================================================
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
