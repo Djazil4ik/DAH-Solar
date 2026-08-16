@@ -1,8 +1,9 @@
 # products/views.py
-from django.core.paginator import Paginator
 from django.core.cache import cache
-from django.shortcuts import render, get_object_or_404
-from .models import Products, Categories, Type
+from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404, render
+
+from .models import Categories, Products, Type
 
 
 def _product_qs():
@@ -35,13 +36,13 @@ def detail_view(request, slug):
         siblings = Products.objects.select_related('category', 'prod_type')
 
         previous_product = siblings.filter(
-            id__lt=product.id).order_by('-id').first() #type: ignore
+            id__lt=product.id).order_by('-id').first()
         next_product = siblings.filter(
-            id__gt=product.id).order_by('id').first() #type: ignore
+            id__gt=product.id).order_by('id').first()
 
         related_products = list(
             siblings.filter(category=product.category).exclude(
-                id=product.id)[:6] #type: ignore
+                id=product.id)[:6]
         )
 
         context = {
