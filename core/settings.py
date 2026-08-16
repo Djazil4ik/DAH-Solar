@@ -10,40 +10,60 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-
+import os
 from pathlib import Path
-from dotenv import load_dotenv
-from core.juzzmin import JAZZMIN_SETTINGS
-from django.utils.translation import gettext_lazy as _
-import os 
 
+from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
+
+from core.juzzmin import JAZZMIN_SETTINGS
+
+# ==============================================================================
+# BASE
+# ==============================================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-
 SECRET_KEY = os.getenv('SECRET_KEY')
-
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-INTERNAL_IPS = os.getenv('INTERNAL_IPS', '127.0.0.1,0.0.0.0').split(',') if os.getenv('INTERNAL_IPS') else ['']
+INTERNAL_IPS = (
+    os.getenv('INTERNAL_IPS', '127.0.0.1,0.0.0.0').split(',')
+    if os.getenv('INTERNAL_IPS')
+    else ['']
+)
 
 if DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 else:
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'dahsolar.uz,www.dahsolar.uz').split(',')
+    ALLOWED_HOSTS = os.getenv(
+        'ALLOWED_HOSTS', 'dahsolar.uz,www.dahsolar.uz').split(',')
 
+
+# ==============================================================================
+# APPLICATIONS
+# ==============================================================================
 
 INSTALLED_APPS = [
+    # Monitoring
     'django_prometheus',
+
+    # Admin UI
     'jazzmin',
+
+    # Local apps
     'main',
     'products',
     'projects',
     'news',
     'dahsolar',
     'contacts',
+
+    # Third-party
     'modeltranslation',
+
+    # Django core
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -52,11 +72,10 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+
+    # Third-party (continued)
     'ckeditor',
 ]
-
-
-
 
 SITE_ID = 1
 
@@ -73,8 +92,13 @@ MIDDLEWARE = [
     'django_prometheus.middleware.PrometheusAfterMiddleware',
 ]
 
-
 ROOT_URLCONF = 'core.urls'
+WSGI_APPLICATION = 'core.wsgi.application'
+
+
+# ==============================================================================
+# TEMPLATES
+# ==============================================================================
 
 TEMPLATES = [
     {
@@ -87,7 +111,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # my context processor
+                # Custom context processors
                 'products.context_processors.hot_products',
                 'products.context_processors.categories_processor',
                 'products.context_processors.global_site_data',
@@ -96,27 +120,15 @@ TEMPLATES = [
     },
 ]
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1", 
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
-        "TIMEOUT": 1209600,
-    }
-}
 
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
-
-WSGI_APPLICATION = 'core.wsgi.application'
-
-
-# Database
+# ==============================================================================
+# DATABASE
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# ==============================================================================
 
-if USE_SQLITE := os.getenv('USE_SQLITE', 'False') == 'True':
+USE_SQLITE = os.getenv('USE_SQLITE', 'False') == 'True'
+
+if USE_SQLITE:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -136,75 +148,28 @@ else:
     }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+# ==============================================================================
+# CACHING (Redis)
+# ==============================================================================
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+        "TIMEOUT": 1209600,
+    }
+}
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
-LANGUAGE_CODE = 'en'
-
-LANGUAGES = [
-    ('en', _('English')),
-    ('ru', _('Russian')),
-    ('uz', _('Uzbek'))
-]
-
-LOCALE_PATHS = [
-    BASE_DIR / 'locale/',
-]
-
-MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'uz')
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://dahsolar.uz",
-    "https://www.dahsolar.uz",
-]
-if DEBUG:
-    CSRF_TRUSTED_ORIGINS += ["http://localhost:8000", "http://127.0.0.1:8000"]
-
-JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
+# ==============================================================================
+# CELERY
+# ==============================================================================
 
 CELERY_BROKER_URL = "redis://localhost:6379/2"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/2"
@@ -214,6 +179,104 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = "Asia/Tashkent"
 
 
+# ==============================================================================
+# AUTH / PASSWORD VALIDATION
+# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+# ==============================================================================
+
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+]
+
+
+# ==============================================================================
+# INTERNATIONALIZATION
+# https://docs.djangoproject.com/en/5.0/topics/i18n/
+# ==============================================================================
+
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+    ('uz', _('Uzbek')),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
+
+MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'uz')
+
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_TZ = True
+
+
+# ==============================================================================
+# STATIC & MEDIA FILES
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# ==============================================================================
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# ==============================================================================
+# DEFAULT PRIMARY KEY FIELD TYPE
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+# ==============================================================================
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ==============================================================================
+# SECURITY / CSRF
+# ==============================================================================
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://dahsolar.uz",
+    "https://www.dahsolar.uz",
+]
+
+if DEBUG:
+    CSRF_TRUSTED_ORIGINS += ["http://localhost:8000", "http://127.0.0.1:8000"]
+    SECURE_SSL_REDIRECT = False
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+else:
+    SECURE_SSL_REDIRECT = True
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_HTTPONLY = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+if not DEBUG and os.getenv('SECURE_HSTS', 'False') == 'True':
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
+
+# ==============================================================================
+# THIRD-PARTY APP CONFIG
+# ==============================================================================
+
+# Jazzmin admin theme
+JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
+
+# CKEditor
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
@@ -232,32 +295,16 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-
 SILENCED_SYSTEM_CHECKS = [
     'ckeditor.W001',
 ]
 
-if DEBUG:
-    SECURE_SSL_REDIRECT = False
-    CSRF_COOKIE_SECURE = False
-    SESSION_COOKIE_SECURE = False
-else:
-    SECURE_SSL_REDIRECT = True
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True
-    CSRF_COOKIE_HTTPONLY = True
 
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# ==============================================================================
+# LOGGING
+# ==============================================================================
 
-if not DEBUG and os.getenv('SECURE_HSTS', 'False') == 'True':
-    SECURE_HSTS_SECONDS = 31536000  # 1 year
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-
-if ENABLE_LOGGING := os.getenv('ENABLE_LOGGING', 'False') == 'True':    
+if os.getenv('ENABLE_LOGGING', 'False') == 'True':
     LOGGING = {
         'version': 1,
         'disable_existing_loggers': False,
