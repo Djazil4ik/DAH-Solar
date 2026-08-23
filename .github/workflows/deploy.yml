@@ -13,14 +13,26 @@ jobs:
           curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared.deb
 
-      - name: Deploy to Server via Cloudflare Tunnel
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          proxy_cmd: cloudflared access ssh --hostname %h
-          script: |
+      - name: Configure SSH and Deploy
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          
+          cat <<EOF > ~/.ssh/config
+          Host server-tunnel
+              HostName $SSH_HOST
+              User $SSH_USER
+              IdentityFile ~/.ssh/id_rsa
+              StrictHostKeyChecking no
+              ProxyCommand cloudflared access ssh --hostname %h
+          EOF
+
+          ssh server-tunnel << 'ENDSSH'
             cd ~/Desktop/Dahsolar/DahsolarProd
             git pull origin master
             source venv/bin/activate
@@ -29,3 +41,4 @@ jobs:
             python manage.py collectstatic --no-input --clear
             python manage.py shell -c "from django.core.cache import cache; cache.clear()"
             sudo systemctl restart gunicorn-dev
+          ENDSSH
