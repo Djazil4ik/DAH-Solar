@@ -33,7 +33,7 @@ jobs:
           EOF
 
           ssh server-tunnel << 'ENDSSH'
-            cd ~/Desktop/Dahsolar/DahsolarProd
+            cd ~/Desktop/DahsolarProd/Dahsolar
             git pull origin master
             source venv/bin/activate
             pip install -r requirements.txt
