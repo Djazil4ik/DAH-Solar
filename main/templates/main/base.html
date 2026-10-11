@@ -1,7 +1,8 @@
-<!DOCTYPE html>
 {% load i18n %}
+{% load i18n_urls %}
 {% load static %}
 {% load cache %}
+<!DOCTYPE html>
 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
@@ -90,28 +91,23 @@
         .slide-image {
             width: 100%;
             height: auto;
-            /* Если баннеры, например, 1920x600, это примерно 3.2 к 1 */
             aspect-ratio: 1920 / 720; 
-            background-color: #f0f0f0; /* Серый фон, пока грузится фото */
+            background-color: #f0f0f0;
         }
 
-        /* Находим список внутри навигации */
         #nav .mainmenu nav > ul {
-            display: flex;            /* Включаем флекс */
-            justify-content: flex-start; /* Смещаем все элементы полностью влево */
-            align-items: center;      /* Выравниваем по вертикали, если нужно */
-            list-style: none;         /* Убираем точки, если остались */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        /* Убираем float у li, если он там был прописан в старых стилях */
         #nav .mainmenu nav > ul > li {
-            float: none !important;   /* Отменяем обтекание */
-            display: block;           /* Элемент теперь часть флекса */
+            float: none !important;
+            display: block;
         }
-
-        /* Если между пунктами меню стоят | (em), они тоже отцентрируются автоматически */
     </style>
     
 
@@ -157,46 +153,13 @@
                         <dt>{% translate 'Language' %}</dt>
                         <dd>
                             <ul>
-                                <li><a href="#" onclick="changeLanguage('en')" title="english"><img src="{% static 'languages/en.webp' %}" alt="english">English</a></li>
-                                <li><a href="#" onclick="changeLanguage('ru')" title="русский"><img src="{% static 'languages/ru.webp' %}" alt="русский">Русский</a></li>
-                                <li><a href="#" onclick="changeLanguage('uz')" title="o'zbek"><img src="{% static 'languages/uz.webp' %}" alt="o'zbek">O'zbek</a></li>
+                                <li><a href="{% change_lang 'en' %}" title="english"><img src="{% static 'languages/en.webp' %}" alt="english">English</a></li>
+                                <li><a href="{% change_lang 'ru' %}" title="русский"><img src="{% static 'languages/ru.webp' %}" alt="русский">Русский</a></li>
+                                <li><a href="{% change_lang 'uz' %}" title="o'zbek"><img src="{% static 'languages/uz.webp' %}" alt="o'zbek">O'zbek</a></li>
                             </ul>
                         </dd>
                     </dl>
                 </div>
-                
-                <form id="language-form" action="{% url 'set_language' %}" method="post" style="display: none;">
-                    {% csrf_token %}
-                    <input type="hidden" name="language" id="language-input">
-                    <input type="hidden" name="next" id="language-next">
-                </form>
-                
-                <script>
-                    function changeLanguage(lang) {
-                        const currentPath = window.location.pathname;
-                        const pathParts = currentPath.split('/');
-                
-                        // Удаляем текущий префикс языка, если он есть
-                        if (['en', 'ru', 'uz'].includes(pathParts[1])) {
-                            pathParts.splice(1, 1);
-                        }
-                
-                        // Если язык не английский, добавляем его в путь
-                        let newPath = pathParts.join('/');
-                        if (lang !== 'en') {
-                            newPath = '/' + lang + newPath;
-                        }
-                
-                        // Если путь получился пустой — значит это главная страница
-                        if (newPath === '') newPath = '/';
-                
-                        document.getElementById("language-input").value = lang;
-                        document.getElementById("language-next").value = newPath;
-                
-                        document.getElementById("language-form").submit();
-                    }
-                </script>
-                
                 <ul class="top_share">
                     <li><a rel="nofollow" target="_blank" href="https://www.facebook.com/profile.php?id=100008312531001"><img src="{% static 'main/icons/Facebook.webp' %}" alt="f"></a></li>
                     <li><a rel="nofollow" target="_blank" href="https://t.me/Techdir_all"><img src="{% static 'main/icons/Telegram.webp' %}" alt="tg"></a></li>
